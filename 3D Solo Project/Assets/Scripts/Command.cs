@@ -55,3 +55,18 @@ public class JumpCommand : ICommand
     }
 }
 
+public class UpDownStair : ICommand
+{
+    IUpDownStair entity;
+
+    public UpDownStair(IUpDownStair upDownStair)
+    {
+        entity = upDownStair;
+    }
+
+    public void Execute()
+    {
+        entity.UpDownStair();
+    }
+}
+

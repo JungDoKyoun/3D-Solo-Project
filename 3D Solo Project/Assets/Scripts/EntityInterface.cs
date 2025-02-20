@@ -27,3 +27,8 @@ public interface IJump
 {
     void Jump();
 }
+
+public interface IUpDownStair
+{
+    void UpDownStair();
+}

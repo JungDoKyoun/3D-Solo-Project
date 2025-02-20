@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
-public class PlayerController : MonoBehaviour, IMove, ICheckIsGround, IFallen, ILanding, IJump
+public class PlayerController : MonoBehaviour, IMove, ICheckIsGround, IFallen, ILanding, IJump, IUpDownStair
 {
     private PlayerData playerData;//플레이어 데이터
     private Rigidbody playerRb;//리지드 바디
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour, IMove, ICheckIsGround, IFallen, I
         currentState = new PlayerIdleState();
         currentState.Enter(this);
         cam = Camera.main;
+        playerData.UpperRay.position = new Vector3(playerData.UpperRay.position.x, playerData.StepHight, playerData.UpperRay.position.y);
     }
 
     public PlayerData PlayerData { get => playerData; set => playerData = value; }
@@ -100,10 +102,11 @@ public class PlayerController : MonoBehaviour, IMove, ICheckIsGround, IFallen, I
     {
         Vector3 originalPos = transform.position;
         originalPos.y += playerData.RayCastHightOffset;
-        RaycastHit hit;
 
-        bool isGround = Physics.SphereCast(originalPos, playerData.FallenSphereRadius, -Vector3.up, out hit, playerData.GroundLayerMask);
-
+        var coll = Physics.OverlapSphere(originalPos, playerData.FallenSphereRadius, playerData.GroundLayerMask);
+        bool isGround = coll.Length > 0;
+        //bool isGround = Physics.SphereCast(originalPos, playerData.FallenSphereRadius, -Vector3.up, out hit, playerData.GroundLayerMask);
+        
         return isGround;
     }
 
@@ -145,32 +148,6 @@ public class PlayerController : MonoBehaviour, IMove, ICheckIsGround, IFallen, I
         playerData.InAirTime = 0;
     }
 
-    //플레이어의 발 위치 설정
-    public void SetFeetPos()
-    {
-        Vector3 originalPos = transform.position;
-        originalPos.y += playerData.RayCastHightOffset;
-        RaycastHit hit;
-        featPos = transform.position;
-
-        if(Physics.SphereCast(originalPos, playerData.FallenSphereRadius, -Vector3.up, out hit, playerData.GroundLayerMask))
-        {
-            featPos.y = hit.point.y;
-        }
-
-        if (playerData.IsGround && !playerData.IsJump)
-        {
-            if(Magnitude > 0)
-            {
-                transform.position = Vector3.Lerp(transform.position, featPos , Time.deltaTime / 0.1f);
-            }
-            else
-            {
-                transform.position = featPos;
-            }
-        }
-    }
-
     //플레이어 점프
     public void Jump()
     {
@@ -181,13 +158,52 @@ public class PlayerController : MonoBehaviour, IMove, ICheckIsGround, IFallen, I
         Debug.Log("점프함");
     }
 
+    //점프 참거짓
     public void SetJump(bool TorF)
     {
         playerData.IsJump = TorF;
     }
 
+    //점프 참거짓 반환
     public bool GetJump()
     {
         return playerData.IsJump;
+    }
+
+    //계단 오르내리기
+    public void UpDownStair()
+    {
+        RaycastHit rawHit;
+        if(Physics.Raycast(playerData.RawerRay.position , transform.TransformDirection(Vector3.forward), out rawHit, 0.1f))
+        {
+            RaycastHit upperHit;
+            if (!Physics.Raycast(playerData.UpperRay.position, transform.TransformDirection(Vector3.forward), out upperHit, 0.2f))
+            {
+                playerRb.position -= new Vector3(0, -playerData.StepSmooth, 0);
+                Debug.Log("계단 올라가는중");
+            }
+        }
+
+        RaycastHit rawHit45;
+        if (Physics.Raycast(playerData.RawerRay.position, transform.TransformDirection(1.5f, 0, 1), out rawHit45, 0.1f))
+        {
+            RaycastHit upperHit45;
+            if (!Physics.Raycast(playerData.UpperRay.position, transform.TransformDirection(1.5f, 0, 1), out upperHit45, 0.2f))
+            {
+                playerRb.position -= new Vector3(0, -playerData.StepSmooth, 0);
+                Debug.Log("계단 올라가는중");
+            }
+        }
+
+        RaycastHit rawHitmin45;
+        if (Physics.Raycast(playerData.RawerRay.position, transform.TransformDirection(-1.5f, 0, 1), out rawHitmin45, 0.1f))
+        {
+            RaycastHit upperHitmin45;
+            if (!Physics.Raycast(playerData.UpperRay.position, transform.TransformDirection(-1.5f, 0, 1), out upperHitmin45, 0.2f))
+            {
+                playerRb.position -= new Vector3(0, -playerData.StepSmooth, 0);
+                Debug.Log("계단 올라가는중");
+            }
+        }
     }
 }

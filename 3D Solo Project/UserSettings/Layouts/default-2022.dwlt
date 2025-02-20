@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 237
     width: 485
     height: 323
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 45
+  controlID: 21
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 133
+  controlID: 139
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -291,8 +291,8 @@ MonoBehaviour:
     y: 0
     width: 485
     height: 237
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -440,8 +440,8 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 025f0000
-    m_LastClickedID: 24322
+    m_SelectedIDs: fc5e0000
+    m_LastClickedID: 24316
     m_ExpandedIDs: 000000009c5e00009e5e0000fa5e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -497,7 +497,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 2a61000076620000f25e0000de650000f0650000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -661,23 +661,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 40420000
-      m_LastClickedID: 0
+      m_SelectedIDs: d8c9ffff
+      m_LastClickedID: -13864
       m_ExpandedIDs: 28fbffff085d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Casual1_Body
-        m_OriginalName: Casual1_Body
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -1470
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 12}
       m_SearchString: 
@@ -1069,9 +1069,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.91248477, y: 4.2224503, z: -1.4962449}
+    m_Target: {x: 0.8980108, y: 2.41552, z: -1.081925}
     speed: 2
-    m_Value: {x: 0.91248477, y: 4.2224503, z: -1.4962449}
+    m_Value: {x: 0.8980108, y: 2.41552, z: -1.081925}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1117,13 +1117,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.18276322, y: 0.6716967, z: -0.17639899, w: -0.6959724}
+    m_Target: {x: 0.07119269, y: 0.7233493, z: -0.07530433, w: 0.68274873}
     speed: 2
-    m_Value: {x: -0.18275656, y: 0.6716722, z: -0.17639256, w: -0.695947}
+    m_Value: {x: 0.07118844, y: 0.7233062, z: -0.075299844, w: 0.682708}
   m_Size:
-    m_Target: 0.8485283
+    m_Target: 1.2593653
     speed: 2
-    m_Value: 0.8485283
+    m_Value: 1.2593653
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1314,8 +1314,8 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 025f0000
-    m_LastClickedID: 24322
+    m_SelectedIDs: fc5e0000
+    m_LastClickedID: 24316
     m_ExpandedIDs: 000000009c5e00009e5e0000fa5e000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1513,7 +1513,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 23816
+  m_LastSelectedObjectID: -13864
 --- !u!114 &25
 MonoBehaviour:
   m_ObjectHideFlags: 52

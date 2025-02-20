@@ -9,6 +9,7 @@ public abstract class IPlayerState
     public abstract void Exit();
 }
 
+//대기 상태
 public class PlayerIdleState : IPlayerState
 {
     private PlayerController player;
@@ -27,17 +28,17 @@ public class PlayerIdleState : IPlayerState
     {
         if(player.CheckIsGround())
         {
-            if (player.InputMoveDir != Vector3.zero)
+            if(player.PlayerData.IsJump)
+            {
+                player.ChangeState(new PlayerJumpState());
+            }
+            else if (player.InputMoveDir != Vector3.zero)
             {
                 player.ChangeState(new PlayerMoveState());
             }
             else if (player.InputMoveDir != Vector3.zero && player.GetSprint())
             {
                 player.ChangeState(new PlayerSprintState());
-            }
-            else if(player.PlayerData.IsJump)
-            {
-                player.ChangeState(new PlayerJumpState());
             }
         }
         else
@@ -47,6 +48,7 @@ public class PlayerIdleState : IPlayerState
     }
 }
 
+//이동상태
 public class PlayerMoveState : IPlayerState
 {
     private PlayerController player;
@@ -64,9 +66,14 @@ public class PlayerMoveState : IPlayerState
     {
         if (player.CheckIsGround())
         {
-            if (player.InputMoveDir != Vector3.zero && !player.GetSprint())
+            if (player.PlayerData.IsJump)
+            {
+                player.ChangeState(new PlayerJumpState());
+            }
+            else if (player.InputMoveDir != Vector3.zero && !player.GetSprint())
             {
                 player.ExecuteCommand(new MoveCommand(player));
+                player.ExecuteCommand(new UpDownStair(player));
                 Debug.Log("걷는중");
             }
             else if (player.InputMoveDir != Vector3.zero && player.GetSprint())
@@ -86,6 +93,7 @@ public class PlayerMoveState : IPlayerState
 
 }
 
+//뛰는 상태
 public class PlayerSprintState : IPlayerState
 {
     private PlayerController player;
@@ -103,13 +111,18 @@ public class PlayerSprintState : IPlayerState
     {
         if (player.CheckIsGround())
         {
-            if (player.InputMoveDir != Vector3.zero && !player.GetSprint())
+            if (player.PlayerData.IsJump)
+            {
+                player.ChangeState(new PlayerJumpState());
+            }
+            else if (player.InputMoveDir != Vector3.zero && !player.GetSprint())
             {
                 player.ChangeState(new PlayerMoveState());
             }
             else if (player.InputMoveDir != Vector3.zero && player.GetSprint())
             {
                 player.ExecuteCommand(new MoveCommand(player));
+                player.ExecuteCommand(new UpDownStair(player));
                 Debug.Log("뛰는중");
             }
             else
@@ -124,6 +137,7 @@ public class PlayerSprintState : IPlayerState
     }
 }
 
+//떨어지는 상태
 public class PlayerFallenState : IPlayerState
 {
     private PlayerController player;
@@ -152,6 +166,7 @@ public class PlayerFallenState : IPlayerState
     }
 }
 
+//착지 상태
 public class PlayerLandingState : IPlayerState
 {
     private PlayerController player;
@@ -176,6 +191,7 @@ public class PlayerLandingState : IPlayerState
     }
 }
 
+//점프 상태
 public class PlayerJumpState : IPlayerState
 {
     PlayerController player;

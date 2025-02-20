@@ -25,6 +25,12 @@ public class PlayerData : MonoBehaviour
     [SerializeField] bool _isJump;
     [SerializeField] bool _isJumping;
 
+    [Header("플레이어 계단 오르내리기")]
+    [SerializeField] Transform _rawerRay;
+    [SerializeField] Transform _upperRay;
+    [SerializeField] float _stepSmooth;
+    [SerializeField] float _stepHight;
+
     private void Awake()
     {
         PlayerMoveSpeed = 3f;
@@ -32,10 +38,12 @@ public class PlayerData : MonoBehaviour
         PlayerSprintSpeed = 5f;
         PlayerFallenSpeed = 30;
         InAirTime = 0f;
-        RayCastHightOffset = 1.15f;
+        RayCastHightOffset = 0.15f;
         FallenSphereRadius = 0.2f;
         JumpPower = 5;
         GravityForce = -9.8f;
+        StepSmooth = 0.1f;
+        StepHight = 0.3f;
         IsSprint = false;
         IsGround = true;
         IsJump = false;
@@ -51,9 +59,14 @@ public class PlayerData : MonoBehaviour
     public float FallenSphereRadius { get => _fallenSphereRadius; set => _fallenSphereRadius = value; }
     public float JumpPower { get => _jumpForce; set => _jumpForce = value; }
     public float GravityForce { get => _gravityForce; set => _gravityForce = value; }
+    public float StepSmooth { get => _stepSmooth; set => _stepSmooth = value; }
+    public float StepHight { get => _stepHight; set => _stepHight = value; }
     public bool IsSprint { get => _isSprint; set => _isSprint = value; }
     public bool IsGround { get => _isGround; set => _isGround = value; }
     public bool IsJump { get => _isJump; set => _isJump = value; }
     public bool IsJumping { get => _isJumping; set => _isJumping = value; }
     public LayerMask GroundLayerMask { get => _groundLayerMask; set => _groundLayerMask = value; }
+    public Transform RawerRay { get => _rawerRay; set => _rawerRay = value; }
+
+    public Transform UpperRay { get => _upperRay; set => _upperRay = value; }
 }
