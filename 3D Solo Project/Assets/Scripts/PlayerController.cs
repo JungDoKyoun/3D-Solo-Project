@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour, IMove, ICheckIsGround, IFallen, I
     private Camera cam;//메인 카메라
     private IPlayerState currentState;//플레이어 상태
     private Vector3 moveDir;//움직이는 방향
+    private Vector3 featPos;//발 위치
     private Vector2 inputMoveDir;//인풋 변수 받아옴
     private float _magnitude;//애니메이션 컨트롤에 줄 속력
 
@@ -28,6 +29,7 @@ public class PlayerController : MonoBehaviour, IMove, ICheckIsGround, IFallen, I
 
     public void Updated()
     {
+        //SetFeetPos();
         if(currentState != null)
         {
             currentState.Update();
@@ -64,7 +66,6 @@ public class PlayerController : MonoBehaviour, IMove, ICheckIsGround, IFallen, I
             playerRb.velocity = moveDir * playerData.PlayerMoveSpeed;
         }
         Magnitude = playerRb.velocity.magnitude;
-        Debug.Log(Magnitude);
     }
 
     //플레이어 회전
@@ -100,21 +101,10 @@ public class PlayerController : MonoBehaviour, IMove, ICheckIsGround, IFallen, I
         Vector3 originalPos = transform.position;
         originalPos.y += playerData.RayCastHightOffset;
         RaycastHit hit;
-        
-        bool isGrounded = Physics.SphereCast(originalPos, playerData.FallenSphereRadius, -Vector3.up, out hit, playerData.GroundLayerMask);
 
-        if (isGrounded)
-        {
-            Debug.DrawLine(originalPos, hit.point, Color.green);
-        }
-        return isGrounded;
-    }
+        bool isGround = Physics.SphereCast(originalPos, playerData.FallenSphereRadius, -Vector3.up, out hit, playerData.GroundLayerMask);
 
-    private void OnDrawGizmos()
-    {
-        Vector3 originalPos = transform.position;
-        originalPos.y += playerData.RayCastHightOffset;
-        Gizmos.DrawWireSphere(originalPos, playerData.FallenSphereRadius);
+        return isGround;
     }
 
     //플레이어 추락 및 랜딩
@@ -155,6 +145,33 @@ public class PlayerController : MonoBehaviour, IMove, ICheckIsGround, IFallen, I
         playerData.InAirTime = 0;
     }
 
+    //플레이어의 발 위치 설정
+    public void SetFeetPos()
+    {
+        Vector3 originalPos = transform.position;
+        originalPos.y += playerData.RayCastHightOffset;
+        RaycastHit hit;
+        featPos = transform.position;
+
+        if(Physics.SphereCast(originalPos, playerData.FallenSphereRadius, -Vector3.up, out hit, playerData.GroundLayerMask))
+        {
+            featPos.y = hit.point.y;
+        }
+
+        if (playerData.IsGround && !playerData.IsJump)
+        {
+            if(Magnitude > 0)
+            {
+                transform.position = Vector3.Lerp(transform.position, featPos , Time.deltaTime / 0.1f);
+            }
+            else
+            {
+                transform.position = featPos;
+            }
+        }
+    }
+
+    //플레이어 점프
     public void Jump()
     {
         float playerHight = Mathf.Sqrt(-2 * playerData.GravityForce * playerData.JumpPower);

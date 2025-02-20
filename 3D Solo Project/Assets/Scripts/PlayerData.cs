@@ -32,7 +32,7 @@ public class PlayerData : MonoBehaviour
         PlayerSprintSpeed = 5f;
         PlayerFallenSpeed = 30;
         InAirTime = 0f;
-        RayCastHightOffset = 0.5f;
+        RayCastHightOffset = 1.15f;
         FallenSphereRadius = 0.2f;
         JumpPower = 5;
         GravityForce = -9.8f;

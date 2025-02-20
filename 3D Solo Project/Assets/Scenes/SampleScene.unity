@@ -148,9 +148,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Height: 1.6
+  m_Height: 1.4011264
   m_Direction: 1
-  m_Center: {x: 0, y: 0.76, z: 0}
+  m_Center: {x: 0, y: 0.85943675, z: 0}
 --- !u!54 &31172412
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 144227549}
   - component: {fileID: 144227548}
   - component: {fileID: 144227547}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -814,6 +814,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: bfac376d1e5d41f41974c85b14926c47, type: 2}
+    - target: {fileID: 1694388104868514729, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694388104868514731, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1694388104871467657, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -824,7 +832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1694388104871467657, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.99
       objectReference: {fileID: 0}
     - target: {fileID: 1694388104871467657, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1097,6 +1105,10 @@ PrefabInstance:
     - target: {fileID: 1694388105159416149, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
       propertyPath: m_Layer
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1694388105159416151, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

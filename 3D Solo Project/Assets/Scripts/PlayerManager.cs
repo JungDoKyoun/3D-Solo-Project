@@ -16,5 +16,8 @@ public class PlayerManager : MonoBehaviour
         playerController.Updated();
     }
 
-    
+    private void Update()
+    {
+        playerController.SetFeetPos();
+    }
 }
