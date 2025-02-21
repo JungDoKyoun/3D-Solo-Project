@@ -18,13 +18,10 @@ public interface ICheckIsGround
     bool CheckIsGround();
 }
 
-public interface IFallen
+public interface IFallenAndLanding
 {
+    bool CheckIsGround();
     void Fallen();
-}
-
-public interface ILanding
-{
     void Landing();
 }
 
@@ -33,9 +30,18 @@ public interface IJump
     void Jump();
 }
 
-public interface IUpDownStair
+public interface IUpStair
 {
-    void UpDownStair();
+    bool CheckStair();
+    void UpStair();
+}
+
+public interface ISloop
+{
+    bool IsOnSloop();
+    bool IsToHigh();
+    bool NextFrameIsSloop();
+    void OnSloop();
 }
 
 public interface IAttack
