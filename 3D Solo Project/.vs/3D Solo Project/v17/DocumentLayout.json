@@ -4,7 +4,10 @@
   "Documents": [
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
       "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -17,6 +20,9 @@
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\command.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+<<<<<<< HEAD
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
+=======
 >>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
       "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
@@ -62,6 +68,18 @@
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entityinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\entityinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\entityinterface.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -86,7 +104,11 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "DocumentIndex": 6,
+=======
+              "DocumentIndex": 8,
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
 =======
               "DocumentIndex": 8,
 >>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
@@ -96,7 +118,11 @@
               "ToolTip": "C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\EntityInterface.cs",
               "RelativeToolTip": "Assets\\Scripts\\EntityInterface.cs",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "ViewState": "AgIAACAAAAAAAAAAAAA6wBYAAAAZAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAABIAAAAAAAAAAAAQwCwAAAAAAAAAAAAAAA==",
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
 =======
               "ViewState": "AgIAABIAAAAAAAAAAAAQwCwAAAAAAAAAAAAAAA==",
 >>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
@@ -112,7 +138,11 @@
               "ToolTip": "C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "ViewState": "AgIAAM0AAAAAAAAAAADwv90AAAAIAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAACUAAAAAAAAAAAAkwDsAAAAAAAAAAAAAAA==",
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
 =======
               "ViewState": "AgIAACUAAAAAAAAAAAAkwDsAAAAAAAAAAAAAAA==",
 >>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
@@ -123,8 +153,11 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "DocumentIndex": 0,
 =======
+=======
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
               "DocumentIndex": 2,
               "Title": "Command.cs",
               "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Command.cs",
@@ -145,7 +178,11 @@
               "ToolTip": "C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\PlayerState.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerState.cs",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "ViewState": "AgIAAGYBAAAAAAAAAAAcwPgAAAAJAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAHQAAAAAAAAAAAAmwIwAAAANAAAAAAAAAA==",
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
 =======
               "ViewState": "AgIAAHQAAAAAAAAAAAAmwIwAAAANAAAAAAAAAA==",
 >>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
@@ -155,6 +192,7 @@
             {
               "$type": "Document",
               "DocumentIndex": 7,
+<<<<<<< HEAD
 <<<<<<< HEAD
               "Title": "Command.cs",
               "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Command.cs",
@@ -169,6 +207,8 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
+=======
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
 =======
 >>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
               "Title": "PlayerData.cs",
@@ -189,7 +229,11 @@
               "ToolTip": "C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\InputManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\InputManager.cs",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "ViewState": "AgIAABQAAAAAAAAAAAAmwFMAAAA2AAAAAAAAAA==",
+=======
+              "ViewState": "AgIAADkAAAAAAAAAAAAowFQAAAAfAAAAAAAAAA==",
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
 =======
               "ViewState": "AgIAADkAAAAAAAAAAAAowFQAAAAfAAAAAAAAAA==",
 >>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
@@ -205,7 +249,11 @@
               "ToolTip": "C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\AnimationController.cs",
               "RelativeToolTip": "Assets\\Scripts\\AnimationController.cs",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "ViewState": "AgIAACYAAAAAAAAAAAAgwDIAAAAuAAAAAAAAAA==",
+=======
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCMAAAAJAAAAAAAAAA==",
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
 =======
               "ViewState": "AgIAAA0AAAAAAAAAAAAQwCMAAAAJAAAAAAAAAA==",
 >>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
@@ -216,7 +264,11 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "DocumentIndex": 1,
+=======
+              "DocumentIndex": 4,
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
 =======
               "DocumentIndex": 4,
 >>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
@@ -232,7 +284,11 @@
             {
               "$type": "Document",
 <<<<<<< HEAD
+<<<<<<< HEAD
               "DocumentIndex": 9,
+=======
+              "DocumentIndex": 5,
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
 =======
               "DocumentIndex": 5,
 >>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)

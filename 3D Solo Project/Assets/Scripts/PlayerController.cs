@@ -24,14 +24,18 @@ public class PlayerController : MonoBehaviour, IIdle, IMove, ICheckIsGround, IFa
         currentState.Enter(this);
         cam = Camera.main;
 <<<<<<< HEAD
+<<<<<<< HEAD
         anime = GetComponent<AnimationController>();
         moveDir = Vector3.zero;
+=======
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
 =======
 >>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
         playerData.UpperRay.position = new Vector3(playerData.UpperRay.position.x, playerData.StepHight, playerData.UpperRay.position.y);
     }
 
     public PlayerData PlayerData { get => playerData; set => playerData = value; }
+<<<<<<< HEAD
 <<<<<<< HEAD
     public Rigidbody PlayerRb { get => playerRb; set => playerRb = value; }
     public Camera Cam { get => cam; set => cam = value; }
@@ -50,6 +54,10 @@ public class PlayerController : MonoBehaviour, IIdle, IMove, ICheckIsGround, IFa
         }
     }
 
+=======
+    public Vector3 InputMoveDir { get => inputMoveDir; set => inputMoveDir = value; }
+
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
 =======
     public Vector3 InputMoveDir { get => inputMoveDir; set => inputMoveDir = value; }
 
@@ -139,8 +147,11 @@ public class PlayerController : MonoBehaviour, IIdle, IMove, ICheckIsGround, IFa
         var coll = Physics.OverlapSphere(originalPos, playerData.FallenSphereRadius, playerData.GroundLayerMask);
         bool isGround = coll.Length > 0;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
         //bool isGround = Physics.SphereCast(originalPos, playerData.FallenSphereRadius, -Vector3.up, out hit, playerData.GroundLayerMask);
         
 >>>>>>> parent of 39136e69 (feat: 상태패턴 리팩토링)
