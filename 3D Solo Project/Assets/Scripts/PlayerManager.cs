@@ -15,12 +15,11 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        playerController.Updated();
         anime.PlayAllAnime();
     }
 
     private void FixedUpdate()
     {
-        playerController.FixedUpdated();
+        playerController.Updated();
     }
 }

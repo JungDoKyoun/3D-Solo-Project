@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IIdle, IMove, ICheckIsGround, IFallen, ILanding, IJump, IUpDownStair, IAttack
 {
     private PlayerData playerData;//ÇÃ·¹ÀÌ¾î µ¥ÀÌÅÍ
     private Rigidbody playerRb;//¸®Áöµå ¹Ùµğ
@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private AnimationController anime;
     private RaycastHit sloopHit;
     private Vector3 moveDir;//¿òÁ÷ÀÌ´Â ¹æÇâ
+    private Vector3 featPos;//¹ß À§Ä¡
     private Vector2 inputMoveDir;//ÀÎÇ² º¯¼ö ¹Ş¾Æ¿È
 
     private void Awake()
@@ -22,12 +23,16 @@ public class PlayerController : MonoBehaviour
         currentState = new PlayerIdleState();
         currentState.Enter(this);
         cam = Camera.main;
+<<<<<<< HEAD
         anime = GetComponent<AnimationController>();
         moveDir = Vector3.zero;
+=======
+>>>>>>> parent of 39136e69 (feat: ìƒíƒœíŒ¨í„´ ë¦¬íŒ©í† ë§)
         playerData.UpperRay.position = new Vector3(playerData.UpperRay.position.x, playerData.StepHight, playerData.UpperRay.position.y);
     }
 
     public PlayerData PlayerData { get => playerData; set => playerData = value; }
+<<<<<<< HEAD
     public Rigidbody PlayerRb { get => playerRb; set => playerRb = value; }
     public Camera Cam { get => cam; set => cam = value; }
     public IPlayerState CurrentState { get => currentState; set => currentState = value; }
@@ -45,9 +50,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+=======
+    public Vector3 InputMoveDir { get => inputMoveDir; set => inputMoveDir = value; }
+
+>>>>>>> parent of 39136e69 (feat: ìƒíƒœíŒ¨í„´ ë¦¬íŒ©í† ë§)
     public void Updated()
     {
-        if (currentState != null)
+        if(currentState != null)
         {
             currentState.Update();
             currentState.Attack();
@@ -68,6 +77,46 @@ public class PlayerController : MonoBehaviour
         command.Execute();
     }
 
+    //°¡¸¸È÷ ÀÖ´Â »óÅÂ
+    public void Idle()
+    {
+        OnSloop();
+        playerRb.velocity = Vector3.zero;
+        playerData.Magnitude = playerRb.velocity.magnitude;
+    }
+
+    //¿òÁ÷ÀÓ
+    public void Move()
+    {
+        moveDir = cam.transform.forward * inputMoveDir.y + cam.transform.right * inputMoveDir.x;
+        moveDir.y = 0;
+        moveDir.Normalize();
+        OnSloop();
+        if (playerData.IsSprint)
+        {
+            playerRb.velocity = moveDir * playerData.PlayerSprintSpeed;
+        }
+        else
+        {
+            playerRb.velocity = moveDir * playerData.PlayerMoveSpeed;
+        }
+        playerData.Magnitude = playerRb.velocity.magnitude;
+    }
+
+    //ÇÃ·¹ÀÌ¾î È¸Àü
+    public void Rotation()
+    {
+        Vector3 targetdir = (cam.transform.forward * inputMoveDir.y) + (cam.transform.right * inputMoveDir.x);
+        targetdir.Normalize();
+        targetdir.y = 0;
+        if(targetdir == Vector3.zero)
+        {
+            targetdir = transform.forward;
+        }
+        Quaternion roDir = Quaternion.LookRotation(targetdir);
+        Quaternion playerRo = Quaternion.Lerp(transform.rotation, roDir, playerData.PlayerRotationSpeed * Time.deltaTime);
+        transform.rotation = playerRo;
+    }
 
     //ÇÃ·¹ÀÌ¾î°¡ ¶Ù³ª ¾È¶Ù³ª ¿©ºÎ ÆÇ´Ü
     public void SetSprint(bool TorF)
@@ -89,8 +138,53 @@ public class PlayerController : MonoBehaviour
 
         var coll = Physics.OverlapSphere(originalPos, playerData.FallenSphereRadius, playerData.GroundLayerMask);
         bool isGround = coll.Length > 0;
+<<<<<<< HEAD
 
+=======
+        //bool isGround = Physics.SphereCast(originalPos, playerData.FallenSphereRadius, -Vector3.up, out hit, playerData.GroundLayerMask);
+        
+>>>>>>> parent of 39136e69 (feat: ìƒíƒœíŒ¨í„´ ë¦¬íŒ©í† ë§)
         return isGround;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Vector3 originalPos = transform.position;
+        originalPos.y += playerData.RayCastHightOffset;
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(originalPos, playerData.FallenSphereRadius);
+    }
+
+    //ÇÃ·¹ÀÌ¾î Ãß¶ô ¹× ·£µù
+    public void PlayerFallenAndLanding()
+    {
+        Vector3 originalPos = transform.position;
+        originalPos.y += playerData.RayCastHightOffset;
+        RaycastHit hit;
+        
+        if(!playerData.IsGround)
+        {
+            playerData.InAirTime += Time.deltaTime;
+            playerRb.AddForce(-Vector3.up * playerData.PlayerFallenSpeed * playerData.InAirTime);
+        }
+
+        if (Physics.SphereCast(originalPos, playerData.FallenSphereRadius, -Vector3.up, out hit, playerData.GroundLayerMask))
+        {
+            playerData.IsGround = true;
+            playerData.InAirTime = 0;
+        }
+        else
+        {
+            playerData.IsGround = false;
+        }
+    }
+
+    //ÇÃ·¹ÀÌ¾î Ãß¶ô
+    public void Fallen()
+    {
+        playerData.InAirTime += Time.deltaTime;
+        playerRb.AddForce(-Vector3.up * playerData.PlayerFallenSpeed * playerData.InAirTime);
     }
 
     //ÇÃ·¹ÀÌ¾î ÂøÁö
@@ -98,6 +192,17 @@ public class PlayerController : MonoBehaviour
     {
         playerData.IsGround = true;
         playerData.InAirTime = 0;
+    }
+
+    //ÇÃ·¹ÀÌ¾î Á¡ÇÁ
+    public void Jump()
+    {
+        playerRb.useGravity = true;
+        float playerHight = Mathf.Sqrt(-2 * playerData.GravityForce * playerData.JumpPower);
+        Vector3 player = playerRb.velocity;
+        player.y = playerHight;
+        playerRb.velocity = player;
+        Debug.Log("Á¡ÇÁÇÔ");
     }
 
     //Á¡ÇÁ Âü°ÅÁş
@@ -113,7 +218,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //°è´Ü ÀÎÁö ¾Æ´ÑÁö
-    public bool CheckStair()
+    public bool CheckUpDownStair()
     {
         RaycastHit rawHit;
         if (Physics.Raycast(playerData.RawerRay.position, transform.TransformDirection(Vector3.forward), out rawHit, 0.1f) && IsToHigh())
@@ -149,7 +254,7 @@ public class PlayerController : MonoBehaviour
     }
 
     //°è´Ü ¿À¸£³»¸®±â
-    public void UpStair()
+    public void UpDownStair()
     {
         playerRb.position -= new Vector3(0, -playerData.StepSmooth, 0);
     }

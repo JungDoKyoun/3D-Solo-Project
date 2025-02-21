@@ -1,0 +1,768 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.21f1 (bf09ca542b87) revision 12519882'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Professional' Language: 'ko' Physical Memory: 15659 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.21f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/KGA/Desktop/TeamProject/3D-Solo-Project/3D Solo Project
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+49246
+Successfully changed project path to: C:/Users/KGA/Desktop/TeamProject/3D-Solo-Project/3D Solo Project
+C:/Users/KGA/Desktop/TeamProject/3D-Solo-Project/3D Solo Project
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [28652] Host "[IP] 192.168.0.52 [Port] 0 [Flags] 2 [Guid] 3172412043 [EditorId] 3172412043 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-S80O896) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [28652] Host "[IP] 192.168.0.52 [Port] 0 [Flags] 2 [Guid] 3172412043 [EditorId] 3172412043 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-S80O896) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
+Refreshing native plugins compatible for Editor in 6.63 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.21f1 (bf09ca542b87)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/KGA/Desktop/TeamProject/3D-Solo-Project/3D Solo Project/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon(TM) Graphics (ID=0x1638)
+    Vendor:   ATI
+    VRAM:     7829 MB
+    Driver:   31.0.12042.4
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56812
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.21f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.008484 seconds.
+- Loaded All Assemblies, in  0.314 seconds
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 204 ms
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.504 seconds
+Domain Reload Profiling: 817ms
+	BeginReloadAssembly (94ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (29ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (54ms)
+	LoadAllAssembliesAndSetupDomain (128ms)
+		LoadAssemblies (93ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (125ms)
+			TypeCache.Refresh (124ms)
+				TypeCache.ScanAssembly (113ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (504ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (448ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (296ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (2ms)
+			ProcessInitializeOnLoadAttributes (104ms)
+			ProcessInitializeOnLoadMethodAttributes (42ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.558 seconds
+Refreshing native plugins compatible for Editor in 2.87 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.721 seconds
+Domain Reload Profiling: 1277ms
+	BeginReloadAssembly (129ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (24ms)
+	RebuildCommonClasses (26ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (358ms)
+		LoadAssemblies (274ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (154ms)
+			TypeCache.Refresh (135ms)
+				TypeCache.ScanAssembly (121ms)
+			ScanForSourceGeneratedMonoScriptInfo (14ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (721ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (561ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (23ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (95ms)
+			ProcessInitializeOnLoadAttributes (408ms)
+			ProcessInitializeOnLoadMethodAttributes (22ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 3.13 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3518 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 40 unused Assets / (57.5 KB). Loaded Objects now: 3985.
+Memory consumption went from 140.3 MB to 140.2 MB.
+Total: 3.212700 ms (FindLiveObjects: 0.241100 ms CreateObjectMapping: 0.200900 ms MarkObjects: 2.661200 ms  DeleteObjects: 0.108400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  2.406 seconds
+Refreshing native plugins compatible for Editor in 3.40 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 11.670 seconds
+Domain Reload Profiling: 14074ms
+	BeginReloadAssembly (144ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (34ms)
+	RebuildCommonClasses (25ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (2201ms)
+		LoadAssemblies (2261ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (15ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (6ms)
+	FinalizeReload (11670ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (525ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (26ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (95ms)
+			ProcessInitializeOnLoadAttributes (370ms)
+			ProcessInitializeOnLoadMethodAttributes (20ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 3.63 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3508 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 25 unused Assets / (31.6 KB). Loaded Objects now: 3988.
+Memory consumption went from 139.9 MB to 139.9 MB.
+Total: 3.995000 ms (FindLiveObjects: 0.262100 ms CreateObjectMapping: 0.406800 ms MarkObjects: 3.275500 ms  DeleteObjects: 0.049900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 271615.223723 seconds.
+  path: Assets/Animation/Player.controller
+  artifactKey: Guid(bfac376d1e5d41f41974c85b14926c47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Animation/Player.controller using Guid(bfac376d1e5d41f41974c85b14926c47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '558a51ba45f7314ffe3cf5ccd45930cd') in 0.042168 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 25.639769 seconds.
+  path: Assets/Blink
+  artifactKey: Guid(d53408293c63e5b42ac7cb54f23b8415) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Blink using Guid(d53408293c63e5b42ac7cb54f23b8415) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fc0b33f8705143edd885cd6888d84ed8') in 0.000415 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 16.829524 seconds.
+  path: Assets/Modle/Blink/Art
+  artifactKey: Guid(4a2367ad789b59346a5a0e4e6ff1beed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art using Guid(4a2367ad789b59346a5a0e4e6ff1beed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '706a652116d2558f989c3cf001d3f141') in 0.000413 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.841843 seconds.
+  path: Assets/Modle/Blink/Art/Weapons
+  artifactKey: Guid(324c9220a528d0a4bbef6ed738bc40b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons using Guid(324c9220a528d0a4bbef6ed738bc40b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41826aaff4e2028203d3f6a0dafcd0d2') in 0.000404 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.295249 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly
+  artifactKey: Guid(e7426cffd01aa1b4fba377d17a57ce24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly using Guid(e7426cffd01aa1b4fba377d17a57ce24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6f4d124f8fe52d96d9c9a88bc9197ef3') in 0.000417 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.128490 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords
+  artifactKey: Guid(67a9042a08417914584d40aa94485b6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords using Guid(67a9042a08417914584d40aa94485b6e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5ce7c9f76980dc3d5d514081e7140283') in 0.000429 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.403481 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Demo
+  artifactKey: Guid(6d6f16d77f21d6e4e9d3995bf48d40e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Demo using Guid(6d6f16d77f21d6e4e9d3995bf48d40e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f3d1fa4a93dca63b178e816768ebfcb0') in 0.000394 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.063203 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Demo/Ground.mat
+  artifactKey: Guid(9e5cb2051d46e4a4dafeeda52546aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Demo/Ground.mat using Guid(9e5cb2051d46e4a4dafeeda52546aaa2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ed0bb38673a1534c96959e44228ab9f') in 0.087409 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 1.955654 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Demo/Demo.unity
+  artifactKey: Guid(98234d12ec7108f45b8b0a548308cc28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Demo/Demo.unity using Guid(98234d12ec7108f45b8b0a548308cc28) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c873de7fbff7ef7de3c75c674f5f009b') in 0.000421 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 4.068498 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1
+  artifactKey: Guid(e812f7da3c00cc2489911f470551a7a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1 using Guid(e812f7da3c00cc2489911f470551a7a4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c015ad4a2ed6119c3ba91b818f9c4ea2') in 0.000397 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.067011 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Sword1_FBX.fbx
+  artifactKey: Guid(1af6c9d4792b975498541f34267aefc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Sword1_FBX.fbx using Guid(1af6c9d4792b975498541f34267aefc6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ff860e70ae426c8b9b2173a792421970') in 0.047601 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 8
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Sword1_Material_Silver.mat
+  artifactKey: Guid(fa5baed6be3065a459482872af5d2796) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Sword1/Sword1_Material_Silver.mat using Guid(fa5baed6be3065a459482872af5d2796) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b777346b0545b6f106ba56a999b5e971') in 0.220814 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 1.398618 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs
+  artifactKey: Guid(64f9a6e08c42c944db9e724b3d997eb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs using Guid(64f9a6e08c42c944db9e724b3d997eb5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de86b9fa2e09ead6e9fa071705d398f2') in 0.000539 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.075416 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword1_Bronze.prefab
+  artifactKey: Guid(5cdf1ac831646004288735c99ac51e4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword1_Bronze.prefab using Guid(5cdf1ac831646004288735c99ac51e4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4eb99dd6147c59f99debfef39fd637ad') in 0.023931 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.019487 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword2_Green.prefab
+  artifactKey: Guid(aee29ca4814728040bdb4976c5135b43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword2_Green.prefab using Guid(aee29ca4814728040bdb4976c5135b43) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d057f3f141e341ded7f1f38b9b10e37') in 0.094192 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword3_Blue.prefab
+  artifactKey: Guid(6219205689b50234cb76cf2b3526b4fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword3_Blue.prefab using Guid(6219205689b50234cb76cf2b3526b4fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4305b199a04dbb270f9f4dd97a6d5be5') in 0.022278 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Cyan.prefab
+  artifactKey: Guid(608076c565a36b346b63e557cd6af9eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Cyan.prefab using Guid(608076c565a36b346b63e557cd6af9eb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'da5f73479b6981b6dffb240bb3817a07') in 0.023412 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Blue.prefab
+  artifactKey: Guid(8dd1278bd62135046a6827f7b8d6b129) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Blue.prefab using Guid(8dd1278bd62135046a6827f7b8d6b129) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c08a9b245a0ff602e30da8c69ed6f84') in 0.021835 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword4_Yellow.prefab
+  artifactKey: Guid(379aed32e1bc7f4439fe129a07fa8fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword4_Yellow.prefab using Guid(379aed32e1bc7f4439fe129a07fa8fe5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4302796e5e8caea379c8b283a11744b2') in 0.023674 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Blue.prefab
+  artifactKey: Guid(53575ba1699a8c94c81a56ca90753235) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword13_Blue.prefab using Guid(53575ba1699a8c94c81a56ca90753235) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05cdfe9f6d20beaef2c185e3237df561') in 0.025053 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Gold.prefab
+  artifactKey: Guid(a61cc2f98bbdd214e89c42bd0ae3cc90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Gold.prefab using Guid(a61cc2f98bbdd214e89c42bd0ae3cc90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93b34d3fcd000328ae41aca0de168d04') in 0.022929 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword15_Iron.prefab
+  artifactKey: Guid(80b057e1cc878634488547feae408d42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword15_Iron.prefab using Guid(80b057e1cc878634488547feae408d42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ae47644cceca3528d295247135d021d5') in 0.024670 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword10_Dark.prefab
+  artifactKey: Guid(b84fe35b914023748b06fd3b37dceaa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword10_Dark.prefab using Guid(b84fe35b914023748b06fd3b37dceaa4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3cbeca8feddedc930aa9c20f9687f9f8') in 0.023005 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword15_Lava.prefab
+  artifactKey: Guid(97d88fb9a3565d84daf5fff081fcbb91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword15_Lava.prefab using Guid(97d88fb9a3565d84daf5fff081fcbb91) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70fd74e5c842821b222dd8bb8ea025fd') in 0.023310 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword10_Brown.prefab
+  artifactKey: Guid(224e4356713f9ec45bb2ecfdae8e4627) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword10_Brown.prefab using Guid(224e4356713f9ec45bb2ecfdae8e4627) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e9662df335669e021c7c06aee46815a0') in 0.023898 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword6_Red.prefab
+  artifactKey: Guid(0a0917aa8d5a96c4dac34dd56cf9cc3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword6_Red.prefab using Guid(0a0917aa8d5a96c4dac34dd56cf9cc3b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a94bf9eb3443f3a08f2dc940ba00a7a5') in 0.023170 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_Green.prefab
+  artifactKey: Guid(aaa9abc278c41e84d9f8b4848879395f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_Green.prefab using Guid(aaa9abc278c41e84d9f8b4848879395f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a2782bda1a6c72220134a2fdc75f5850') in 0.024601 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword11_Bone.prefab
+  artifactKey: Guid(9ad0600b8acd04641b634bf2ed932dd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword11_Bone.prefab using Guid(9ad0600b8acd04641b634bf2ed932dd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7bcfa7aff1ccd7b2c3c934796a0ee986') in 0.023449 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword7_Green.prefab
+  artifactKey: Guid(5ffa21eac0be47c409e0bab4eea08790) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword7_Green.prefab using Guid(5ffa21eac0be47c409e0bab4eea08790) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3962077178294e7ddd679b5d68384db4') in 0.024491 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword14_Blue.prefab
+  artifactKey: Guid(36589f066b25b1b4dab74eb18d6972fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword14_Blue.prefab using Guid(36589f066b25b1b4dab74eb18d6972fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6d7d8c1eff2f4509b138715bfb2bebd') in 0.026015 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword14_Red.prefab
+  artifactKey: Guid(f6c4ffb4d9b01e6438aee492ee60e489) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword14_Red.prefab using Guid(f6c4ffb4d9b01e6438aee492ee60e489) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c72e62e7c72a510b05803f6f206cadcd') in 0.025442 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_Red.prefab
+  artifactKey: Guid(4edc3603e15f0884b937810156617f74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword9_Red.prefab using Guid(4edc3603e15f0884b937810156617f74) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c864592a828590df8c27f8d080f267f8') in 0.024215 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword4_Blue.prefab
+  artifactKey: Guid(5676bdababfc9c144824b1050aa60674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword4_Blue.prefab using Guid(5676bdababfc9c144824b1050aa60674) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb1e8acf9af95b8a0a5431074b9b42aa') in 0.023385 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword12_Green.prefab
+  artifactKey: Guid(2efd1c51d7e487f4ba79e734c950eca8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword12_Green.prefab using Guid(2efd1c51d7e487f4ba79e734c950eca8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8993277c1c87d4f47ef447e24c7ab3cd') in 0.025552 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Yellow.prefab
+  artifactKey: Guid(bc3fa5aec1f5e6f46a12470efae31586) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword5_Yellow.prefab using Guid(bc3fa5aec1f5e6f46a12470efae31586) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9eaf6f8537c8d2de26d9e28cfd8230f4') in 0.024603 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword10_Bone.prefab
+  artifactKey: Guid(ff1deabe1ffa54a47a2f188b49ac69c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword10_Bone.prefab using Guid(ff1deabe1ffa54a47a2f188b49ac69c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e74a8e67dd95b8c8573669e96960c094') in 0.024869 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword14_Yellow.prefab
+  artifactKey: Guid(e52959e3043254b408ed3a5eca5b3a6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword14_Yellow.prefab using Guid(e52959e3043254b408ed3a5eca5b3a6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '54e98962d60a61337753f7ad9ad3b7e3') in 0.025950 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword1_Silver.prefab
+  artifactKey: Guid(635b9c60fe8860a4e9a5ab1a4658720f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword1_Silver.prefab using Guid(635b9c60fe8860a4e9a5ab1a4658720f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e6b429c81e8c2f2d7812b8ec08d75d6') in 0.025787 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword2_Yellow.prefab
+  artifactKey: Guid(f8ab3275b4dd1724ea174a727f8f3378) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Prefabs/Sword2_Yellow.prefab using Guid(f8ab3275b4dd1724ea174a727f8f3378) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93cbfb44c0053c61bc9e74a3d913049a') in 0.021821 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 11
+========================================================================
+Received Import Request.
+  Time since last request: 34.808259 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_Material_Blue.mat
+  artifactKey: Guid(0f6ed5b953c1cc644943552d45f09db0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Sword7/Sword7_Material_Blue.mat using Guid(0f6ed5b953c1cc644943552d45f09db0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd5a86348cb03c2c83a59ec85118cc433') in 0.024482 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 5
+========================================================================
+Received Import Request.
+  Time since last request: 0.487651 seconds.
+  path: Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Sword3_Material_Blue.mat
+  artifactKey: Guid(8fbe65689cacd8545904ad29279d3854) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Modle/Blink/Art/Weapons/LowPoly/FreeSwords/Sword3/Sword3_Material_Blue.mat using Guid(8fbe65689cacd8545904ad29279d3854) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ed6886ace4dffdaf690e11e706419b8') in 0.021762 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 4
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.395 seconds
+Refreshing native plugins compatible for Editor in 2.65 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.006 seconds
+Domain Reload Profiling: 1399ms
+	BeginReloadAssembly (138ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (34ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (24ms)
+	LoadAllAssembliesAndSetupDomain (186ms)
+		LoadAssemblies (246ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (9ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (1006ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (542ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (27ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (91ms)
+			ProcessInitializeOnLoadAttributes (390ms)
+			ProcessInitializeOnLoadMethodAttributes (20ms)
+			AfterProcessingInitializeOnLoad (7ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 3.24 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3507 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 25 unused Assets / (31.7 KB). Loaded Objects now: 4034.
+Memory consumption went from 142.2 MB to 142.2 MB.
+Total: 4.215100 ms (FindLiveObjects: 0.384900 ms CreateObjectMapping: 0.293700 ms MarkObjects: 3.481300 ms  DeleteObjects: 0.054300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.388 seconds
+Refreshing native plugins compatible for Editor in 2.63 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.017 seconds
+Domain Reload Profiling: 1403ms
+	BeginReloadAssembly (133ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (5ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (33ms)
+	RebuildCommonClasses (33ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (185ms)
+		LoadAssemblies (244ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (9ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (1018ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (562ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (27ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (98ms)
+			ProcessInitializeOnLoadAttributes (401ms)
+			ProcessInitializeOnLoadMethodAttributes (21ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Refreshing native plugins compatible for Editor in 3.12 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3508 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 25 unused Assets / (31.6 KB). Loaded Objects now: 4037.
+Memory consumption went from 144.4 MB to 144.4 MB.
+Total: 4.112400 ms (FindLiveObjects: 0.266700 ms CreateObjectMapping: 0.390100 ms MarkObjects: 3.362000 ms  DeleteObjects: 0.092700 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.386 seconds
+Refreshing native plugins compatible for Editor in 2.82 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.021 seconds
+Domain Reload Profiling: 1405ms
+	BeginReloadAssembly (133ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (32ms)
+	RebuildCommonClasses (26ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (25ms)
+	LoadAllAssembliesAndSetupDomain (192ms)
+		LoadAssemblies (250ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (10ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (4ms)
+	FinalizeReload (1022ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (561ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (26ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (99ms)
+			ProcessInitializeOnLoadAttributes (402ms)
+			ProcessInitializeOnLoadMethodAttributes (21ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 3.03 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3508 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 25 unused Assets / (31.6 KB). Loaded Objects now: 4040.
+Memory consumption went from 146.3 MB to 146.3 MB.
+Total: 3.653000 ms (FindLiveObjects: 0.267400 ms CreateObjectMapping: 0.249500 ms MarkObjects: 3.043700 ms  DeleteObjects: 0.091600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2617.280392 seconds.
+  path: Assets/Scripts/PlayerController.cs
+  artifactKey: Guid(f5580e7e0158b014c9da5ae439ac5f11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/PlayerController.cs using Guid(f5580e7e0158b014c9da5ae439ac5f11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'df8631e7660aab70e5acd46cb05cc13a') in 0.002767 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
