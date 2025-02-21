@@ -43,8 +43,8 @@ MonoBehaviour:
     y: 237
     width: 481
     height: 323
-  m_MinSize: {x: 100, y: 100}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 101, y: 121}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 22}
   m_Panes:
   - {fileID: 22}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 100}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 44
+  controlID: 20
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 151
+  controlID: 165
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 150}
   m_MaxSize: {x: 24288, y: 24288}
   vertical: 0
-  controlID: 79
+  controlID: 224
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 150}
   m_MaxSize: {x: 16192, y: 24288}
   vertical: 1
-  controlID: 80
+  controlID: 79
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -271,7 +271,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 0
-  controlID: 81
+  controlID: 80
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,15 +317,15 @@ MonoBehaviour:
     y: 0
     width: 1030
     height: 560
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 19}
   - {fileID: 20}
   - {fileID: 17}
   m_Selected: 2
-  m_LastSelected: 0
+  m_LastSelected: 1
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -435,14 +435,15 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Animation
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\KGA\Desktop\TeamProject\3D-Solo-Project\3D Solo Project
+  m_LastProjectPath: C:\Users\kyous\OneDrive\Document\GitHub\3D-Solo-Project\3D Solo
+    Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: e65f0000
-    m_LastClickedID: 24550
-    m_ExpandedIDs: 00000000725f0000745f0000765f0000785f00007a5f00007c5f00007e5f0000e25f000000ca9a3b
+    m_SelectedIDs: ec5f0000
+    m_LastClickedID: 24556
+    m_ExpandedIDs: 000000007a5f00007c5f00007e5f0000805f0000825f0000845f0000865f0000885f000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -470,7 +471,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000725f0000745f0000765f0000785f00007a5f00007c5f00007e5f0000
+    m_ExpandedIDs: 000000007a5f00007c5f00007e5f0000805f0000825f0000845f0000865f0000885f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -660,10 +661,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 7e5d0000
-      m_LastClickedID: 23934
-      m_ExpandedIDs: 1cfbffff
+      scrollPos: {x: 0, y: 173}
+      m_SelectedIDs: 60610000
+      m_LastClickedID: 0
+      m_ExpandedIDs: a4faffffa8faffffacfaffffb0faffff04fbffff08fbffff28fbffff2cfbffff7e5d0000ac5d0000d65d0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1069,9 +1070,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.037548218, y: 2.7949998, z: -0.73529094}
+    m_Target: {x: -0.48905778, y: 3.5428727, z: -0.4868647}
     speed: 2
-    m_Value: {x: 0.037548218, y: 2.7949998, z: -0.73529094}
+    m_Value: {x: -0.48905778, y: 3.5428727, z: -0.4868647}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1117,13 +1118,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.5632485, y: 0.31648618, z: -0.24701293, w: -0.72230667}
+    m_Target: {x: -0.10703888, y: 0.8635008, z: -0.20665449, w: -0.44760242}
     speed: 2
-    m_Value: {x: -0.56320494, y: 0.31646168, z: -0.24699382, w: -0.7222508}
+    m_Value: {x: -0.10703112, y: 0.8634382, z: -0.20663951, w: -0.44757}
   m_Size:
-    m_Target: 1.0625167
+    m_Target: 1.4459385
     speed: 2
-    m_Value: 1.0625167
+    m_Value: 1.4459385
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1324,14 +1325,15 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Animation
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\KGA\Desktop\TeamProject\3D-Solo-Project\3D Solo Project
+  m_LastProjectPath: C:\Users\kyous\OneDrive\Document\GitHub\3D-Solo-Project\3D Solo
+    Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e65f0000
-    m_LastClickedID: 24550
-    m_ExpandedIDs: 00000000725f0000745f0000765f0000785f00007a5f00007c5f00007e5f0000e25f000000ca9a3b
+    m_SelectedIDs: ec5f0000
+    m_LastClickedID: 24556
+    m_ExpandedIDs: 000000007a5f00007c5f00007e5f0000805f0000825f0000845f0000865f0000885f000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1359,7 +1361,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000725f0000745f0000765f0000785f00007a5f00007c5f00007e5f0000
+    m_ExpandedIDs: 000000007a5f00007c5f00007e5f0000805f0000825f0000845f0000865f0000885f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1528,7 +1530,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 23954
+  m_LastSelectedObjectID: -1476
 --- !u!114 &25
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1566,11 +1568,11 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: 348
+    m_CachedPref: 333
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 641
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

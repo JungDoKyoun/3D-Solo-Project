@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private RaycastHit sloopHit;
     private Vector3 moveDir;//움직이는 방향
     private Vector2 inputMoveDir;//인풋 변수 받아옴
+    private BoxCollider weaPon; //무기
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class PlayerController : MonoBehaviour
         currentState.Enter(this);
         cam = Camera.main;
         anime = GetComponent<AnimationController>();
+        weaPon = GetComponentInChildren<BoxCollider>();
         moveDir = Vector3.zero;
         playerData.UpperRay.position = new Vector3(playerData.UpperRay.position.x, playerData.StepHight, playerData.UpperRay.position.y);
     }
@@ -32,6 +34,7 @@ public class PlayerController : MonoBehaviour
     public Camera Cam { get => cam; set => cam = value; }
     public IPlayerState CurrentState { get => currentState; set => currentState = value; }
     public AnimationController Anime { get => anime; set => anime = value; }
+    public BoxCollider WeaPon { get => weaPon; set => weaPon = value; }
     public RaycastHit SloopHit { get => sloopHit; set => sloopHit = value; }
     public Vector3 MoveDir { get => moveDir; set => moveDir = value; }
     public Vector3 InputMoveDir { get => inputMoveDir; set => inputMoveDir = value; }
@@ -216,15 +219,13 @@ public class PlayerController : MonoBehaviour
         playerData.IsAttack = TorF;
     }
 
-    public IEnumerator ResetAttack()
+    public void OnWeaponCollider()
     {
-        yield return new WaitForSeconds(2.02f);
-        playerData.IsAttack = false;
-        anime.ResetAttackAnime();
+        weaPon.enabled = true;
     }
 
-    public void A()
+    public void OffWeaponCollider()
     {
-
+        weaPon.enabled = false;
     }
 }

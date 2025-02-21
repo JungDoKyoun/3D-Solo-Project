@@ -48,13 +48,12 @@ public class AnimationController : MonoBehaviour
         if(player.PlayerData.IsAttack)
         {
             anime.SetBool(_attack, true);
-            player.PlayerData.IsAttack = true;
-            StartCoroutine(player.ResetAttack());
         }
     }
 
     public void ResetAttackAnime()
     {
         anime.SetBool(_attack, false);
+        player.PlayerData.IsAttack = false;
     }
 }

@@ -30,7 +30,23 @@ public class PlayerIdleState : IPlayerState
     public override void Move()
     {
         //경사로
-        player.OnSloop();
+        player.IsOnSloop();
+
+        if (player.PlayerData.IsSloop)
+        {
+            player.MoveDir = Vector3.ProjectOnPlane(player.MoveDir, player.SloopHit.normal);
+            player.PlayerRb.useGravity = false;
+            Debug.Log(player.PlayerData.IsSloop + " 경사면");
+        }
+        else if (!player.NextFrameIsSloop())
+        {
+            player.MoveDir = Vector3.zero;
+            player.PlayerRb.velocity = Vector3.zero;
+        }
+        else
+        {
+            player.PlayerRb.useGravity = true;
+        }
 
         //플레이어 움직임
         player.PlayerRb.velocity = Vector3.zero;
@@ -53,7 +69,7 @@ public class PlayerIdleState : IPlayerState
 
     public override void Attack()
     {
-        //player.Anime.PlayAttackAnime();
+        player.Anime.PlayAttackAnime();
     }
 
     public override void Update()
@@ -109,14 +125,33 @@ public class PlayerMoveState : IPlayerState
         player.MoveDir.Normalize();
 
         //경사로
-        player.OnSloop();
+        player.IsOnSloop();
+
+        if (player.PlayerData.IsSloop)
+        {
+            player.MoveDir = Vector3.ProjectOnPlane(player.MoveDir, player.SloopHit.normal);
+            player.PlayerRb.useGravity = false;
+            Debug.Log(player.PlayerData.IsSloop + " 경사면");
+        }
+        else if (!player.NextFrameIsSloop())
+        {
+            player.MoveDir = Vector3.zero;
+            player.PlayerRb.velocity = Vector3.zero;
+        }
+        else
+        {
+            player.PlayerRb.useGravity = true;
+        }
 
         //플레이어 움직임
         player.PlayerRb.velocity = player.MoveDir * player.PlayerData.PlayerMoveSpeed;
         player.PlayerData.Magnitude = player.PlayerRb.velocity.magnitude;
 
         //계단
-        player.UpStair();
+        if (player.CheckStair() && !player.IsOnSloop())
+        {
+            player.PlayerRb.position -= new Vector3(0, -player.PlayerData.StepSmooth, 0);
+        }
     }
 
     public override void Rotation()
@@ -135,7 +170,7 @@ public class PlayerMoveState : IPlayerState
 
     public override void Attack()
     {
-        //player.Anime.PlayAttackAnime();
+        player.Anime.PlayAttackAnime();
     }
 
     public override void Update()
@@ -191,14 +226,33 @@ public class PlayerSprintState : IPlayerState
         player.MoveDir.Normalize();
 
         //경사로
-        player.OnSloop();
-        
+        player.IsOnSloop();
+
+        if (player.PlayerData.IsSloop)
+        {
+            player.MoveDir = Vector3.ProjectOnPlane(player.MoveDir, player.SloopHit.normal);
+            player.PlayerRb.useGravity = false;
+            Debug.Log(player.PlayerData.IsSloop + " 경사면");
+        }
+        else if (!player.NextFrameIsSloop())
+        {
+            player.MoveDir = Vector3.zero;
+            player.PlayerRb.velocity = Vector3.zero;
+        }
+        else
+        {
+            player.PlayerRb.useGravity = true;
+        }
+
         //움직임
         player.PlayerRb.velocity = player.MoveDir * player.PlayerData.PlayerSprintSpeed;
         player.PlayerData.Magnitude = player.PlayerRb.velocity.magnitude;
 
         //계단
-        player.UpStair();
+        if (player.CheckStair() && !player.IsOnSloop())
+        {
+            player.PlayerRb.position -= new Vector3(0, -player.PlayerData.StepSmooth, 0);
+        }
     }
 
     public override void Rotation()
@@ -217,7 +271,7 @@ public class PlayerSprintState : IPlayerState
 
     public override void Attack()
     {
-        //player.Anime.PlayAttackAnime();
+        player.Anime.PlayAttackAnime();
     }
 
     public override void Update()
