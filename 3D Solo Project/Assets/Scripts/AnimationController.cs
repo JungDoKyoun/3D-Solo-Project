@@ -7,6 +7,7 @@ public class AnimationController : MonoBehaviour
     Animator anime;
     PlayerController player;
     int _speed;
+    int _attack;
     float playerSpeed;
 
     private void Awake()
@@ -14,6 +15,7 @@ public class AnimationController : MonoBehaviour
         anime = GetComponent<Animator>();
         player = GetComponent<PlayerController>();
         _speed = Animator.StringToHash("Speed");
+        _attack = Animator.StringToHash("SwordAttack");
     }
     
     public void PlayAllAnime()
@@ -40,30 +42,19 @@ public class AnimationController : MonoBehaviour
         }
         anime.SetFloat(_speed, speed, 0.1f, Time.deltaTime);
     }
-    public void PlayIdleAnime()
+
+    public void PlayAttackAnime()
     {
-        playerSpeed = player.PlayerData.Magnitude;
-        if(playerSpeed == 0)
+        if(player.PlayerData.IsAttack)
         {
-            anime.SetFloat(_speed, 0);
+            anime.SetBool(_attack, true);
+            player.PlayerData.IsAttack = true;
+            StartCoroutine(player.ResetAttack());
         }
     }
 
-    public void PlayMoveAnime()
+    public void ResetAttackAnime()
     {
-        playerSpeed = player.PlayerData.Magnitude;
-        if(playerSpeed > 0 && playerSpeed < 3.5f)
-        {
-            anime.SetFloat(_speed, 0.5f);
-        }
-    }
-
-    public void PlayRunAnime()
-    {
-        playerSpeed = player.PlayerData.Magnitude;
-        if(playerSpeed >= 3.5)
-        {
-            anime.SetFloat(_speed, 1);
-        }
+        anime.SetBool(_attack, false);
     }
 }

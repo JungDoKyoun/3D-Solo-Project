@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody playerRb;//리지드 바디
     private Camera cam;//메인 카메라
     private IPlayerState currentState;//플레이어 상태
+    private AnimationController anime;
     private RaycastHit sloopHit;
     private Vector3 moveDir;//움직이는 방향
     private Vector2 inputMoveDir;//인풋 변수 받아옴
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
         currentState = new PlayerIdleState();
         currentState.Enter(this);
         cam = Camera.main;
+        anime = GetComponent<AnimationController>();
         moveDir = Vector3.zero;
         playerData.UpperRay.position = new Vector3(playerData.UpperRay.position.x, playerData.StepHight, playerData.UpperRay.position.y);
     }
@@ -29,13 +31,14 @@ public class PlayerController : MonoBehaviour
     public Rigidbody PlayerRb { get => playerRb; set => playerRb = value; }
     public Camera Cam { get => cam; set => cam = value; }
     public IPlayerState CurrentState { get => currentState; set => currentState = value; }
+    public AnimationController Anime { get => anime; set => anime = value; }
     public RaycastHit SloopHit { get => sloopHit; set => sloopHit = value; }
     public Vector3 MoveDir { get => moveDir; set => moveDir = value; }
     public Vector3 InputMoveDir { get => inputMoveDir; set => inputMoveDir = value; }
 
     public void FixedUpdated()
     {
-        if(currentState != null)
+        if (currentState != null)
         {
             currentState.Move();
             currentState.Rotation();
@@ -47,6 +50,7 @@ public class PlayerController : MonoBehaviour
         if (currentState != null)
         {
             currentState.Update();
+            currentState.Attack();
         }
     }
 
@@ -85,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
         var coll = Physics.OverlapSphere(originalPos, playerData.FallenSphereRadius, playerData.GroundLayerMask);
         bool isGround = coll.Length > 0;
-        
+
         return isGround;
     }
 
@@ -164,7 +168,7 @@ public class PlayerController : MonoBehaviour
     //경사로가 너무 높은지 판별
     public bool IsToHigh()
     {
-        if(playerData.AngleResult < playerData.MaxAngle)
+        if (playerData.AngleResult < playerData.MaxAngle)
         {
             return true;
         }
@@ -182,7 +186,7 @@ public class PlayerController : MonoBehaviour
             playerRb.useGravity = false;
             Debug.Log(playerData.IsSloop + " 경사면");
         }
-        else if(!NextFrameIsSloop())
+        else if (!NextFrameIsSloop())
         {
             moveDir = Vector3.zero;
             playerRb.velocity = Vector3.zero;
@@ -198,7 +202,7 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit hit;
         var nextPlayerPos = transform.position + (moveDir * playerData.PlayerMoveSpeed * Time.fixedDeltaTime);
-        if(Physics.Raycast(nextPlayerPos, Vector3.down, out hit, playerData.MaxDistance, playerData.GroundLayerMask))
+        if (Physics.Raycast(nextPlayerPos, Vector3.down, out hit, playerData.MaxDistance, playerData.GroundLayerMask))
         {
             float nextAngle = Vector3.Angle(Vector3.up, hit.normal);
             return nextAngle < playerData.MaxAngle;
@@ -206,15 +210,21 @@ public class PlayerController : MonoBehaviour
         return false;
     }
 
-    //공격 메서드
-    public void Attack()
-    {
-        
-    }
-
     //공격 참 거짓
     public void SetAttack(bool TorF)
     {
         playerData.IsAttack = TorF;
+    }
+
+    public IEnumerator ResetAttack()
+    {
+        yield return new WaitForSeconds(2.02f);
+        playerData.IsAttack = false;
+        anime.ResetAttackAnime();
+    }
+
+    public void A()
+    {
+
     }
 }

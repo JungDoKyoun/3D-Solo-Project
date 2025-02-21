@@ -9,6 +9,7 @@ public abstract class IPlayerState
     public abstract void Exit();
     public abstract void Move();
     public abstract void Rotation();
+    public abstract void Attack();
 }
 
 //대기 상태
@@ -28,31 +29,12 @@ public class PlayerIdleState : IPlayerState
 
     public override void Move()
     {
-        player.IsOnSloop();
+        //경사로
+        player.OnSloop();
 
-        if (player.PlayerData.IsSloop)
-        {
-            player.MoveDir = Vector3.ProjectOnPlane(player.MoveDir, player.SloopHit.normal);
-            player.PlayerRb.useGravity = false;
-            Debug.Log(player.PlayerData.IsSloop + " 경사면");
-        }
-        else if (!player.NextFrameIsSloop())
-        {
-            player.MoveDir = Vector3.zero;
-            player.PlayerRb.velocity = Vector3.zero;
-        }
-        else
-        {
-            player.PlayerRb.useGravity = true;
-        }
-
+        //플레이어 움직임
         player.PlayerRb.velocity = Vector3.zero;
         player.PlayerData.Magnitude = player.PlayerRb.velocity.magnitude;
-
-        if (player.CheckStair() && !player.IsOnSloop())
-        {
-            player.PlayerRb.position -= new Vector3(0, -player.PlayerData.StepSmooth, 0);
-        }
     }
 
     public override void Rotation()
@@ -67,6 +49,11 @@ public class PlayerIdleState : IPlayerState
         Quaternion roDir = Quaternion.LookRotation(targetdir);
         Quaternion playerRo = Quaternion.Lerp(player.transform.rotation, roDir, player.PlayerData.PlayerRotationSpeed * Time.deltaTime);
         player.transform.rotation = playerRo;
+    }
+
+    public override void Attack()
+    {
+        //player.Anime.PlayAttackAnime();
     }
 
     public override void Update()
@@ -121,31 +108,15 @@ public class PlayerMoveState : IPlayerState
         player.MoveDir = new Vector3(player.MoveDir.x, 0, player.MoveDir.z);
         player.MoveDir.Normalize();
 
-        player.IsOnSloop();
+        //경사로
+        player.OnSloop();
 
-        if (player.PlayerData.IsSloop)
-        {
-            player.MoveDir = Vector3.ProjectOnPlane(player.MoveDir, player.SloopHit.normal);
-            player.PlayerRb.useGravity = false;
-            Debug.Log(player.PlayerData.IsSloop + " 경사면");
-        }
-        else if (!player.NextFrameIsSloop())
-        {
-            player.MoveDir = Vector3.zero;
-            player.PlayerRb.velocity = Vector3.zero;
-        }
-        else
-        {
-            player.PlayerRb.useGravity = true;
-        }
-
+        //플레이어 움직임
         player.PlayerRb.velocity = player.MoveDir * player.PlayerData.PlayerMoveSpeed;
         player.PlayerData.Magnitude = player.PlayerRb.velocity.magnitude;
 
-        if (player.CheckStair() && !player.IsOnSloop())
-        {
-            player.PlayerRb.position -= new Vector3(0, -player.PlayerData.StepSmooth, 0);
-        }
+        //계단
+        player.UpStair();
     }
 
     public override void Rotation()
@@ -160,6 +131,11 @@ public class PlayerMoveState : IPlayerState
         Quaternion roDir = Quaternion.LookRotation(targetdir);
         Quaternion playerRo = Quaternion.Lerp(player.transform.rotation, roDir, player.PlayerData.PlayerRotationSpeed * Time.deltaTime);
         player.transform.rotation = playerRo;
+    }
+
+    public override void Attack()
+    {
+        //player.Anime.PlayAttackAnime();
     }
 
     public override void Update()
@@ -214,31 +190,15 @@ public class PlayerSprintState : IPlayerState
         player.MoveDir = new Vector3(player.MoveDir.x, 0, player.MoveDir.z);
         player.MoveDir.Normalize();
 
-        player.IsOnSloop();
-
-        if (player.PlayerData.IsSloop)
-        {
-            player.MoveDir = Vector3.ProjectOnPlane(player.MoveDir, player.SloopHit.normal);
-            player.PlayerRb.useGravity = false;
-            Debug.Log(player.PlayerData.IsSloop + " 경사면");
-        }
-        else if (!player.NextFrameIsSloop())
-        {
-            player.MoveDir = Vector3.zero;
-            player.PlayerRb.velocity = Vector3.zero;
-        }
-        else
-        {
-            player.PlayerRb.useGravity = true;
-        }
-
+        //경사로
+        player.OnSloop();
+        
+        //움직임
         player.PlayerRb.velocity = player.MoveDir * player.PlayerData.PlayerSprintSpeed;
         player.PlayerData.Magnitude = player.PlayerRb.velocity.magnitude;
 
-        if (player.CheckStair() && !player.IsOnSloop())
-        {
-            player.PlayerRb.position -= new Vector3(0, -player.PlayerData.StepSmooth, 0);
-        }
+        //계단
+        player.UpStair();
     }
 
     public override void Rotation()
@@ -253,6 +213,11 @@ public class PlayerSprintState : IPlayerState
         Quaternion roDir = Quaternion.LookRotation(targetdir);
         Quaternion playerRo = Quaternion.Lerp(player.transform.rotation, roDir, player.PlayerData.PlayerRotationSpeed * Time.deltaTime);
         player.transform.rotation = playerRo;
+    }
+
+    public override void Attack()
+    {
+        //player.Anime.PlayAttackAnime();
     }
 
     public override void Update()
@@ -312,6 +277,11 @@ public class PlayerFallenState : IPlayerState
         
     }
 
+    public override void Attack()
+    {
+
+    }
+
     public override void Update()
     {
         if(player.CheckIsGround())
@@ -345,6 +315,11 @@ public class PlayerLandingState : IPlayerState
     public override void Rotation()
     {
         
+    }
+
+    public override void Attack()
+    {
+
     }
 
     public override void Update()
@@ -386,6 +361,11 @@ public class PlayerJumpState : IPlayerState
     public override void Rotation()
     {
         
+    }
+
+    public override void Attack()
+    {
+
     }
 
     public override void Update()
