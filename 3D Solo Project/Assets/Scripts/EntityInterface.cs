@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IIdle
+{
+    void Idle();
+}
+
 public interface IMove
 {
     void Move();
@@ -31,4 +36,9 @@ public interface IJump
 public interface IUpDownStair
 {
     void UpDownStair();
+}
+
+public interface IAttack
+{
+    void Attack();
 }

@@ -13,10 +13,11 @@ public abstract class IPlayerState
 public class PlayerIdleState : IPlayerState
 {
     private PlayerController player;
+    private AnimationController anime;
+
     public override void Enter(PlayerController playerController)
     {
         player = playerController;
-        Debug.Log("아이들");
     }
     
     public override void Exit()
@@ -36,9 +37,9 @@ public class PlayerIdleState : IPlayerState
             {
                 player.ChangeState(new PlayerMoveState());
             }
-            else if (player.InputMoveDir != Vector3.zero && player.GetSprint())
+            else if(player.InputMoveDir == Vector3.zero)
             {
-                player.ChangeState(new PlayerSprintState());
+                player.ExecuteCommand(new IdleCommand(player));
             }
         }
         else
@@ -52,9 +53,13 @@ public class PlayerIdleState : IPlayerState
 public class PlayerMoveState : IPlayerState
 {
     private PlayerController player;
+    private AnimationController anime;
+
     public override void Enter(PlayerController playerController)
     {
         player = playerController;
+        //anime = player.GetComponent<AnimationController>();
+        //anime.PlayMoveAnime();
     }
 
     public override void Exit()
@@ -73,7 +78,10 @@ public class PlayerMoveState : IPlayerState
             else if (player.InputMoveDir != Vector3.zero && !player.GetSprint())
             {
                 player.ExecuteCommand(new MoveCommand(player));
-                player.ExecuteCommand(new UpDownStair(player));
+                if (!player.PlayerData.IsSloop && player.NextFrameIsSloop() && player.CheckUpDownStair())
+                {
+                    player.ExecuteCommand(new UpDownStair(player));
+                }
                 Debug.Log("걷는중");
             }
             else if (player.InputMoveDir != Vector3.zero && player.GetSprint())
@@ -97,9 +105,13 @@ public class PlayerMoveState : IPlayerState
 public class PlayerSprintState : IPlayerState
 {
     private PlayerController player;
+    private AnimationController anime;
+
     public override void Enter(PlayerController playerController)
     {
         player = playerController;
+        //anime = player.GetComponent<AnimationController>();
+        //anime.PlayRunAnime();
     }
 
     public override void Exit()
@@ -122,12 +134,10 @@ public class PlayerSprintState : IPlayerState
             else if (player.InputMoveDir != Vector3.zero && player.GetSprint())
             {
                 player.ExecuteCommand(new MoveCommand(player));
-                player.ExecuteCommand(new UpDownStair(player));
-                Debug.Log("뛰는중");
-            }
-            else
-            {
-                player.ChangeState(new PlayerIdleState());
+                if (!player.PlayerData.IsSloop && player.IsToHigh())
+                {
+                    player.ExecuteCommand(new UpDownStair(player));
+                }
             }
         }
         else
@@ -158,7 +168,6 @@ public class PlayerFallenState : IPlayerState
             player.ExecuteCommand(new FallenCommand(player));
             Debug.Log("추락중");
         }
-
         if(player.CheckIsGround())
         {
             player.ChangeState(new PlayerLandingState());

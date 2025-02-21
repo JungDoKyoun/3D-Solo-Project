@@ -8,6 +8,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] float _playerMoveSpeed;
     [SerializeField] float _playerRotationSpeed;
     [SerializeField] float _playerSprintSpeed;
+    private float _magnitude;//애니메이션 컨트롤에 줄 속력
     [SerializeField] bool _isSprint;
 
     [Header("플레이어 추락 및 착지")]
@@ -23,13 +24,22 @@ public class PlayerData : MonoBehaviour
     [SerializeField] float _jumpForce;
     [SerializeField] float _gravityForce;
     [SerializeField] bool _isJump;
-    [SerializeField] bool _isJumping;
 
     [Header("플레이어 계단 오르내리기")]
     [SerializeField] Transform _rawerRay;
     [SerializeField] Transform _upperRay;
     [SerializeField] float _stepSmooth;
     [SerializeField] float _stepHight;
+
+    [Header("플레이어 경사로 오르내리기")]
+    [SerializeField] float _maxAngle;
+    [SerializeField] float _maxDistance;
+    [SerializeField] float _angleResult;
+    [SerializeField] bool _isSloop;
+
+    [Header("플레이어 공격")]
+    [SerializeField] float _attackPower;
+    [SerializeField] bool _isAttack;
 
     private void Awake()
     {
@@ -44,9 +54,14 @@ public class PlayerData : MonoBehaviour
         GravityForce = -9.8f;
         StepSmooth = 0.1f;
         StepHight = 0.3f;
+        MaxAngle = 35;
+        MaxDistance = 2;
+        AttackPower = 10f;
         IsSprint = false;
         IsGround = true;
         IsJump = false;
+        IsSloop = false;
+        IsAttack = false;
     }
 
     public float PlayerMoveSpeed { get => _playerMoveSpeed;  set => _playerMoveSpeed = value; }
@@ -61,10 +76,16 @@ public class PlayerData : MonoBehaviour
     public float GravityForce { get => _gravityForce; set => _gravityForce = value; }
     public float StepSmooth { get => _stepSmooth; set => _stepSmooth = value; }
     public float StepHight { get => _stepHight; set => _stepHight = value; }
+    public float MaxAngle { get => _maxAngle; set => _maxAngle = value; }
+    public float MaxDistance { get => _maxDistance; set => _maxDistance = value; }
+    public float Magnitude { get => _magnitude; set => _magnitude = value; }
+    public float AngleResult { get => _angleResult; set => _angleResult = value; }
+    public float AttackPower { get => _attackPower; set => _attackPower = value; }
     public bool IsSprint { get => _isSprint; set => _isSprint = value; }
     public bool IsGround { get => _isGround; set => _isGround = value; }
     public bool IsJump { get => _isJump; set => _isJump = value; }
-    public bool IsJumping { get => _isJumping; set => _isJumping = value; }
+    public bool IsSloop { get => _isSloop; set => _isSloop = value; }
+    public bool IsAttack { get => _isAttack; set => _isAttack = value; }
     public LayerMask GroundLayerMask { get => _groundLayerMask; set => _groundLayerMask = value; }
     public Transform RawerRay { get => _rawerRay; set => _rawerRay = value; }
 

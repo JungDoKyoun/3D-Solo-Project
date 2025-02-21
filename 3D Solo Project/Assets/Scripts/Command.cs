@@ -8,6 +8,21 @@ public interface ICommand
     public void Execute();
 }
 
+public class IdleCommand : ICommand
+{
+    IIdle entity;
+
+    public IdleCommand(IIdle idle)
+    {
+        entity = idle;
+    }
+
+    public void Execute()
+    {
+        entity.Idle();
+    }
+}
+
 //플레이어 움직임 명령
 public class MoveCommand : ICommand
 {
@@ -67,6 +82,21 @@ public class UpDownStair : ICommand
     public void Execute()
     {
         entity.UpDownStair();
+    }
+}
+
+public class Attack : ICommand
+{
+    IAttack entity;
+
+    public Attack(IAttack attack)
+    {
+        entity = attack;
+    }
+
+    public void Execute()
+    {
+        entity.Attack();
     }
 }
 

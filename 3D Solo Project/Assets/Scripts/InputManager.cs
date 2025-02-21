@@ -29,6 +29,8 @@ public class InputManager : MonoBehaviour
         inputActions.PlayerAction.Sprint.canceled += OnSprintCanceled;
         inputActions.PlayerAction.Jump.performed += OnJump;
         inputActions.PlayerAction.Jump.canceled += OnJumpCanceled;
+        inputActions.PlayerAction.Jump.performed += OnAttakc;
+        inputActions.PlayerAction.Jump.canceled += OnAttakcCanceled;
     }
 
     private void OnDisable()
@@ -41,6 +43,8 @@ public class InputManager : MonoBehaviour
         inputActions.PlayerAction.Sprint.canceled -= OnSprintCanceled;
         inputActions.PlayerAction.Jump.performed -= OnJump;
         inputActions.PlayerAction.Jump.canceled -= OnJumpCanceled;
+        inputActions.PlayerAction.Jump.performed -= OnAttakc;
+        inputActions.PlayerAction.Jump.canceled -= OnAttakcCanceled;
         inputActions.Disable();
     }
 
@@ -74,5 +78,15 @@ public class InputManager : MonoBehaviour
     public void OnJumpCanceled(InputAction.CallbackContext callback)
     {
         player.SetJump(false);
+    }
+
+    public void OnAttakc(InputAction.CallbackContext callback)
+    {
+        player.SetAttack(true);
+    }
+
+    public void OnAttakcCanceled(InputAction.CallbackContext callback)
+    {
+        player.SetAttack(false);
     }
 }

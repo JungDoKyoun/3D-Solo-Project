@@ -5,10 +5,17 @@ using UnityEngine;
 public class PlayerManager : MonoBehaviour
 {
     private PlayerController playerController;
+    private AnimationController anime;
 
     private void Awake()
     {
-        playerController = GetComponent<PlayerController>();   
+        playerController = GetComponent<PlayerController>();
+        anime = GetComponent<AnimationController>();
+    }
+
+    private void Update()
+    {
+        anime.PlayAllAnime();
     }
 
     private void FixedUpdate()

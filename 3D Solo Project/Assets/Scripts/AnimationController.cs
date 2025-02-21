@@ -15,9 +15,34 @@ public class AnimationController : MonoBehaviour
         player = GetComponent<PlayerController>();
         _speed = Animator.StringToHash("Speed");
     }
+    
+    public void PlayAllAnime()
+    {
+        PlayerMoveAnime();
+    }
+
+    private void PlayerMoveAnime()
+    {
+        playerSpeed = player.PlayerData.Magnitude;
+        float speed;
+        Debug.Log(player.PlayerData.Magnitude);
+        if (playerSpeed > 0 && playerSpeed < 3.5f)
+        {
+            speed = 0.5f;
+        }
+        else if (playerSpeed >= 3.5)
+        {
+            speed = 1;
+        }
+        else
+        {
+            speed = 0;
+        }
+        anime.SetFloat(_speed, speed, 0.1f, Time.deltaTime);
+    }
     public void PlayIdleAnime()
     {
-        playerSpeed = player.Magnitude;
+        playerSpeed = player.PlayerData.Magnitude;
         if(playerSpeed == 0)
         {
             anime.SetFloat(_speed, 0);
@@ -26,7 +51,7 @@ public class AnimationController : MonoBehaviour
 
     public void PlayMoveAnime()
     {
-        playerSpeed = player.Magnitude;
+        playerSpeed = player.PlayerData.Magnitude;
         if(playerSpeed > 0 && playerSpeed < 3.5f)
         {
             anime.SetFloat(_speed, 0.5f);
@@ -35,7 +60,7 @@ public class AnimationController : MonoBehaviour
 
     public void PlayRunAnime()
     {
-        playerSpeed = player.Magnitude;
+        playerSpeed = player.PlayerData.Magnitude;
         if(playerSpeed >= 3.5)
         {
             anime.SetFloat(_speed, 1);
