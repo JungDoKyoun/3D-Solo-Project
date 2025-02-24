@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|c:\\users\\kga\\desktop\\teamproject\\3d-solo-project\\3d solo project\\assets\\scripts\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -11,12 +11,12 @@
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\playerstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,7 +31,7 @@
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\command.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|c:\\users\\kga\\desktop\\teamproject\\3d-solo-project\\3d solo project\\assets\\scripts\\animationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\animationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\animationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -62,13 +62,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "PlayerStateManager.cs",
               "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\PlayerStateManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerStateManager.cs",
               "ToolTip": "C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\PlayerStateManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerStateManager.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAQwBcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAzwBcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-24T04:40:11.908Z",
               "EditorCaption": ""
@@ -81,7 +81,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerController.cs",
               "ToolTip": "C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerController.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAmwEAAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAqwIoAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-18T06:30:46.025Z",
               "EditorCaption": ""
@@ -94,7 +94,7 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerState.cs",
               "ToolTip": "C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\PlayerState.cs",
               "RelativeToolTip": "Assets\\Scripts\\PlayerState.cs",
-              "ViewState": "AgIAAFMBAAAAAAAAAAAowBYBAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAUBAAAAAAAAAAAqwBABAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-18T06:28:54.626Z",
               "EditorCaption": ""
@@ -109,8 +109,7 @@
               "RelativeToolTip": "Assets\\Scripts\\InputManager.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAcwCQAAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T07:33:27.55Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T07:33:27.55Z"
             },
             {
               "$type": "Document",
@@ -122,8 +121,7 @@
               "RelativeToolTip": "Assets\\Scripts\\AnimationController.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAwBQAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-19T07:06:43.615Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-19T07:06:43.615Z"
             },
             {
               "$type": "Document",
@@ -135,12 +133,11 @@
               "RelativeToolTip": "Assets\\Scripts\\OneHandSword.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-21T14:36:33.441Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-21T14:36:33.441Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PlayerData.cs",
               "DocumentMoniker": "C:\\Users\\KGA\\Desktop\\TeamProject\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\PlayerData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\PlayerData.cs",
@@ -148,8 +145,7 @@
               "RelativeToolTip": "Assets\\Scripts\\PlayerData.cs",
               "ViewState": "AgIAAE4AAAAAAAAAAAAiwFQAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T06:23:46.372Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T06:23:46.372Z"
             },
             {
               "$type": "Document",
@@ -161,8 +157,7 @@
               "RelativeToolTip": "Assets\\Scripts\\EntityInterface.cs",
               "ViewState": "AgIAABkAAAAAAAAAAADwvxYAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-20T02:21:20.958Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-20T02:21:20.958Z"
             },
             {
               "$type": "Document",
@@ -174,8 +169,7 @@
               "RelativeToolTip": "Assets\\Scripts\\Command.cs",
               "ViewState": "AgIAACMAAAAAAAAAAAAswCsAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T08:38:33.9Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-18T08:38:33.9Z"
             },
             {
               "$type": "Document",

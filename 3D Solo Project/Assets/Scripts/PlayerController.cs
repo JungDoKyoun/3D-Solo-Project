@@ -56,13 +56,8 @@ public class PlayerController : MonoBehaviour
 
         var coll = Physics.OverlapSphere(originalPos, playerData.FallenSphereRadius, playerData.GroundLayerMask);
         bool isGround = coll.Length > 0;
-        if(playerData.IsGround =! isGround)
-        {
-            playerData.IsGround = isGround;
-            return isGround;
-        }
-
-        return playerData.IsGround;
+        playerData.IsGround = isGround;
+        return isGround;
     }
 
     //플레이어 착지
@@ -123,7 +118,10 @@ public class PlayerController : MonoBehaviour
     //계단 오르내리기
     public void UpStair()
     {
-        playerRb.position -= new Vector3(0, -playerData.StepSmooth, 0);
+        if(CheckStair() && !IsOnSloop())
+        {
+            playerRb.position -= new Vector3(0, -playerData.StepSmooth, 0);
+        }
     }
 
     //경사로인지 구분법

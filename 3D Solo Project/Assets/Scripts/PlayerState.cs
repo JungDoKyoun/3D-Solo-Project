@@ -31,7 +31,6 @@ public class PlayerIdleState : IPlayerState
 
     public override void Move()
     {
-        player.CheckIsGround();
         //경사로
         player.IsOnSloop();
         player.OnSloop();
@@ -63,7 +62,7 @@ public class PlayerIdleState : IPlayerState
 
     public override void Update()
     {
-        if(player.PlayerData.IsGround)
+        if(player.CheckIsGround())
         {
             if(player.PlayerData.IsJump)
             {
@@ -111,7 +110,6 @@ public class PlayerMoveState : IPlayerState
 
     public override void Move()
     {
-        player.CheckIsGround();
         player.MoveDir = player.Cam.transform.forward * player.InputMoveDir.y + player.Cam.transform.right * player.InputMoveDir.x;
         player.MoveDir = new Vector3(player.MoveDir.x, 0, player.MoveDir.z);
         player.MoveDir.Normalize();
@@ -150,7 +148,7 @@ public class PlayerMoveState : IPlayerState
 
     public override void Update()
     {
-        if (player.PlayerData.IsGround)
+        if (player.CheckIsGround())
         {
             if (player.PlayerData.IsJump)
             {
@@ -198,7 +196,6 @@ public class PlayerSprintState : IPlayerState
 
     public override void Move()
     {
-        player.CheckIsGround();
         player.MoveDir = player.Cam.transform.forward * player.InputMoveDir.y + player.Cam.transform.right * player.InputMoveDir.x;
         player.MoveDir = new Vector3(player.MoveDir.x, 0, player.MoveDir.z);
         player.MoveDir.Normalize();
@@ -237,7 +234,7 @@ public class PlayerSprintState : IPlayerState
 
     public override void Update()
     {
-        if (player.PlayerData.IsGround)
+        if (player.CheckIsGround())
         {
             if (player.PlayerData.IsJump)
             {
@@ -274,7 +271,6 @@ public class PlayerFallenState : IPlayerState
     {
         player = playerController;
         stateManager = manager;
-        player.PlayerData.IsGround = false;
     }
 
     public override void Exit()
@@ -284,7 +280,6 @@ public class PlayerFallenState : IPlayerState
 
     public override void Move()
     {
-        player.CheckIsGround();
         player.PlayerData.InAirTime += Time.deltaTime;
         player.PlayerRb.AddForce(-Vector3.up * player.PlayerData.PlayerFallenSpeed * player.PlayerData.InAirTime);
         Debug.Log("추락중");
@@ -302,7 +297,7 @@ public class PlayerFallenState : IPlayerState
 
     public override void Update()
     {
-        if(player.PlayerData.IsGround)
+        if(player.CheckIsGround())
         {
             stateManager.ChangeState(new PlayerLandingState());
             return;
@@ -344,7 +339,7 @@ public class PlayerLandingState : IPlayerState
 
     public override void Update()
     {
-        if (player.PlayerData.IsGround)
+        if (player.CheckIsGround())
         {
             Debug.Log("랜딩");
             stateManager.ChangeState(new PlayerIdleState());
@@ -376,7 +371,7 @@ public class PlayerJumpState : IPlayerState
 
     public override void Move()
     {
-        player.CheckIsGround();
+        
     }
 
     public override void Rotation()
@@ -391,7 +386,7 @@ public class PlayerJumpState : IPlayerState
 
     public override void Update()
     {
-        if (player.PlayerData.IsGround)
+        if (player.CheckIsGround())
         {
             stateManager.ChangeState(new PlayerLandingState());
             return;
