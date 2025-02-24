@@ -9,19 +9,17 @@ public class PlayerController : MonoBehaviour
     private PlayerData playerData;//플레이어 데이터
     private Rigidbody playerRb;//리지드 바디
     private Camera cam;//메인 카메라
-    private IPlayerState currentState;//플레이어 상태
     private AnimationController anime;
+    private BoxCollider weaPon; //무기
     private RaycastHit sloopHit;
     private Vector3 moveDir;//움직이는 방향
     private Vector2 inputMoveDir;//인풋 변수 받아옴
-    private BoxCollider weaPon; //무기
+    private bool wasGround = true;
 
     private void Awake()
     {
         playerData = GetComponent<PlayerData>();
         playerRb = GetComponent<Rigidbody>();
-        currentState = new PlayerIdleState();
-        currentState.Enter(this);
         cam = Camera.main;
         anime = GetComponent<AnimationController>();
         weaPon = GetComponentInChildren<BoxCollider>();
@@ -32,45 +30,11 @@ public class PlayerController : MonoBehaviour
     public PlayerData PlayerData { get => playerData; set => playerData = value; }
     public Rigidbody PlayerRb { get => playerRb; set => playerRb = value; }
     public Camera Cam { get => cam; set => cam = value; }
-    public IPlayerState CurrentState { get => currentState; set => currentState = value; }
     public AnimationController Anime { get => anime; set => anime = value; }
     public BoxCollider WeaPon { get => weaPon; set => weaPon = value; }
     public RaycastHit SloopHit { get => sloopHit; set => sloopHit = value; }
     public Vector3 MoveDir { get => moveDir; set => moveDir = value; }
     public Vector3 InputMoveDir { get => inputMoveDir; set => inputMoveDir = value; }
-
-    public void FixedUpdated()
-    {
-        if (currentState != null)
-        {
-            currentState.Move();
-            currentState.Rotation();
-        }
-    }
-
-    public void Updated()
-    {
-        if (currentState != null)
-        {
-            currentState.Update();
-            currentState.Attack();
-        }
-    }
-
-    //플레이어 상태 변화 시켜주는 코드
-    public void ChangeState(IPlayerState newState)
-    {
-        currentState?.Exit();
-        currentState = newState;
-        currentState?.Enter(this);
-    }
-
-    //명령 내리기
-    public void ExecuteCommand(ICommand command)
-    {
-        command.Execute();
-    }
-
 
     //플레이어가 뛰나 안뛰나 여부 판단
     public void SetSprint(bool TorF)
@@ -92,8 +56,13 @@ public class PlayerController : MonoBehaviour
 
         var coll = Physics.OverlapSphere(originalPos, playerData.FallenSphereRadius, playerData.GroundLayerMask);
         bool isGround = coll.Length > 0;
+        if(playerData.IsGround =! isGround)
+        {
+            playerData.IsGround = isGround;
+            return isGround;
+        }
 
-        return isGround;
+        return playerData.IsGround;
     }
 
     //플레이어 착지
@@ -181,8 +150,6 @@ public class PlayerController : MonoBehaviour
     //경사로 일때 행동
     public void OnSloop()
     {
-        IsOnSloop();
-
         if (playerData.IsSloop)
         {
             moveDir = Vector3.ProjectOnPlane(moveDir, sloopHit.normal);

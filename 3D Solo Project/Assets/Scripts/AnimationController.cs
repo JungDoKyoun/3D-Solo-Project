@@ -17,13 +17,8 @@ public class AnimationController : MonoBehaviour
         _speed = Animator.StringToHash("Speed");
         _attack = Animator.StringToHash("SwordAttack");
     }
-    
-    public void PlayAllAnime()
-    {
-        PlayerMoveAnime();
-    }
 
-    private void PlayerMoveAnime()
+    public void PlayerMoveAnime()
     {
         playerSpeed = player.PlayerData.Magnitude;
         float speed;

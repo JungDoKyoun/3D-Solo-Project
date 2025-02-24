@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class IPlayerState
 {
-    public abstract void Enter(PlayerController playerController);
+    public abstract void Enter(PlayerController playerController, PlayerStateManager manager);
     public abstract void Update();
     public abstract void Exit();
     public abstract void Move();
@@ -16,10 +16,12 @@ public abstract class IPlayerState
 public class PlayerIdleState : IPlayerState
 {
     private PlayerController player;
+    private PlayerStateManager stateManager;
 
-    public override void Enter(PlayerController playerController)
+    public override void Enter(PlayerController playerController, PlayerStateManager manager)
     {
         player = playerController;
+        stateManager = manager;
     }
     
     public override void Exit()
@@ -29,28 +31,15 @@ public class PlayerIdleState : IPlayerState
 
     public override void Move()
     {
+        player.CheckIsGround();
         //경사로
         player.IsOnSloop();
-
-        if (player.PlayerData.IsSloop)
-        {
-            player.MoveDir = Vector3.ProjectOnPlane(player.MoveDir, player.SloopHit.normal);
-            player.PlayerRb.useGravity = false;
-            Debug.Log(player.PlayerData.IsSloop + " 경사면");
-        }
-        else if (!player.NextFrameIsSloop())
-        {
-            player.MoveDir = Vector3.zero;
-            player.PlayerRb.velocity = Vector3.zero;
-        }
-        else
-        {
-            player.PlayerRb.useGravity = true;
-        }
+        player.OnSloop();
 
         //플레이어 움직임
         player.PlayerRb.velocity = Vector3.zero;
         player.PlayerData.Magnitude = player.PlayerRb.velocity.magnitude;
+        player.Anime.PlayerMoveAnime();
     }
 
     public override void Rotation()
@@ -74,30 +63,30 @@ public class PlayerIdleState : IPlayerState
 
     public override void Update()
     {
-        if(player.CheckIsGround())
+        if(player.PlayerData.IsGround)
         {
             if(player.PlayerData.IsJump)
             {
-                player.ChangeState(new PlayerJumpState());
+                stateManager.ChangeState(new PlayerJumpState());
                 return;
             }
             else if(player.InputMoveDir.magnitude > 0.1f)
             {
                 if(player.GetSprint())
                 {
-                    player.ChangeState(new PlayerSprintState());
+                    stateManager.ChangeState(new PlayerSprintState());
                     return;
                 }
                 else
                 {
-                    player.ChangeState(new PlayerMoveState());
+                    stateManager.ChangeState(new PlayerMoveState());
                     return;
                 }
             }
         }
         else
         {
-            player.ChangeState(new PlayerFallenState());
+            stateManager.ChangeState(new PlayerFallenState());
             return;
         }
     }
@@ -107,10 +96,12 @@ public class PlayerIdleState : IPlayerState
 public class PlayerMoveState : IPlayerState
 {
     private PlayerController player;
+    private PlayerStateManager stateManager;
 
-    public override void Enter(PlayerController playerController)
+    public override void Enter(PlayerController playerController, PlayerStateManager manager)
     {
         player = playerController;
+        stateManager = manager;
     }
 
     public override void Exit()
@@ -120,38 +111,22 @@ public class PlayerMoveState : IPlayerState
 
     public override void Move()
     {
+        player.CheckIsGround();
         player.MoveDir = player.Cam.transform.forward * player.InputMoveDir.y + player.Cam.transform.right * player.InputMoveDir.x;
         player.MoveDir = new Vector3(player.MoveDir.x, 0, player.MoveDir.z);
         player.MoveDir.Normalize();
 
         //경사로
         player.IsOnSloop();
-
-        if (player.PlayerData.IsSloop)
-        {
-            player.MoveDir = Vector3.ProjectOnPlane(player.MoveDir, player.SloopHit.normal);
-            player.PlayerRb.useGravity = false;
-            Debug.Log(player.PlayerData.IsSloop + " 경사면");
-        }
-        else if (!player.NextFrameIsSloop())
-        {
-            player.MoveDir = Vector3.zero;
-            player.PlayerRb.velocity = Vector3.zero;
-        }
-        else
-        {
-            player.PlayerRb.useGravity = true;
-        }
+        player.OnSloop();
 
         //플레이어 움직임
         player.PlayerRb.velocity = player.MoveDir * player.PlayerData.PlayerMoveSpeed;
         player.PlayerData.Magnitude = player.PlayerRb.velocity.magnitude;
 
         //계단
-        if (player.CheckStair() && !player.IsOnSloop())
-        {
-            player.PlayerRb.position -= new Vector3(0, -player.PlayerData.StepSmooth, 0);
-        }
+        player.UpStair();
+        player.Anime.PlayerMoveAnime();
     }
 
     public override void Rotation()
@@ -175,30 +150,30 @@ public class PlayerMoveState : IPlayerState
 
     public override void Update()
     {
-        if (player.CheckIsGround())
+        if (player.PlayerData.IsGround)
         {
             if (player.PlayerData.IsJump)
             {
-                player.ChangeState(new PlayerJumpState());
+                stateManager.ChangeState(new PlayerJumpState());
                 return;
             }
             else if (player.InputMoveDir.magnitude > 0.1f)
             {
                 if (player.GetSprint())
                 {
-                    player.ChangeState(new PlayerSprintState());
+                    stateManager.ChangeState(new PlayerSprintState());
                     return;
                 }
             }
             else if(player.InputMoveDir.magnitude < 0.1f)
             {
-                player.ChangeState(new PlayerIdleState());
+                stateManager.ChangeState(new PlayerIdleState());
                 return;
             }
         }
         else
         {
-            player.ChangeState(new PlayerFallenState());
+            stateManager.ChangeState(new PlayerFallenState());
         }
     }
 
@@ -208,10 +183,12 @@ public class PlayerMoveState : IPlayerState
 public class PlayerSprintState : IPlayerState
 {
     private PlayerController player;
+    private PlayerStateManager stateManager;
 
-    public override void Enter(PlayerController playerController)
+    public override void Enter(PlayerController playerController, PlayerStateManager manager)
     {
         player = playerController;
+        stateManager = manager;
     }
 
     public override void Exit()
@@ -221,38 +198,22 @@ public class PlayerSprintState : IPlayerState
 
     public override void Move()
     {
+        player.CheckIsGround();
         player.MoveDir = player.Cam.transform.forward * player.InputMoveDir.y + player.Cam.transform.right * player.InputMoveDir.x;
         player.MoveDir = new Vector3(player.MoveDir.x, 0, player.MoveDir.z);
         player.MoveDir.Normalize();
 
         //경사로
         player.IsOnSloop();
-
-        if (player.PlayerData.IsSloop)
-        {
-            player.MoveDir = Vector3.ProjectOnPlane(player.MoveDir, player.SloopHit.normal);
-            player.PlayerRb.useGravity = false;
-            Debug.Log(player.PlayerData.IsSloop + " 경사면");
-        }
-        else if (!player.NextFrameIsSloop())
-        {
-            player.MoveDir = Vector3.zero;
-            player.PlayerRb.velocity = Vector3.zero;
-        }
-        else
-        {
-            player.PlayerRb.useGravity = true;
-        }
+        player.OnSloop();
 
         //움직임
         player.PlayerRb.velocity = player.MoveDir * player.PlayerData.PlayerSprintSpeed;
         player.PlayerData.Magnitude = player.PlayerRb.velocity.magnitude;
 
         //계단
-        if (player.CheckStair() && !player.IsOnSloop())
-        {
-            player.PlayerRb.position -= new Vector3(0, -player.PlayerData.StepSmooth, 0);
-        }
+        player.UpStair();
+        player.Anime.PlayerMoveAnime();
     }
 
     public override void Rotation()
@@ -276,30 +237,30 @@ public class PlayerSprintState : IPlayerState
 
     public override void Update()
     {
-        if (player.CheckIsGround())
+        if (player.PlayerData.IsGround)
         {
             if (player.PlayerData.IsJump)
             {
-                player.ChangeState(new PlayerJumpState());
+                stateManager.ChangeState(new PlayerJumpState());
                 return;
             }
             else if (player.InputMoveDir.magnitude > 0.1f)
             {
                 if (!player.GetSprint())
                 {
-                    player.ChangeState(new PlayerMoveState());
+                    stateManager.ChangeState(new PlayerMoveState());
                     return;
                 }
             }
             else if (player.InputMoveDir.magnitude < 0.1f)
             {
-                player.ChangeState(new PlayerIdleState());
+                stateManager.ChangeState(new PlayerIdleState());
                 return;
             }
         }
         else
         {
-            player.ChangeState(new PlayerFallenState());
+            stateManager.ChangeState(new PlayerFallenState());
         }
     }
 }
@@ -308,9 +269,11 @@ public class PlayerSprintState : IPlayerState
 public class PlayerFallenState : IPlayerState
 {
     private PlayerController player;
-    public override void Enter(PlayerController playerController)
+    private PlayerStateManager stateManager;
+    public override void Enter(PlayerController playerController, PlayerStateManager manager)
     {
         player = playerController;
+        stateManager = manager;
         player.PlayerData.IsGround = false;
     }
 
@@ -321,6 +284,7 @@ public class PlayerFallenState : IPlayerState
 
     public override void Move()
     {
+        player.CheckIsGround();
         player.PlayerData.InAirTime += Time.deltaTime;
         player.PlayerRb.AddForce(-Vector3.up * player.PlayerData.PlayerFallenSpeed * player.PlayerData.InAirTime);
         Debug.Log("추락중");
@@ -338,9 +302,9 @@ public class PlayerFallenState : IPlayerState
 
     public override void Update()
     {
-        if(player.CheckIsGround())
+        if(player.PlayerData.IsGround)
         {
-            player.ChangeState(new PlayerLandingState());
+            stateManager.ChangeState(new PlayerLandingState());
             return;
         }
     }
@@ -350,9 +314,11 @@ public class PlayerFallenState : IPlayerState
 public class PlayerLandingState : IPlayerState
 {
     private PlayerController player;
-    public override void Enter(PlayerController playerController)
+    private PlayerStateManager stateManager;
+    public override void Enter(PlayerController playerController, PlayerStateManager manager)
     {
         player = playerController;
+        stateManager = manager;
         player.Landing();
     }
 
@@ -381,7 +347,7 @@ public class PlayerLandingState : IPlayerState
         if (player.PlayerData.IsGround)
         {
             Debug.Log("랜딩");
-            player.ChangeState(new PlayerIdleState());
+            stateManager.ChangeState(new PlayerIdleState());
             return;
         }
     }
@@ -390,11 +356,12 @@ public class PlayerLandingState : IPlayerState
 //점프 상태
 public class PlayerJumpState : IPlayerState
 {
-    PlayerController player;
-    public override void Enter(PlayerController playerController)
+    private PlayerController player;
+    private PlayerStateManager stateManager;
+    public override void Enter(PlayerController playerController, PlayerStateManager manager)
     {
         player = playerController;
-
+        stateManager = manager;
         player.PlayerRb.useGravity = true;
         float playerHight = Mathf.Sqrt(-2 * player.PlayerData.GravityForce * player.PlayerData.JumpPower);
         Vector3 playerVel = player.PlayerRb.velocity;
@@ -409,7 +376,7 @@ public class PlayerJumpState : IPlayerState
 
     public override void Move()
     {
-        
+        player.CheckIsGround();
     }
 
     public override void Rotation()
@@ -424,9 +391,9 @@ public class PlayerJumpState : IPlayerState
 
     public override void Update()
     {
-        if (player.CheckIsGround())
+        if (player.PlayerData.IsGround)
         {
-            player.ChangeState(new PlayerLandingState());
+            stateManager.ChangeState(new PlayerLandingState());
             return;
         }
     }

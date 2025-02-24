@@ -365,11 +365,12 @@
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/InputManager.cs"
 "Assets/Scripts/MonsterController.cs"
+"Assets/Scripts/OneHandSword.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/PlayerData.cs"
 "Assets/Scripts/PlayerInput.cs"
-"Assets/Scripts/PlayerManager.cs"
 "Assets/Scripts/PlayerState.cs"
+"Assets/Scripts/PlayerStateManager.cs"
 -langversion:9.0
 
 /deterministic

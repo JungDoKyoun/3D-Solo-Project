@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -329,6 +329,7 @@ MonoBehaviour:
   _playerRotationSpeed: 0
   _playerSprintSpeed: 0
   _isSprint: 0
+  _wasGround: 0
   _groundLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -381,18 +382,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1694388104871467657, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
   m_PrefabInstance: {fileID: 1830468200}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &31172419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 31172410}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acb407630f93cf146b0fc262b8af51bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &31172421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -403,6 +392,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 98c1eee9643e12445986bd945998fc5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &31172423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31172410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7579762339730bf45924c74c78028070, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &60931148
@@ -2089,10 +2090,10 @@ PrefabInstance:
       addedObject: {fileID: 31172414}
     - targetCorrespondingSourceObject: {fileID: 1694388104871626409, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 31172419}
+      addedObject: {fileID: 31172421}
     - targetCorrespondingSourceObject: {fileID: 1694388104871626409, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 31172421}
+      addedObject: {fileID: 31172423}
   m_SourcePrefab: {fileID: 100100000, guid: 678bf8bc91771fa498236de892b83d1d, type: 3}
 --- !u!1 &1894276783
 GameObject:

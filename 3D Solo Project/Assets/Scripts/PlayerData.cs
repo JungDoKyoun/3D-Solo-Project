@@ -10,6 +10,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] float _playerSprintSpeed;
     private float _magnitude;//애니메이션 컨트롤에 줄 속력
     [SerializeField] bool _isSprint;
+    [SerializeField] bool _wasGround;
 
     [Header("플레이어 추락 및 착지")]
     [SerializeField] LayerMask _groundLayerMask;
@@ -86,6 +87,7 @@ public class PlayerData : MonoBehaviour
     public bool IsJump { get => _isJump; set => _isJump = value; }
     public bool IsSloop { get => _isSloop; set => _isSloop = value; }
     public bool IsAttack { get => _isAttack; set => _isAttack = value; }
+    public bool WasGround { get => _wasGround; set => _wasGround = value; }
     public LayerMask GroundLayerMask { get => _groundLayerMask; set => _groundLayerMask = value; }
     public Transform RawerRay { get => _rawerRay; set => _rawerRay = value; }
 
