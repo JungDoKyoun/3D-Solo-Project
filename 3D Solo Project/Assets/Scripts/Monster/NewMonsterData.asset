@@ -13,14 +13,16 @@ MonoBehaviour:
   m_Name: NewMonsterData
   m_EditorClassIdentifier: Assembly-CSharp::MonsterDataSO
   monsters:
-  - prefab: {fileID: 8333005820092157164, guid: dd0ec16675139db41b1c3ee93c26a626, type: 3}
+  - prefab: {fileID: 342034056974110957, guid: dd0ec16675139db41b1c3ee93c26a626, type: 3}
     id: 0
     name: "\uC2A4\uCF08\uB808\uD1A4"
     maxHP: 100
     detectingRange: 10
     maxCount: 50
-    patrolSpeed: 0
-    chaseSpeed: 0
+    spawnRange: 40
+    patrolSpeed: 2
+    chaseSpeed: 4
+    randomRange: 20
     groundSphereRadius: 0.35
     groundSphereOffSet: 0.32
     damage: 5

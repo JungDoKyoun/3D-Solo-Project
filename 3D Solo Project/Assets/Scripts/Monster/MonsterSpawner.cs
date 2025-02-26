@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Pool;
 
 public class MonsterSpawner : MonoBehaviour
@@ -8,6 +9,7 @@ public class MonsterSpawner : MonoBehaviour
     [SerializeField]private MonsterDataSO monsterDataSO;
     private Dictionary<int, ObjectPool<GameObject>> monsterPool;
     private Dictionary<int, int> monsterMaxCount;
+    [SerializeField] int spawnRange;
 
     private void Awake()
     {
@@ -65,7 +67,8 @@ public class MonsterSpawner : MonoBehaviour
             if(activeCount <= maxCount)
             {
                 GameObject monster = monsterPool[monsterID].Get();
-                monster.transform.position = transform.position;
+                Vector3 spawnPos = GetRandomNavMeshPos(monsterID);
+                monster.transform.position = spawnPos;
             }
         }
     }
@@ -80,5 +83,27 @@ public class MonsterSpawner : MonoBehaviour
         {
             Destroy(monster);
         }
+    }
+
+    public Vector3 GetRandomNavMeshPos(int monsterID)
+    {
+        Vector3 randomDir = Random.insideUnitSphere * monsterDataSO.monsters[monsterID].spawnRange;
+        randomDir += transform.position;
+
+        NavMeshHit hit;
+        if(NavMesh.SamplePosition(randomDir, out hit, monsterDataSO.monsters[monsterID].spawnRange, NavMesh.AllAreas))
+        {
+            return hit.position;
+        }
+        else
+        {
+            return transform.position;
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, spawnRange);
     }
 }

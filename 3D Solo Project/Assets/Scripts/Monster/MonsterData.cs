@@ -13,10 +13,12 @@ public class MonsterData
     public int maxHP; //최대체력
     public int detectingRange; //감지 범위
     public int maxCount; //최대 생성갯수
+    public int spawnRange;
 
     [Header("이동 관련")]
     public float patrolSpeed; //순찰속도
     public float chaseSpeed; //추격속도
+    public int randomRange;
 
     [Header("땅 감지 관련")]
     public float groundSphereRadius;

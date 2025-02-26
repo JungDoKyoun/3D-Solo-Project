@@ -37,6 +37,8 @@ public class PlayerIdleState : IPlayerState
         //플레이어 움직임
         player.PlayerRb.velocity = Vector3.zero;
         player.PlayerData.Magnitude = player.PlayerRb.velocity.magnitude;
+
+        //애니메이션
         player.Anime.PlayerMoveAnime();
 
         //플레이어 회전
@@ -126,6 +128,8 @@ public class PlayerMoveState : IPlayerState
 
         //계단
         player.UpStair();
+
+        //애니메이션
         player.Anime.PlayerMoveAnime();
 
         //플레이어 회전
@@ -201,6 +205,8 @@ public class PlayerSprintState : IPlayerState
 
         //계단
         player.UpStair();
+
+        //애니메이션
         player.Anime.PlayerMoveAnime();
 
         //플레이어 회전
@@ -262,7 +268,6 @@ public class PlayerFallenState : IPlayerState
     {
         player.PlayerData.InAirTime += Time.deltaTime;
         player.PlayerRb.AddForce(-Vector3.up * player.PlayerData.PlayerFallenSpeed * player.PlayerData.InAirTime);
-        Debug.Log("추락중");
     }
 
     public override void Attack()
@@ -311,7 +316,6 @@ public class PlayerLandingState : IPlayerState
     {
         if (player.CheckIsGround())
         {
-            Debug.Log("랜딩");
             stateManager.ChangeState(new PlayerIdleState());
             return;
         }
