@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 MoveDir { get => moveDir; set => moveDir = value; }
     public Vector3 InputMoveDir { get => inputMoveDir; set => inputMoveDir = value; }
     public int CurrentAtk { get => _currentAtk; set => _currentAtk = value; }
+    public int CurrentDef { get => _currentDef; set => _currentDef = value; }
 
     //플레이어 방향 전환
     public void Rotation()

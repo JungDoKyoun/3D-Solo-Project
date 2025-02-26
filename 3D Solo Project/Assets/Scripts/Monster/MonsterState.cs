@@ -8,11 +8,10 @@ public abstract class IMonsterState
     public abstract void Update();
     public abstract void Exit();
     public abstract void Move();
-    public abstract void Detect();
     public abstract void Attack();
 }
 
-public class Idle : IMonsterState
+public class MonsterIdle : IMonsterState
 {
     MonsterController monster;
     MonsterStateManager stateManager;
@@ -30,15 +29,20 @@ public class Idle : IMonsterState
 
     public override void Update()
     {
-        
+        if(monster.CheckIsGround())
+        {
+            if (monster.DetectPlayer() != null)
+            {
+                stateManager.ChangeMonsterState(new MonsterChase());
+            }
+        }
+        else
+        {
+            stateManager.ChangeMonsterState(new MonsterFalling());
+        }
     }
 
     public override void Move()
-    {
-        
-    }
-
-    public override void Detect()
     {
         
     }
@@ -49,7 +53,7 @@ public class Idle : IMonsterState
     }
 }
 
-public class Patrol : IMonsterState
+public class MonsterPatrol : IMonsterState
 {
     MonsterController monster;
     MonsterStateManager stateManager;
@@ -67,15 +71,20 @@ public class Patrol : IMonsterState
 
     public override void Update()
     {
-
+        if (monster.CheckIsGround())
+        {
+            if (monster.DetectPlayer() != null)
+            {
+                stateManager.ChangeMonsterState(new MonsterChase());
+            }
+        }
+        else
+        {
+            stateManager.ChangeMonsterState(new MonsterFalling());
+        }
     }
 
     public override void Move()
-    {
-
-    }
-
-    public override void Detect()
     {
 
     }
@@ -86,10 +95,11 @@ public class Patrol : IMonsterState
     }
 }
 
-public class Chase : IMonsterState
+public class MonsterChase : IMonsterState
 {
     MonsterController monster;
     MonsterStateManager stateManager;
+    Collider target;
 
     public override void Enter(MonsterController monsterController, MonsterStateManager monsterStateManager)
     {
@@ -104,7 +114,54 @@ public class Chase : IMonsterState
 
     public override void Update()
     {
+        target = monster.DetectPlayer();
+        if (monster.CheckIsGround())
+        {
+            if (monster.DetectPlayer() == null)
+            {
+                stateManager.ChangeMonsterState(new MonsterIdle());
+            }
+        }
+        else
+        {
+            stateManager.ChangeMonsterState(new MonsterFalling());
+        }
+    }
 
+    public override void Move()
+    {
+        monster.ChasePlayer(target);
+    }
+
+    public override void Attack()
+    {
+
+    }
+}
+
+public class MonsterFalling : IMonsterState
+{
+    MonsterController monster;
+    MonsterStateManager stateManager;
+    Collider target;
+
+    public override void Enter(MonsterController monsterController, MonsterStateManager monsterStateManager)
+    {
+        monster = monsterController;
+        stateManager = monsterStateManager;
+    }
+
+    public override void Exit()
+    {
+
+    }
+
+    public override void Update()
+    {
+        if (monster.CheckIsGround())
+        {
+            stateManager.ChangeMonsterState(new MonsterIdle());
+        }
     }
 
     public override void Move()
@@ -112,7 +169,35 @@ public class Chase : IMonsterState
 
     }
 
-    public override void Detect()
+    public override void Attack()
+    {
+
+    }
+}
+
+public class MonsterLanding : IMonsterState
+{
+    MonsterController monster;
+    MonsterStateManager stateManager;
+    Collider target;
+
+    public override void Enter(MonsterController monsterController, MonsterStateManager monsterStateManager)
+    {
+        monster = monsterController;
+        stateManager = monsterStateManager;
+    }
+
+    public override void Exit()
+    {
+
+    }
+
+    public override void Update()
+    {
+        
+    }
+
+    public override void Move()
     {
 
     }

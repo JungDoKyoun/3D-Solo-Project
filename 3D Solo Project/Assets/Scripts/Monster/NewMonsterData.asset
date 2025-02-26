@@ -17,9 +17,12 @@ MonoBehaviour:
     id: 0
     name: "\uC2A4\uCF08\uB808\uD1A4"
     maxHP: 100
-    damage: 5
-    def: 1
-    detectingRange: 0
+    detectingRange: 10
     maxCount: 50
     patrolSpeed: 0
     chaseSpeed: 0
+    groundSphereRadius: 0.35
+    groundSphereOffSet: 0.32
+    damage: 5
+    def: 1
+    attackDel: 3
