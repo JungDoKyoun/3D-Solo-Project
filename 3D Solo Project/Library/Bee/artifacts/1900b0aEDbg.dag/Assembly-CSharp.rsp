@@ -366,6 +366,8 @@
 "Assets/Scripts/Monster/MonsterData.cs"
 "Assets/Scripts/Monster/MonsterSpawner.cs"
 "Assets/Scripts/Monster/MonsterState.cs"
+"Assets/Scripts/Monster/MonsterStateManager.cs"
+"Assets/Scripts/Monster/MonsterWeaponManager.cs"
 "Assets/Scripts/OneHandSword.cs"
 "Assets/Scripts/Player/CameraManager.cs"
 "Assets/Scripts/Player/InputManager.cs"
@@ -374,6 +376,7 @@
 "Assets/Scripts/Player/PlayerInput.cs"
 "Assets/Scripts/Player/PlayerState.cs"
 "Assets/Scripts/Player/PlayerStateManager.cs"
+"Assets/Scripts/WeaponManager.cs"
 -langversion:9.0
 
 /deterministic

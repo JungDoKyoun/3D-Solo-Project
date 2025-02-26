@@ -14,7 +14,9 @@ public class PlayerController : MonoBehaviour
     private RaycastHit sloopHit;
     private Vector3 moveDir;//움직이는 방향
     private Vector2 inputMoveDir;//인풋 변수 받아옴
-    private bool wasGround = true;
+    private int _currentHP;
+    private int _currentAtk;
+    private int _currentDef;
 
     private void Awake()
     {
@@ -25,6 +27,9 @@ public class PlayerController : MonoBehaviour
         weaPon = GetComponentInChildren<BoxCollider>();
         moveDir = Vector3.zero;
         playerData.UpperRay.position = new Vector3(playerData.UpperRay.position.x, playerData.StepHight, playerData.UpperRay.position.y);
+        _currentHP = playerData.PlayerMaxHP;
+        _currentAtk = playerData.PlayerAtk;
+        _currentDef = playerData.PlayerDef;
     }
 
     public PlayerData PlayerData { get => playerData; set => playerData = value; }
@@ -35,6 +40,22 @@ public class PlayerController : MonoBehaviour
     public RaycastHit SloopHit { get => sloopHit; set => sloopHit = value; }
     public Vector3 MoveDir { get => moveDir; set => moveDir = value; }
     public Vector3 InputMoveDir { get => inputMoveDir; set => inputMoveDir = value; }
+    public int CurrentAtk { get => _currentAtk; set => _currentAtk = value; }
+
+    //플레이어 방향 전환
+    public void Rotation()
+    {
+        Vector3 targetdir = (Cam.transform.forward * InputMoveDir.y) + (Cam.transform.right * InputMoveDir.x);
+        targetdir.Normalize();
+        targetdir.y = 0;
+        if (targetdir == Vector3.zero)
+        {
+            targetdir = transform.forward;
+        }
+        Quaternion roDir = Quaternion.LookRotation(targetdir);
+        Quaternion playerRo = Quaternion.Lerp(transform.rotation, roDir, PlayerData.PlayerRotationSpeed * Time.deltaTime);
+        transform.rotation = playerRo;
+    }
 
     //플레이어가 뛰나 안뛰나 여부 판단
     public void SetSprint(bool TorF)
@@ -184,13 +205,33 @@ public class PlayerController : MonoBehaviour
         playerData.IsAttack = TorF;
     }
 
+    //무기 콜라이더 켜기
     public void OnWeaponCollider()
     {
         weaPon.enabled = true;
     }
 
+    //무기 콜라이더 끄기
     public void OffWeaponCollider()
     {
         weaPon.enabled = false;
+    }
+
+    //몬스터에게 맞을 때
+    public void TakeDamae(int damage)
+    {
+        _currentHP -= damage - playerData.PlayerDef;
+
+        if(_currentHP <= 0)
+        {
+            _currentHP = 0;
+            PlayerDie();
+        }
+    }
+
+    //플레이어 죽음
+    public void PlayerDie()
+    {
+        playerData.IsPlayerDie = true;
     }
 }

@@ -8,7 +8,6 @@ public abstract class IPlayerState
     public abstract void Update();
     public abstract void Exit();
     public abstract void Move();
-    public abstract void Rotation();
     public abstract void Attack();
 }
 
@@ -39,21 +38,24 @@ public class PlayerIdleState : IPlayerState
         player.PlayerRb.velocity = Vector3.zero;
         player.PlayerData.Magnitude = player.PlayerRb.velocity.magnitude;
         player.Anime.PlayerMoveAnime();
+
+        //플레이어 회전
+        player.Rotation();
     }
 
-    public override void Rotation()
-    {
-        Vector3 targetdir = (player.Cam.transform.forward * player.InputMoveDir.y) + (player.Cam.transform.right * player.InputMoveDir.x);
-        targetdir.Normalize();
-        targetdir.y = 0;
-        if (targetdir == Vector3.zero)
-        {
-            targetdir = player.transform.forward;
-        }
-        Quaternion roDir = Quaternion.LookRotation(targetdir);
-        Quaternion playerRo = Quaternion.Lerp(player.transform.rotation, roDir, player.PlayerData.PlayerRotationSpeed * Time.deltaTime);
-        player.transform.rotation = playerRo;
-    }
+    //public override void Rotation()
+    //{
+    //    Vector3 targetdir = (player.Cam.transform.forward * player.InputMoveDir.y) + (player.Cam.transform.right * player.InputMoveDir.x);
+    //    targetdir.Normalize();
+    //    targetdir.y = 0;
+    //    if (targetdir == Vector3.zero)
+    //    {
+    //        targetdir = player.transform.forward;
+    //    }
+    //    Quaternion roDir = Quaternion.LookRotation(targetdir);
+    //    Quaternion playerRo = Quaternion.Lerp(player.transform.rotation, roDir, player.PlayerData.PlayerRotationSpeed * Time.deltaTime);
+    //    player.transform.rotation = playerRo;
+    //}
 
     public override void Attack()
     {
@@ -125,20 +127,9 @@ public class PlayerMoveState : IPlayerState
         //계단
         player.UpStair();
         player.Anime.PlayerMoveAnime();
-    }
 
-    public override void Rotation()
-    {
-        Vector3 targetdir = (player.Cam.transform.forward * player.InputMoveDir.y) + (player.Cam.transform.right * player.InputMoveDir.x);
-        targetdir.Normalize();
-        targetdir.y = 0;
-        if (targetdir == Vector3.zero)
-        {
-            targetdir = player.transform.forward;
-        }
-        Quaternion roDir = Quaternion.LookRotation(targetdir);
-        Quaternion playerRo = Quaternion.Lerp(player.transform.rotation, roDir, player.PlayerData.PlayerRotationSpeed * Time.deltaTime);
-        player.transform.rotation = playerRo;
+        //플레이어 회전
+        player.Rotation();
     }
 
     public override void Attack()
@@ -211,20 +202,9 @@ public class PlayerSprintState : IPlayerState
         //계단
         player.UpStair();
         player.Anime.PlayerMoveAnime();
-    }
 
-    public override void Rotation()
-    {
-        Vector3 targetdir = (player.Cam.transform.forward * player.InputMoveDir.y) + (player.Cam.transform.right * player.InputMoveDir.x);
-        targetdir.Normalize();
-        targetdir.y = 0;
-        if (targetdir == Vector3.zero)
-        {
-            targetdir = player.transform.forward;
-        }
-        Quaternion roDir = Quaternion.LookRotation(targetdir);
-        Quaternion playerRo = Quaternion.Lerp(player.transform.rotation, roDir, player.PlayerData.PlayerRotationSpeed * Time.deltaTime);
-        player.transform.rotation = playerRo;
+        //플레이어 회전
+        player.Rotation();
     }
 
     public override void Attack()
@@ -285,11 +265,6 @@ public class PlayerFallenState : IPlayerState
         Debug.Log("추락중");
     }
 
-    public override void Rotation()
-    {
-        
-    }
-
     public override void Attack()
     {
 
@@ -323,11 +298,6 @@ public class PlayerLandingState : IPlayerState
     }
 
     public override void Move()
-    {
-        
-    }
-
-    public override void Rotation()
     {
         
     }
@@ -370,11 +340,6 @@ public class PlayerJumpState : IPlayerState
     }
 
     public override void Move()
-    {
-        
-    }
-
-    public override void Rotation()
     {
         
     }

@@ -16,6 +16,10 @@ MonoBehaviour:
   - prefab: {fileID: 8333005820092157164, guid: dd0ec16675139db41b1c3ee93c26a626, type: 3}
     id: 0
     name: "\uC2A4\uCF08\uB808\uD1A4"
-    hp: 10
+    maxHP: 100
     damage: 5
+    def: 1
+    detectingRange: 0
     maxCount: 50
+    patrolSpeed: 0
+    chaseSpeed: 0

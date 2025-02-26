@@ -9,6 +9,11 @@ public class MonsterSpawner : MonoBehaviour
     private Dictionary<int, ObjectPool<GameObject>> monsterPool;
     private Dictionary<int, int> monsterMaxCount;
 
+    private void Awake()
+    {
+        
+    }
+
     private void Start()
     {
         monsterPool = new Dictionary<int, ObjectPool<GameObject>>();
@@ -39,8 +44,15 @@ public class MonsterSpawner : MonoBehaviour
 
     private GameObject CreateMonster(int id)
     {
-        GameObject monster = monsterDataSO.monsters[id].prefab;
-        return Instantiate(monster);
+        GameObject monsterPrefab = monsterDataSO.monsters[id].prefab;
+        GameObject monster = Instantiate(monsterPrefab);
+
+        MonsterController monsterController = monster.GetComponent<MonsterController>();
+        if(monsterController != null)
+        {
+            monsterController.Initialize(monsterDataSO.monsters[id]);
+        }
+        return monster;
     }
 
     public void SpawnMonster(int monsterID)

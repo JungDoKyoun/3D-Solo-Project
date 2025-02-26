@@ -22,7 +22,6 @@ public class AnimationController : MonoBehaviour
     {
         playerSpeed = player.PlayerData.Magnitude;
         float speed;
-        Debug.Log(player.PlayerData.Magnitude);
         if (playerSpeed > 0 && playerSpeed < 3.5f)
         {
             speed = 0.5f;

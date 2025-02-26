@@ -42,6 +42,14 @@ public class PlayerData : MonoBehaviour
     [SerializeField] float _attackPower;
     [SerializeField] bool _isAttack;
 
+    [Header("플레이어 스텟")]
+    [SerializeField] int _playerMaxHP;
+    [SerializeField] int _playerAtk;
+    [SerializeField] int _playerDef;
+
+    [Header("플레이어 죽음")]
+    [SerializeField] bool _isPlayerDie;
+
     private void Awake()
     {
         PlayerMoveSpeed = 3f;
@@ -58,11 +66,15 @@ public class PlayerData : MonoBehaviour
         MaxAngle = 35;
         MaxDistance = 2;
         AttackPower = 10f;
+        PlayerMaxHP = 100;
+        PlayerAtk = 10;
+        PlayerDef = 1;
         IsSprint = false;
         IsGround = true;
         IsJump = false;
         IsSloop = false;
         IsAttack = false;
+        IsPlayerDie = false;
     }
 
     public float PlayerMoveSpeed { get => _playerMoveSpeed;  set => _playerMoveSpeed = value; }
@@ -82,12 +94,16 @@ public class PlayerData : MonoBehaviour
     public float Magnitude { get => _magnitude; set => _magnitude = value; }
     public float AngleResult { get => _angleResult; set => _angleResult = value; }
     public float AttackPower { get => _attackPower; set => _attackPower = value; }
+    public int PlayerMaxHP { get => _playerMaxHP; set => _playerMaxHP = value; }
+    public int PlayerAtk { get => _playerAtk; set => _playerAtk = value; }
+    public int PlayerDef { get => _playerDef; set => _playerDef = value; }
     public bool IsSprint { get => _isSprint; set => _isSprint = value; }
     public bool IsGround { get => _isGround; set => _isGround = value; }
     public bool IsJump { get => _isJump; set => _isJump = value; }
     public bool IsSloop { get => _isSloop; set => _isSloop = value; }
     public bool IsAttack { get => _isAttack; set => _isAttack = value; }
     public bool WasGround { get => _wasGround; set => _wasGround = value; }
+    public bool IsPlayerDie { get => _isPlayerDie; set => _isPlayerDie = value; }
     public LayerMask GroundLayerMask { get => _groundLayerMask; set => _groundLayerMask = value; }
     public Transform RawerRay { get => _rawerRay; set => _rawerRay = value; }
 

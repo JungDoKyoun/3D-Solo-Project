@@ -18,7 +18,6 @@ public class PlayerStateManager : MonoBehaviour
         if (currentState != null)
         {
             currentState.Move();
-            currentState.Rotation();
         }
     }
 

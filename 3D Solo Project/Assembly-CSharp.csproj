@@ -66,12 +66,15 @@
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\AnimationController.cs" />
     <Compile Include="Assets\Scripts\OneHandSword.cs" />
+    <Compile Include="Assets\Scripts\WeaponManager.cs" />
     <Compile Include="Assets\Scripts\Player\InputManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStateManager.cs" />
     <Compile Include="Assets\Scripts\Monster\MonsterController.cs" />
+    <Compile Include="Assets\Scripts\Monster\MonsterWeaponManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\Command.cs" />
+    <Compile Include="Assets\Scripts\Monster\MonsterStateManager.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerState.cs" />
     <Compile Include="Assets\Scripts\Monster\MonsterData.cs" />
     <Compile Include="Assets\Scripts\EntityInterface.cs" />
