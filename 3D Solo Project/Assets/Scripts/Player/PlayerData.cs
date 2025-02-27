@@ -50,6 +50,9 @@ public class PlayerData : MonoBehaviour
     [Header("플레이어 죽음")]
     [SerializeField] bool _isPlayerDie;
 
+    [Header("플레이어 인벤토리")]
+    [SerializeField] bool _isInveOpen;
+
     private void Awake()
     {
         PlayerMoveSpeed = 3f;
@@ -75,6 +78,7 @@ public class PlayerData : MonoBehaviour
         IsSloop = false;
         IsAttack = false;
         IsPlayerDie = false;
+        IsInveOpen = false;
     }
 
     public float PlayerMoveSpeed { get => _playerMoveSpeed;  set => _playerMoveSpeed = value; }
@@ -104,6 +108,7 @@ public class PlayerData : MonoBehaviour
     public bool IsAttack { get => _isAttack; set => _isAttack = value; }
     public bool WasGround { get => _wasGround; set => _wasGround = value; }
     public bool IsPlayerDie { get => _isPlayerDie; set => _isPlayerDie = value; }
+    public bool IsInveOpen { get => _isInveOpen; set => _isInveOpen = value; }
     public LayerMask GroundLayerMask { get => _groundLayerMask; set => _groundLayerMask = value; }
     public Transform RawerRay { get => _rawerRay; set => _rawerRay = value; }
 

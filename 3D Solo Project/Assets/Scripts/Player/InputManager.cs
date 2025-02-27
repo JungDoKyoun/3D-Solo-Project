@@ -48,8 +48,11 @@ public class InputManager : MonoBehaviour
 
     public void OnLook(InputAction.CallbackContext callback)
     {
-        lookDir = callback.ReadValue<Vector2>();
-        cameraManager.CamRoDir = lookDir;
+        if(!player.PlayerData.IsInveOpen)
+        {
+            lookDir = callback.ReadValue<Vector2>();
+            cameraManager.CamRoDir = lookDir;
+        }
     }
 
     public void OnMove(InputAction.CallbackContext callback)
@@ -80,7 +83,37 @@ public class InputManager : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext callback)
     {
-        player.SetAttack(true);
-        Debug.Log($"공격 입력 감지됨! 상태: {callback.phase}");
+        if (!player.PlayerData.IsInveOpen)
+        {
+            player.SetAttack(true);
+            Debug.Log($"공격 입력 감지됨! 상태: {callback.phase}");
+        }
+    }
+
+    public void DisablePlayerControls()
+    {
+        inputActions.PlayerAction.Look.Disable();
+        inputActions.PlayerAction.Attack.Disable();
+    }
+
+    public void EnablePlayerControls()
+    {
+        inputActions.PlayerAction.Look.Enable();
+        inputActions.PlayerAction.Attack.Enable();
+    }
+
+    public void ToggleInven()
+    {
+        player.PlayerData.IsInveOpen = !player.PlayerData.IsInveOpen;
+
+        if(player.PlayerData.IsInveOpen)
+        {
+            DisablePlayerControls();
+        }
+
+        else
+        {
+            EnablePlayerControls();
+        }
     }
 }
