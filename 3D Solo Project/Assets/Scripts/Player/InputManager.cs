@@ -119,7 +119,6 @@ public class InputManager : MonoBehaviour
     public void OnUIDrag(InputAction.CallbackContext callback)
     {
         invenUI.OnPointerDrag(callback);
-        Debug.Log("드레그중");
     }
 
     public void OnRightClick(InputAction.CallbackContext callback)

@@ -13,6 +13,7 @@ public class ItemSlotUI : MonoBehaviour
     private bool _isHasItem; //슬롯에 아이템이 있는지?
     RectTransform iconRect;
 
+    public Image ItemIcon { get => itemIcon; set => itemIcon = value; }
     public int Index { get => _index; set => _index = value; }
     public bool IsHasItem { get => _isHasItem; set => _isHasItem = value; }
     public RectTransform IconRect { get => iconRect; set => iconRect = value; }

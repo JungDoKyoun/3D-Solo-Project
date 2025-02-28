@@ -9,6 +9,8 @@ using UnityEngine.InputSystem;
 
 public class InvenUI : MonoBehaviour
 {
+    [SerializeField] private RectTransform dragIconParent; // 드래그 아이콘을 따로 표시할 부모 (Canvas 내 위치해야 함)
+    private GameObject draggingIcon; // 현재 드래그 중인 아이콘
     [SerializeField] PlayerInven playerInven;
     [Header("슬롯 설정")]
     private List<ItemSlotUI> slotUIList;
@@ -40,7 +42,6 @@ public class InvenUI : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(FindObjectOfType<ItemSlotUI>());
         pointerEvent.position = Mouse.current.position.ReadValue();
     }
 
@@ -140,12 +141,19 @@ public class InvenUI : MonoBehaviour
         raycastResults.Clear();
 
         gr.Raycast(pointerEvent, raycastResults);
-        Debug.Log("Raycast hit count: " + raycastResults.Count);
         if (raycastResults.Count == 0)
         {
             return null;
         }
-        return raycastResults[0].gameObject.GetComponent<T>();
+        foreach(var r in raycastResults)
+        {
+            if(r.gameObject.GetComponent<T>())
+            {
+                Debug.Log(r.gameObject.GetComponent<T>());
+                return r.gameObject.GetComponent<T>();
+            }
+        }
+        return null;
     }
 
     //계속 깜빡임 시간 되면 해결하고 구현
@@ -214,18 +222,38 @@ public class InvenUI : MonoBehaviour
 
         if (beginSlot != null && beginSlot.IsHasItem)
         {
-            Debug.Log("시작");
-            beginIconDragTr = beginSlot.IconRect.transform;
+            draggingIcon = Instantiate(beginSlot.ItemIcon.gameObject, dragIconParent);
+            draggingIcon.GetComponent<Image>().raycastTarget = false; // 다른 UI 클릭 방해 방지
+
+            beginIconDragTr = draggingIcon.transform;
+            beginIconDragTr.position = beginSlot.IconRect.position;
             beginIconPoint = beginIconDragTr.position;
-            beginDragPoint = new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 0f);
+            beginDragPoint = Mouse.current.position.ReadValue();
             isDragging = true;
             beginSlotIndex = beginSlot.Index;
-            beginSlot.transform.SetAsLastSibling();
+            //beginSlot.transform.SetAsLastSibling();
         }
         else
         {
             beginSlot = null;
         }
+
+        //if (beginSlot != null && beginSlot.IsHasItem)
+        //{
+        //    draggingIcon = Instantiate(beginSlot.ItemIcon.gameObject, dragIconParent);
+        //    draggingIcon.GetComponent<Image>().raycastTarget = false; // 다른 UI 클릭 방해 방지
+
+        //    beginIconDragTr = beginSlot.IconRect.transform;
+        //    beginIconPoint = beginIconDragTr.position;
+        //    beginDragPoint = new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 0f);
+        //    isDragging = true;
+        //    beginSlotIndex = beginSlot.Index;
+        //    //beginSlot.transform.SetAsLastSibling();
+        //}
+        //else
+        //{
+        //    beginSlot = null;
+        //}
     }
 
     public void OnRightPointDown(InputAction.CallbackContext callback)
@@ -242,46 +270,71 @@ public class InvenUI : MonoBehaviour
     //드래그중
     public void OnPointerDrag(InputAction.CallbackContext callback)
     {
-        if (!isDragging || beginSlot == null)
-        {
-            return;
-        }
-        Debug.Log("드레그중");
+        if (!isDragging || beginSlot == null) return;
+
         Vector3 delta = callback.ReadValue<Vector2>();
         Vector3 mousePos = new Vector3(delta.x, delta.y, 0f);
-        beginIconDragTr.position = beginIconPoint + (mousePos - beginDragPoint);
 
-        //if (Mouse.current.leftButton.isPressed)
+        if (draggingIcon != null)
+        {
+            draggingIcon.transform.position = beginIconPoint + (mousePos - beginDragPoint);
+        }
+
+        //if (!isDragging || beginSlot == null)
         //{
-        //    Vector3 mousePos = new Vector3(Mouse.current.position.ReadValue().x, Mouse.current.position.ReadValue().y, 0f);
-        //    beginIconDragTr.position = beginIconPoint + (mousePos - beginDragPoint);
+        //    return;
         //}
+        //Vector3 delta = callback.ReadValue<Vector2>();
+        //Vector3 mousePos = new Vector3(delta.x, delta.y, 0f);
+        //beginIconDragTr.position = beginIconPoint + (mousePos - beginDragPoint);
     }
 
     //클릭 땜
     public void OnPointerUp(InputAction.CallbackContext callback)
     {
-        if(!callback.canceled)
-        {
-            return;
-        }
+        if (!callback.canceled) return;
 
-        if(beginSlot != null && isDragging)
+        if (beginSlot != null && isDragging)
         {
             ItemSlotUI endSlot = RayCastAndGetCom<ItemSlotUI>();
 
-            if(endSlot != null && endSlot != beginSlot)
+            if (endSlot != null && endSlot != beginSlot)
             {
-                Debug.Log("끝");
+                Debug.Log("슬롯 교체");
                 TrySwapItems(beginSlot, endSlot);
             }
-            else
-            {
-                beginIconDragTr.position = beginIconPoint;
-            }
+        }
+
+        // 드래그 종료 후 아이콘 제거
+        if (draggingIcon != null)
+        {
+            Destroy(draggingIcon);
         }
 
         isDragging = false;
         beginSlot = null;
+
+        //if(!callback.canceled)
+        //{
+        //    return;
+        //}
+
+        //if(beginSlot != null && isDragging)
+        //{
+        //    ItemSlotUI endSlot = RayCastAndGetCom<ItemSlotUI>();
+
+        //    if(endSlot != null && endSlot != beginSlot)
+        //    {
+        //        Debug.Log("끝");
+        //        TrySwapItems(beginSlot, endSlot);
+        //    }
+        //    else
+        //    {
+        //        beginIconDragTr.position = beginIconPoint;
+        //    }
+        //}
+
+        //isDragging = false;
+        //beginSlot = null;
     }
 }
