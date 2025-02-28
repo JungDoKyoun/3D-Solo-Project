@@ -42,7 +42,18 @@ public class WeaponItemData : EquipmentItemData
 }
 
 
-public abstract class CountableItemData
+public abstract class CountableItemData : ItemDataSO
 {
+    public int MaxAmount = 99;
+}
 
+[CreateAssetMenu(fileName = "Portion", menuName = "ItemData/Portion")]
+public class PortionItemData : CountableItemData
+{
+    public float Value;
+
+    public override Item CreateItem()
+    {
+        return new PortionItem(this);
+    }
 }

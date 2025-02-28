@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
     private PlayerInput inputActions;
     private PlayerController player;
     [SerializeField]CameraManager cameraManager;
+    [SerializeField] InvenUI invenUI;
     private Vector2 moveDir;
     private Vector2 lookDir;
 
@@ -30,6 +31,12 @@ public class InputManager : MonoBehaviour
         inputActions.PlayerAction.Jump.performed += OnJump;
         inputActions.PlayerAction.Jump.canceled += OnJumpCanceled;
         inputActions.PlayerAction.Attack.performed += OnAttack;
+
+        //UI
+        inputActions.UIAction.OpenInven.performed += OnOpenInven;
+        inputActions.UIAction.UILeftClick.started += OnLeftClick;
+        inputActions.UIAction.UILeftClick.canceled += OnLeftClickRelease;
+        inputActions.UIAction.UIDrag.performed += OnUIDrag;
     }
 
     private void OnDisable()
@@ -43,16 +50,19 @@ public class InputManager : MonoBehaviour
         inputActions.PlayerAction.Jump.performed -= OnJump;
         inputActions.PlayerAction.Jump.canceled -= OnJumpCanceled;
         inputActions.PlayerAction.Attack.performed -= OnAttack;
+
+        //UI
+        inputActions.UIAction.OpenInven.performed -= OnOpenInven;
+        inputActions.UIAction.UILeftClick.started -= OnLeftClick;
+        inputActions.UIAction.UILeftClick.canceled -= OnLeftClickRelease;
+        inputActions.UIAction.UIDrag.performed -= OnUIDrag;
         inputActions.Disable();
     }
 
     public void OnLook(InputAction.CallbackContext callback)
     {
-        if(!player.PlayerData.IsInveOpen)
-        {
-            lookDir = callback.ReadValue<Vector2>();
-            cameraManager.CamRoDir = lookDir;
-        }
+        lookDir = callback.ReadValue<Vector2>();
+        cameraManager.CamRoDir = lookDir;
     }
 
     public void OnMove(InputAction.CallbackContext callback)
@@ -83,11 +93,38 @@ public class InputManager : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext callback)
     {
-        if (!player.PlayerData.IsInveOpen)
+        if(!player.PlayerData.IsInveOpen)
         {
             player.SetAttack(true);
-            Debug.Log($"공격 입력 감지됨! 상태: {callback.phase}");
         }
+    }
+
+    public void OnOpenInven(InputAction.CallbackContext callback)
+    {
+        ToggleInven();
+        invenUI.InvenOnAndOff(player.PlayerData.IsInveOpen);
+    }
+
+    public void OnLeftClick(InputAction.CallbackContext callback)
+    {
+        invenUI.OnPointerDown(callback);
+        Debug.Log("눌림");
+    }
+    public void OnLeftClickRelease(InputAction.CallbackContext callback)
+    {
+        invenUI.OnPointerDown(callback);
+        Debug.Log("떼짐");
+    }
+
+    public void OnUIDrag(InputAction.CallbackContext callback)
+    {
+        invenUI.OnPointerDrag(callback);
+        Debug.Log("드레그중");
+    }
+
+    public void OnRightClick(InputAction.CallbackContext callback)
+    {
+
     }
 
     public void DisablePlayerControls()
@@ -102,6 +139,18 @@ public class InputManager : MonoBehaviour
         inputActions.PlayerAction.Attack.Enable();
     }
 
+    public void DisableUIControls()
+    {
+        inputActions.UIAction.UILeftClick.Disable();
+        inputActions.UIAction.UIRightClick.Disable();
+    }
+
+    public void EnableUIControls()
+    {
+        inputActions.UIAction.UILeftClick.Enable();
+        inputActions.UIAction.UIRightClick.Enable();
+    }
+
     public void ToggleInven()
     {
         player.PlayerData.IsInveOpen = !player.PlayerData.IsInveOpen;
@@ -109,11 +158,13 @@ public class InputManager : MonoBehaviour
         if(player.PlayerData.IsInveOpen)
         {
             DisablePlayerControls();
+            EnableUIControls();
         }
 
         else
         {
             EnablePlayerControls();
+            DisableUIControls();
         }
     }
 }

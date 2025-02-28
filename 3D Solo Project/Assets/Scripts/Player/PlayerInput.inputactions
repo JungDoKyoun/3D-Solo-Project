@@ -152,6 +152,114 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "UIAction",
+            "id": "ab373054-6833-4f94-937f-86fbe6ebbde1",
+            "actions": [
+                {
+                    "name": "UILeftClick",
+                    "type": "Button",
+                    "id": "0290f9fc-4347-46c9-9785-b2458ffd5dd9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UIRightClick",
+                    "type": "Button",
+                    "id": "59d1853e-842e-42cd-9805-8cd7d84a5b3c",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "UIDrag",
+                    "type": "Value",
+                    "id": "abc6adff-6b5e-4957-b739-e991f96668b6",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "OpenInven",
+                    "type": "Button",
+                    "id": "7ac88e2c-3bd3-4ce4-a674-e0be61f493e1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "CloseUI",
+                    "type": "Button",
+                    "id": "3a7ba5ba-37ea-47d3-8b6c-d6730dcdccc6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "088634d2-ca0c-41eb-b7a7-9efee5bb4c94",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "UILeftClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "53697b43-251c-4bc7-8fdf-fb55eb832c6c",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "UIRightClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b1814ba0-3d98-49ee-b302-40bc6d86c60c",
+                    "path": "<Mouse>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "UIDrag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2f201ffa-ee01-4bdf-a987-8341fc0605a8",
+                    "path": "<Keyboard>/i",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "OpenInven",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "53ff69af-94dd-4e29-8e0f-d1aa6bd1d532",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "CloseUI",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
