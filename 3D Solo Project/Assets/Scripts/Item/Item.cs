@@ -26,6 +26,16 @@ public class WeaponItem : EquipmentItem
     public WeaponItem(WeaponItemData itemData) : base(itemData){ }
 }
 
+public class ArmorTopItem : EquipmentItem
+{
+    public ArmorTopItem(ArmorTopItemData itemData) : base(itemData) { }
+}
+
+public class ArmorBottomItem : EquipmentItem
+{
+    public ArmorBottomItem(ArmorBottomItemData itemData) : base(itemData) { }
+}
+
 public abstract class CountableItem : Item
 {
     public CountableItemData CountableItemData { get; set; }

@@ -39,20 +39,21 @@ public class ItemSlotUI : MonoBehaviour
         if(itemImage != null)
         {
             itemIcon.sprite = itemImage;
-            itemIcon.enabled = true;
+            itemIcon.gameObject.SetActive(true);
             IsHasItem = true;
         }
         else
         {
-            ClearItem();
+            RemoveItem();
         }
     }
 
-    public void ClearItem()
+    public void RemoveItem()
     {
         itemIcon.sprite = null;
-        itemIcon.enabled = false;
+        itemIcon.gameObject.SetActive(false);
         IsHasItem = false;
+        HideText();
     }
 
     public void SetItemCount(int count)
@@ -69,7 +70,7 @@ public class ItemSlotUI : MonoBehaviour
         itemCountText.text = count.ToString();
     }
 
-    public void HideItemCountText()
+    public void HideText()
     {
         itemCountText.gameObject.SetActive(false);
     }
@@ -93,7 +94,7 @@ public class ItemSlotUI : MonoBehaviour
         }
         else
         {
-            ClearItem();
+            RemoveItem();
         }
 
         other.SetItemIcon(temp);

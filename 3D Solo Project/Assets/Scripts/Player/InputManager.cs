@@ -10,13 +10,16 @@ public class InputManager : MonoBehaviour
     private PlayerController player;
     [SerializeField]CameraManager cameraManager;
     [SerializeField] InvenUI invenUI;
+    [SerializeField] EquipmentManager equipmentManager;
     private Vector2 moveDir;
     private Vector2 lookDir;
+    private Stack<System.Action> uiCloseStack;
 
     private void Awake()
     {
         inputActions = new PlayerInput();
         player = GetComponent<PlayerController>();
+        uiCloseStack = new Stack<System.Action>();
     }
 
     private void OnEnable()
@@ -35,8 +38,11 @@ public class InputManager : MonoBehaviour
         //UI
         inputActions.UIAction.OpenInven.performed += OnOpenInven;
         inputActions.UIAction.UILeftClick.started += OnLeftClick;
-        inputActions.UIAction.UILeftClick.canceled += OnLeftClickRelease;
         inputActions.UIAction.UIDrag.performed += OnUIDrag;
+        inputActions.UIAction.UILeftClick.canceled += OnLeftClickRelease;
+        inputActions.UIAction.UIRightClick.started += OnRightClick;
+        inputActions.UIAction.OpenEquipment.started += OnOpenEquipment;
+        inputActions.UIAction.CloseUI.started += OnCloseUI;
     }
 
     private void OnDisable()
@@ -54,15 +60,21 @@ public class InputManager : MonoBehaviour
         //UI
         inputActions.UIAction.OpenInven.performed -= OnOpenInven;
         inputActions.UIAction.UILeftClick.started -= OnLeftClick;
-        inputActions.UIAction.UILeftClick.canceled -= OnLeftClickRelease;
         inputActions.UIAction.UIDrag.performed -= OnUIDrag;
+        inputActions.UIAction.UILeftClick.canceled -= OnLeftClickRelease;
+        inputActions.UIAction.UIRightClick.started -= OnRightClick;
+        inputActions.UIAction.OpenEquipment.started -= OnOpenEquipment;
+        inputActions.UIAction.CloseUI.started -= OnCloseUI;
         inputActions.Disable();
     }
 
     public void OnLook(InputAction.CallbackContext callback)
     {
-        lookDir = callback.ReadValue<Vector2>();
-        cameraManager.CamRoDir = lookDir;
+        if (!player.PlayerData.IsInveOpen || !player.PlayerData.IsEquipOpen)
+        {
+            lookDir = callback.ReadValue<Vector2>();
+            cameraManager.CamRoDir = lookDir;
+        }
     }
 
     public void OnMove(InputAction.CallbackContext callback)
@@ -93,7 +105,7 @@ public class InputManager : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext callback)
     {
-        if(!player.PlayerData.IsInveOpen)
+        if(!player.PlayerData.IsInveOpen || !player.PlayerData.IsEquipOpen)
         {
             player.SetAttack(true);
         }
@@ -101,29 +113,61 @@ public class InputManager : MonoBehaviour
 
     public void OnOpenInven(InputAction.CallbackContext callback)
     {
-        ToggleInven();
-        invenUI.InvenOnAndOff(player.PlayerData.IsInveOpen);
+        UIManager.Instance.ToggleInven();
+        OnOff();
     }
 
     public void OnLeftClick(InputAction.CallbackContext callback)
     {
-        invenUI.OnPointerDown(callback);
-        Debug.Log("´­¸²");
+        if (player.PlayerData.IsInveOpen || player.PlayerData.IsEquipOpen)
+        {
+            invenUI.OnPointerDown(callback);
+            Debug.Log("´­¸²");
+        }
     }
     public void OnLeftClickRelease(InputAction.CallbackContext callback)
     {
-        invenUI.OnPointerDown(callback);
-        Debug.Log("¶¼Áü");
+        if (player.PlayerData.IsInveOpen || player.PlayerData.IsEquipOpen)
+        {
+            invenUI.OnPointerUp(callback);
+            Debug.Log("¶¼Áü");
+        }
     }
 
     public void OnUIDrag(InputAction.CallbackContext callback)
     {
-        invenUI.OnPointerDrag(callback);
+        if (player.PlayerData.IsInveOpen || player.PlayerData.IsEquipOpen)
+        {
+            invenUI.ShowOrHideItemTooltip();
+            invenUI.OnPointerDrag(callback);
+        }
     }
 
     public void OnRightClick(InputAction.CallbackContext callback)
     {
+        if (player.PlayerData.IsInveOpen)
+        {
+            invenUI.OnRightPointDown(callback);
+        }
+        if(player.PlayerData.IsEquipOpen)
+        {
+            equipmentManager.OnRightClickEquipmentSlot(callback);
+        }
+    }
+    public void OnOpenEquipment(InputAction.CallbackContext callback)
+    {
+        UIManager.Instance.ToggleEquip();
+        OnOff();
+    }
 
+    public void OnCloseUI(InputAction.CallbackContext callback)
+    {
+            Debug.Log("ÀÌ°Å");
+        if(player.PlayerData.IsEquipOpen || player.PlayerData.IsInveOpen)
+        {
+            UIManager.Instance.CloseLastOpenedUI();
+            OnOff();
+        }
     }
 
     public void DisablePlayerControls()
@@ -142,19 +186,19 @@ public class InputManager : MonoBehaviour
     {
         inputActions.UIAction.UILeftClick.Disable();
         inputActions.UIAction.UIRightClick.Disable();
+        inputActions.UIAction.UIDrag.Disable();
     }
 
     public void EnableUIControls()
     {
         inputActions.UIAction.UILeftClick.Enable();
         inputActions.UIAction.UIRightClick.Enable();
+        inputActions.UIAction.UIDrag.Enable();
     }
 
-    public void ToggleInven()
+    public void OnOff()
     {
-        player.PlayerData.IsInveOpen = !player.PlayerData.IsInveOpen;
-
-        if(player.PlayerData.IsInveOpen)
+        if (player.PlayerData.IsInveOpen || player.PlayerData.IsEquipOpen)
         {
             DisablePlayerControls();
             EnableUIControls();
@@ -166,4 +210,38 @@ public class InputManager : MonoBehaviour
             DisableUIControls();
         }
     }
+
+    //public void ToggleInven()
+    //{
+    //    player.PlayerData.IsInveOpen = !player.PlayerData.IsInveOpen;
+
+    //    if(player.PlayerData.IsInveOpen || player.PlayerData.IsEquipOpen)
+    //    {
+    //        DisablePlayerControls();
+    //        EnableUIControls();
+    //    }
+
+    //    else
+    //    {
+    //        EnablePlayerControls();
+    //        DisableUIControls();
+    //    }
+    //}
+
+    //public void ToggleEquip()
+    //{
+    //    player.PlayerData.IsEquipOpen = !player.PlayerData.IsEquipOpen;
+
+    //    if (player.PlayerData.IsInveOpen || player.PlayerData.IsEquipOpen)
+    //    {
+    //        DisablePlayerControls();
+    //        EnableUIControls();
+    //    }
+
+    //    else
+    //    {
+    //        EnablePlayerControls();
+    //        DisableUIControls();
+    //    }
+    //}
 }

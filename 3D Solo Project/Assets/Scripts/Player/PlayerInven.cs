@@ -7,11 +7,14 @@ using UnityEngine.InputSystem;
 public class PlayerInven : MonoBehaviour
 {
     [SerializeField] private InvenUI inventoryUI;
+    [SerializeField] private EquipmentManager equipmentManager;
     private Item[] items;
     private int[] itemCount; //셀 수있는 아이템 숫자 저장
     private int _maxItemCount;
     [SerializeField] private WeaponItemData Wea;
     [SerializeField] private PortionItemData po;
+    [SerializeField] private ArmorTopItemData tam;
+    [SerializeField] private ArmorBottomItemData bam;
 
     private void Awake()
     {
@@ -65,7 +68,7 @@ public class PlayerInven : MonoBehaviour
                 if(ci.IsEmpty)
                 {
                     items[index] = null;
-                    inventoryUI.ClearSlot(index);
+                    inventoryUI.RemoveItem(index);
                     return;
                 }
                 else
@@ -76,7 +79,7 @@ public class PlayerInven : MonoBehaviour
         }
         else
         {
-            inventoryUI.ClearSlot(index);
+            inventoryUI.RemoveItem(index);
         }
     }
 
@@ -159,12 +162,12 @@ public class PlayerInven : MonoBehaviour
     }
 
     //아이템 제거
-    public void RemoveItemInven(int index)
+    public void Remove(int index)
     {
         if (items[index] != null)
         {
             items[index] = null;
-            inventoryUI.ClearSlot(index);
+            inventoryUI.RemoveItem(index);
         }
     }
 
@@ -217,8 +220,23 @@ public class PlayerInven : MonoBehaviour
                 Debug.Log("사용되었음");
             }
         }
+        else if (items[index] is EquipmentItem equipment)
+        {
+            equipmentManager.EquipItem(items[index], index);
+        }
     }
 
+    //인벤토리 데이터 가져오기
+
+    public ItemDataSO GetItemData(int index)
+    {
+        if (items[index] == null)
+        {
+            return null;
+        }
+
+        return items[index].data;
+    }
     private void Update()
     {
         if (Keyboard.current.qKey.wasPressedThisFrame)
@@ -234,6 +252,21 @@ public class PlayerInven : MonoBehaviour
             PortionItem por = new PortionItem(po);
             AddItemInven(por);
             Debug.Log(por.data.name);
+        }
+
+        if (Keyboard.current.zKey.wasPressedThisFrame)
+        {
+            Debug.Log("눌림");
+            ArmorTopItem at = new ArmorTopItem(tam);
+            AddItemInven(at);
+            Debug.Log(at.data.name);
+        }
+
+        if (Keyboard.current.xKey.wasPressedThisFrame)
+        {
+            ArmorBottomItem Ib = new ArmorBottomItem(bam);
+            AddItemInven(Ib);
+            Debug.Log(Ib.data.name);
         }
     }
 }

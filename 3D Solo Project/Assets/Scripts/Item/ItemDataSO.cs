@@ -10,7 +10,7 @@ public enum Type
 
 public enum ItemType
 {
-    재료, 무기, 방어구, 음식, 포션
+    재료, 무기, 상의방어구, 하의방어구, 음식, 포션
 }
 
 public abstract class ItemDataSO : ScriptableObject
@@ -21,6 +21,7 @@ public abstract class ItemDataSO : ScriptableObject
     public Type Type;
     public ItemType ItemType;
     public GameObject ItemPrefab;
+    public string ToolTip;
 
     public abstract Item CreateItem();
 }
@@ -38,6 +39,28 @@ public class WeaponItemData : EquipmentItemData
     public override Item CreateItem()
     {
         return new WeaponItem(this);
+    }
+}
+
+[CreateAssetMenu(fileName = "ArmorTop", menuName = "ItemData/ArmorTop")]
+public class ArmorTopItemData : EquipmentItemData
+{
+    public float Def;
+
+    public override Item CreateItem()
+    {
+        return new ArmorTopItem(this);
+    }
+}
+
+[CreateAssetMenu(fileName = "ArmorBottom", menuName = "ItemData/ArmorBottom")]
+public class ArmorBottomItemData : EquipmentItemData
+{
+    public float Def;
+
+    public override Item CreateItem()
+    {
+        return new ArmorBottomItem(this);
     }
 }
 

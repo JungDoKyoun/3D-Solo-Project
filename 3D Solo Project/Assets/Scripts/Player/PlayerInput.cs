@@ -223,6 +223,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""OpenEquipment"",
+                    ""type"": ""Button"",
+                    ""id"": ""f15cd334-8e41-475e-aac7-a5a5ba03ad62"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -265,7 +274,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/i"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""OpenInven"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -278,6 +287,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""CloseUI"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3065434d-692f-4992-b881-861370e2053c"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""OpenEquipment"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -361,6 +381,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_UIAction_UIDrag = m_UIAction.FindAction("UIDrag", throwIfNotFound: true);
         m_UIAction_OpenInven = m_UIAction.FindAction("OpenInven", throwIfNotFound: true);
         m_UIAction_CloseUI = m_UIAction.FindAction("CloseUI", throwIfNotFound: true);
+        m_UIAction_OpenEquipment = m_UIAction.FindAction("OpenEquipment", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -505,6 +526,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_UIAction_UIDrag;
     private readonly InputAction m_UIAction_OpenInven;
     private readonly InputAction m_UIAction_CloseUI;
+    private readonly InputAction m_UIAction_OpenEquipment;
     public struct UIActionActions
     {
         private @PlayerInput m_Wrapper;
@@ -514,6 +536,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @UIDrag => m_Wrapper.m_UIAction_UIDrag;
         public InputAction @OpenInven => m_Wrapper.m_UIAction_OpenInven;
         public InputAction @CloseUI => m_Wrapper.m_UIAction_CloseUI;
+        public InputAction @OpenEquipment => m_Wrapper.m_UIAction_OpenEquipment;
         public InputActionMap Get() { return m_Wrapper.m_UIAction; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -538,6 +561,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @CloseUI.started += instance.OnCloseUI;
             @CloseUI.performed += instance.OnCloseUI;
             @CloseUI.canceled += instance.OnCloseUI;
+            @OpenEquipment.started += instance.OnOpenEquipment;
+            @OpenEquipment.performed += instance.OnOpenEquipment;
+            @OpenEquipment.canceled += instance.OnOpenEquipment;
         }
 
         private void UnregisterCallbacks(IUIActionActions instance)
@@ -557,6 +583,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @CloseUI.started -= instance.OnCloseUI;
             @CloseUI.performed -= instance.OnCloseUI;
             @CloseUI.canceled -= instance.OnCloseUI;
+            @OpenEquipment.started -= instance.OnOpenEquipment;
+            @OpenEquipment.performed -= instance.OnOpenEquipment;
+            @OpenEquipment.canceled -= instance.OnOpenEquipment;
         }
 
         public void RemoveCallbacks(IUIActionActions instance)
@@ -634,5 +663,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnUIDrag(InputAction.CallbackContext context);
         void OnOpenInven(InputAction.CallbackContext context);
         void OnCloseUI(InputAction.CallbackContext context);
+        void OnOpenEquipment(InputAction.CallbackContext context);
     }
 }
