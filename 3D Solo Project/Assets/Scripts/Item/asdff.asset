@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: asdff
   m_EditorClassIdentifier: Assembly-CSharp::WeaponItemData
-  ID: 0
+  ID: 100
   ItemImage: {fileID: 21300000, guid: 13c6a9adf56a3bb41af69de934781027, type: 3}
   Name: asd
   Type: 1
   ItemType: 1
-  ItemPrefab: {fileID: 0}
+  ItemPrefab: {fileID: 8246947834249509912, guid: d7bbbc9e0d9656541b19dce33360d0db, type: 3}
   ToolTip: "\uC5F0\uC2B5\uC6A9"
   MaxDurability: 100
-  Damage: 1
-  weaponType: 4
+  Damage: 20
+  weaponType: 1

@@ -13,6 +13,7 @@ public class PlayerInven : MonoBehaviour
     private int[] itemCount; //셀 수있는 아이템 숫자 저장
     private int _maxItemCount;
     [SerializeField] private WeaponItemData Wea;
+    [SerializeField] private WeaponItemData Wea2;
     [SerializeField] private PortionItemData po;
     [SerializeField] private ArmorTopItemData tam;
     [SerializeField] private ArmorBottomItemData bam;
@@ -294,7 +295,12 @@ public class PlayerInven : MonoBehaviour
         {
             WeaponItem weap = new WeaponItem(Wea);
             AddItemInven(weap);
-            Debug.Log(weap.data.name);
+        }
+
+        if (Keyboard.current.tKey.wasPressedThisFrame)
+        {
+            WeaponItem weap = new WeaponItem(Wea2);
+            AddItemInven(weap);
         }
 
         if (Keyboard.current.eKey.wasPressedThisFrame)

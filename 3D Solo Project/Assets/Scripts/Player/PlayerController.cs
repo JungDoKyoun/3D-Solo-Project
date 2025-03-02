@@ -10,12 +10,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject arrowPrefab;
     [SerializeField] private Transform arrowSpawnPoint;
     [SerializeField] private CrossHeadManager CrossHeadManager;
+    [SerializeField] private Transform weaponHolder;
+    private GameObject currentWeapon;
     private PlayerInven playerInven;
     private PlayerData playerData;//플레이어 데이터
     private Rigidbody playerRb;//리지드 바디
     private Camera cam;//메인 카메라
     private AnimationController anime;
     private BoxCollider weaPon; //무기
+    private SphereCollider fist;
     private RaycastHit sloopHit;
     private Vector3 moveDir;//움직이는 방향
     private Vector2 inputMoveDir;//인풋 변수 받아옴
@@ -32,6 +35,7 @@ public class PlayerController : MonoBehaviour
         cam = Camera.main;
         anime = GetComponent<AnimationController>();
         weaPon = GetComponentInChildren<BoxCollider>();
+        fist = GetComponentInChildren<SphereCollider>();
         moveDir = Vector3.zero;
         playerData.UpperRay.position = new Vector3(playerData.UpperRay.position.x, playerData.StepHight, playerData.UpperRay.position.y);
         _currentHP = playerData.PlayerMaxHP;
@@ -40,6 +44,7 @@ public class PlayerController : MonoBehaviour
         arrowSpeed = 30f;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
+        equipmentManager.Init();
     }
 
     public EquipmentManager EquipmentManager { get => equipmentManager; set => equipmentManager = value; }
@@ -48,6 +53,7 @@ public class PlayerController : MonoBehaviour
     public Camera Cam { get => cam; set => cam = value; }
     public AnimationController Anime { get => anime; set => anime = value; }
     public BoxCollider WeaPon { get => weaPon; set => weaPon = value; }
+    public SphereCollider Fist { get => fist; set => fist = value; }
     public RaycastHit SloopHit { get => sloopHit; set => sloopHit = value; }
     public Vector3 MoveDir { get => moveDir; set => moveDir = value; }
     public Vector3 InputMoveDir { get => inputMoveDir; set => inputMoveDir = value; }
@@ -231,13 +237,34 @@ public class PlayerController : MonoBehaviour
     //무기 콜라이더 켜기
     public void OnWeaponCollider()
     {
-        weaPon.enabled = true;
+        WeaponType equippedWeapon = EquipmentManager.ReaturnEquipmentWeaponType();
+        if(equippedWeapon == WeaponType.주먹)
+        {
+            fist.enabled = true;
+            Debug.Log("주먹켜짐");
+        }
+        else
+        {
+            Debug.Log(weaPon);
+            weaPon.enabled = true;
+            Debug.Log("무기켜짐");
+        }
     }
 
     //무기 콜라이더 끄기
     public void OffWeaponCollider()
     {
-        weaPon.enabled = false;
+        WeaponType equippedWeapon = EquipmentManager.ReaturnEquipmentWeaponType();
+        if (equippedWeapon == WeaponType.주먹)
+        {
+            fist.enabled = false;
+            Debug.Log("주먹꺼짐");
+        }
+        else
+        {
+            weaPon.enabled = false;
+            Debug.Log("무기꺼짐");
+        }
     }
 
     //공격 패턴
@@ -310,6 +337,29 @@ public class PlayerController : MonoBehaviour
         }
         CrossHeadManager.OffCrossHead();
         Debug.Log($"화살 발사! 속도: {arrowSpeed} | 남은 화살: {playerInven.GetItemCount(ItemType.화살)}");
+    }
+
+    public void UpdateWeaponPrefab(GameObject newWeaponPrefab)
+    {
+        if (currentWeapon != null)
+        {
+            Destroy(currentWeapon);
+        }
+
+        if (newWeaponPrefab != null)
+        {
+            currentWeapon = Instantiate(newWeaponPrefab, weaponHolder);
+            currentWeapon.transform.localPosition = Vector3.zero;
+            currentWeapon.transform.localRotation = Quaternion.identity;
+
+            weaPon = currentWeapon.GetComponentInChildren<BoxCollider>();
+            fist = null;
+        }
+        else
+        {
+            weaPon = null;
+            fist = GetComponentInChildren<SphereCollider>();
+        }
     }
 
 

@@ -10,14 +10,21 @@ public class EquipmentManager : MonoBehaviour
     [SerializeField] private Image weaponSlot;
     [SerializeField] private Image armorTopSlot;
     [SerializeField] private Image armorBottomSlot;
-    private Dictionary<ItemType, Item> equippedItems = new Dictionary<ItemType, Item>();
+    private Dictionary<ItemType, Item> equippedItems;
     [SerializeField] private PlayerInven playerInventory;
-    [SerializeField] private PlayerData playerData;
+    [SerializeField] private PlayerController player;
 
+    public void Init()
+    {
+        if (equippedItems == null)
+        {
+            equippedItems = new Dictionary<ItemType, Item>();
+        }
+    }
 
     public void EquipOnAndOff(bool TorF)
     {
-        playerData.IsEquipOpen = TorF;
+        player.PlayerData.IsEquipOpen = TorF;
         gameObject.SetActive(TorF);
     }
 
@@ -38,12 +45,23 @@ public class EquipmentManager : MonoBehaviour
             {
                 case ItemType.무기:
                     weaponSlot.sprite = item.data.ItemImage;
+                    ApplyWeaponEffect(equipment as WeaponItem);
+                    //if(ReaturnEquipmentWeaponType() == WeaponType.주먹)
+                    //{
+                    //    player.Fist.GetComponentInChildren<SphereCollider>();
+                    //}
+                    //else
+                    //{
+                    //    player.WeaPon.GetComponentInChildren<BoxCollider>();
+                    //}
                     break;
                 case ItemType.상의방어구:
                     armorTopSlot.sprite = item.data.ItemImage;
+                    ApplyArmorEffect(equipment as ArmorTopItem);
                     break;
                 case ItemType.하의방어구:
                     armorBottomSlot.sprite = item.data.ItemImage;
+                    ApplyArmorEffect(equipment as ArmorBottomItem);
                     break;
             }
 
@@ -65,12 +83,15 @@ public class EquipmentManager : MonoBehaviour
         {
             case ItemType.무기:
                 weaponSlot.sprite = null;
+                RemoveWeaponEffect();
                 break;
             case ItemType.상의방어구:
                 armorTopSlot.sprite = null;
+                RemoveArmorEffect();
                 break;
             case ItemType.하의방어구:
                 armorBottomSlot.sprite = null;
+                RemoveArmorEffect();
                 break;
         }
 
@@ -105,15 +126,50 @@ public class EquipmentManager : MonoBehaviour
 
     public WeaponType ReaturnEquipmentWeaponType()
     {
-        if(equippedItems.ContainsKey(ItemType.무기))
+        if (equippedItems == null)
+        {
+            equippedItems = new Dictionary<ItemType, Item>();
+        }
+
+        if (equippedItems.ContainsKey(ItemType.무기))
         {
             var weapon = equippedItems[ItemType.무기];
             if(weapon is WeaponItem weaponItem)
             {
-                Debug.Log(weaponItem.WeaponItemData.weaponType);
                 return weaponItem.WeaponItemData.weaponType;
             }
         }
         return WeaponType.주먹;
+    }
+
+    private void ApplyWeaponEffect(WeaponItem weapon)
+    {
+        if (weapon == null)
+        {
+            return;
+        }
+        player.CurrentAtk = player.PlayerData.PlayerAtk + (int)weapon.WeaponItemData.Damage;
+        player.UpdateWeaponPrefab(weapon.WeaponItemData.ItemPrefab);
+        Debug.Log(player.CurrentAtk);
+    }
+
+    private void RemoveWeaponEffect()
+    {
+        player.CurrentAtk = player.PlayerData.PlayerAtk;
+        player.UpdateWeaponPrefab(null);
+    }
+
+    private void ApplyArmorEffect(EquipmentItem armor)
+    {
+        if (armor == null)
+        {
+            return;
+        }
+        player.CurrentDef = player.PlayerData.PlayerDef + (int)(armor.EquipmentItemData as ArmorTopItemData)?.Def;
+    }
+
+    private void RemoveArmorEffect()
+    {
+        player.CurrentDef = player.PlayerData.PlayerDef;
     }
 }

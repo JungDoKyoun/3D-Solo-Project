@@ -225,40 +225,5 @@ public class InputManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined; 
             Cursor.visible = false;
         }
-        Debug.Log($"Cursor.lockState: {Cursor.lockState}, Cursor.visible: {Cursor.visible}");
     }
-
-    //public void ToggleInven()
-    //{
-    //    player.PlayerData.IsInveOpen = !player.PlayerData.IsInveOpen;
-
-    //    if(player.PlayerData.IsInveOpen || player.PlayerData.IsEquipOpen)
-    //    {
-    //        DisablePlayerControls();
-    //        EnableUIControls();
-    //    }
-
-    //    else
-    //    {
-    //        EnablePlayerControls();
-    //        DisableUIControls();
-    //    }
-    //}
-
-    //public void ToggleEquip()
-    //{
-    //    player.PlayerData.IsEquipOpen = !player.PlayerData.IsEquipOpen;
-
-    //    if (player.PlayerData.IsInveOpen || player.PlayerData.IsEquipOpen)
-    //    {
-    //        DisablePlayerControls();
-    //        EnableUIControls();
-    //    }
-
-    //    else
-    //    {
-    //        EnablePlayerControls();
-    //        DisableUIControls();
-    //    }
-    //}
 }

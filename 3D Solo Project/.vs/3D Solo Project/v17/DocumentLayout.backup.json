@@ -3,52 +3,72 @@
   "WorkspaceRootPath": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|c:\\users\\kyous\\onedrive\\document\\github\\3d-solo-project\\3d solo project\\assets\\scripts\\ui\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\player\\playerinven.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerinven.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\inven\\invenui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inven\\invenui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\inven\\itemslotui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inven\\itemslotui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\player\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\inven\\inventorypopupui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inven\\inventorypopupui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\inven\\equipmentmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inven\\equipmentmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\player\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\monster\\monsterspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\monster\\monsterspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\player\\playerinven.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerinven.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Library\\PackageCache\\com.unity.inputsystem@1.7.0\\InputSystem\\Utilities\\DelegateHelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.inputsystem@1.7.0\\InputSystem\\Utilities\\DelegateHelpers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\inven\\invenui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inven\\invenui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\ui\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\ui\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|c:\\users\\kyous\\onedrive\\document\\github\\3d-solo-project\\3d solo project\\assets\\scripts\\player\\weaponmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\weaponmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\player\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\inputmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\item\\itemdataso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\item\\itemdataso.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\item\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\item\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\inven\\itemslotui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inven\\itemslotui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\interface\\iusableitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\interface\\iusableitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\inven\\itemtooltipui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inven\\itemtooltipui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\item\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\item\\item.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\inven\\inventorypopupui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\inven\\inventorypopupui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\player\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\player\\playerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -57,14 +77,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\player\\playerstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\player\\playerstatemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\interface\\iusableitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\interface\\iusableitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\assets\\scripts\\monster\\monsterspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D3880E78-8B3F-834A-4A8E-25D54C8940C3}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\monster\\monsterspawner.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -74,11 +86,49 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 14,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 4,
+              "Title": "DelegateHelpers.cs",
+              "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Library\\PackageCache\\com.unity.inputsystem@1.7.0\\InputSystem\\Utilities\\DelegateHelpers.cs",
+              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.inputsystem@1.7.0\\InputSystem\\Utilities\\DelegateHelpers.cs",
+              "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Library\\PackageCache\\com.unity.inputsystem@1.7.0\\InputSystem\\Utilities\\DelegateHelpers.cs",
+              "RelativeToolTip": "Library\\PackageCache\\com.unity.inputsystem@1.7.0\\InputSystem\\Utilities\\DelegateHelpers.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAiwDMAAACAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T15:34:56.797Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "WeaponManager.cs",
+              "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Player\\WeaponManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\WeaponManager.cs",
+              "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Player\\WeaponManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Player\\WeaponManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T14:53:59.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameManager.cs",
+              "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-02T12:52:59.916Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "MonsterSpawner.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Monster\\MonsterSpawner.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Monster\\MonsterSpawner.cs",
@@ -86,11 +136,12 @@
               "RelativeToolTip": "Assets\\Scripts\\Monster\\MonsterSpawner.cs",
               "ViewState": "AgIAABgAAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-02T10:04:49.321Z"
+              "WhenOpened": "2025-03-02T10:04:49.321Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "UIManager.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\UI\\UIManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UIManager.cs",
@@ -103,92 +154,90 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "EquipmentManager.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Inven\\EquipmentManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Inven\\EquipmentManager.cs",
               "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Inven\\EquipmentManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Inven\\EquipmentManager.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAUwHAAAABAAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-02T05:52:42.968Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "InventoryPopupUI.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Inven\\InventoryPopupUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Inven\\InventoryPopupUI.cs",
               "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Inven\\InventoryPopupUI.cs",
               "RelativeToolTip": "Assets\\Scripts\\Inven\\InventoryPopupUI.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAAowDgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAgwDgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-01T18:17:12.507Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-01T18:17:12.507Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "ItemTooltipUI.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Inven\\ItemTooltipUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Inven\\ItemTooltipUI.cs",
               "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Inven\\ItemTooltipUI.cs",
               "RelativeToolTip": "Assets\\Scripts\\Inven\\ItemTooltipUI.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAwwDgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-01T17:20:17.299Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 13,
               "Title": "IUsableItem.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Interface\\IUsableItem.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Interface\\IUsableItem.cs",
               "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Interface\\IUsableItem.cs",
               "RelativeToolTip": "Assets\\Scripts\\Interface\\IUsableItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAYAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-28T06:35:37.513Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "PlayerInven.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Player\\PlayerInven.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerInven.cs",
               "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Player\\PlayerInven.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerInven.cs",
-              "ViewState": "AgIAAPwAAAAAAAAAAAAcwB0BAAARAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAqwBwAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-02T05:46:16.311Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "InvenUI.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Inven\\InvenUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Inven\\InvenUI.cs",
               "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Inven\\InvenUI.cs",
               "RelativeToolTip": "Assets\\Scripts\\Inven\\InvenUI.cs",
-              "ViewState": "AgIAAIAAAAAAAAAAAAAcwJEAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAUwDEAAABDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-28T06:24:51.833Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 12,
               "Title": "ItemSlotUI.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Inven\\ItemSlotUI.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Inven\\ItemSlotUI.cs",
               "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Inven\\ItemSlotUI.cs",
               "RelativeToolTip": "Assets\\Scripts\\Inven\\ItemSlotUI.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAswBoAAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAswFcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-27T04:16:21.971Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-27T04:16:21.971Z"
             },
             {
               "$type": "Document",
@@ -198,38 +247,38 @@
               "RelativeDocumentMoniker": "Assets\\Scripts\\Item\\Item.cs",
               "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Item\\Item.cs",
               "RelativeToolTip": "Assets\\Scripts\\Item\\Item.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAwwF0AAAAQAAAAAAAAAA==",
+              "ViewState": "AgIAAEoAAAAAAAAAAAAYwGQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-27T07:23:06.031Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "ItemDataSO.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Item\\ItemDataSO.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Item\\ItemDataSO.cs",
               "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Item\\ItemDataSO.cs",
               "RelativeToolTip": "Assets\\Scripts\\Item\\ItemDataSO.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAUwBEAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAEcAAAAAAAAAAAAgwGIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-27T06:53:57.035Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "PlayerController.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Player\\PlayerController.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerController.cs",
               "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Player\\PlayerController.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\PlayerController.cs",
-              "ViewState": "AgIAABoBAAAAAAAAAAAAACoBAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAwC4AAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-02T09:30:14.392Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 16,
               "Title": "PlayerState.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Player\\PlayerState.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerState.cs",
@@ -241,7 +290,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "PlayerStateManager.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Player\\PlayerStateManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerStateManager.cs",
@@ -253,7 +302,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 17,
               "Title": "PlayerData.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Player\\PlayerData.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\PlayerData.cs",
@@ -265,13 +314,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "InputManager.cs",
               "DocumentMoniker": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Player\\InputManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Player\\InputManager.cs",
               "ToolTip": "C:\\Users\\kyous\\OneDrive\\Document\\GitHub\\3D-Solo-Project\\3D Solo Project\\Assets\\Scripts\\Player\\InputManager.cs",
               "RelativeToolTip": "Assets\\Scripts\\Player\\InputManager.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAiwBoAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAGgAAAAAAAAAAAArwHcAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-27T06:18:00.139Z",
               "EditorCaption": ""
