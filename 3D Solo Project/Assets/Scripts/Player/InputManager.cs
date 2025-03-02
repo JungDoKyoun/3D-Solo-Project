@@ -33,7 +33,8 @@ public class InputManager : MonoBehaviour
         inputActions.PlayerAction.Sprint.canceled += OnSprintCanceled;
         inputActions.PlayerAction.Jump.performed += OnJump;
         inputActions.PlayerAction.Jump.canceled += OnJumpCanceled;
-        inputActions.PlayerAction.Attack.performed += OnAttack;
+        inputActions.PlayerAction.Attack.started += OnAttack;
+        inputActions.PlayerAction.Attack.canceled += OnAttackCanceled;
 
         //UI
         inputActions.UIAction.OpenInven.performed += OnOpenInven;
@@ -55,7 +56,8 @@ public class InputManager : MonoBehaviour
         inputActions.PlayerAction.Sprint.canceled -= OnSprintCanceled;
         inputActions.PlayerAction.Jump.performed -= OnJump;
         inputActions.PlayerAction.Jump.canceled -= OnJumpCanceled;
-        inputActions.PlayerAction.Attack.performed -= OnAttack;
+        inputActions.PlayerAction.Attack.started -= OnAttack;
+        inputActions.PlayerAction.Attack.canceled -= OnAttackCanceled;
 
         //UI
         inputActions.UIAction.OpenInven.performed -= OnOpenInven;
@@ -111,6 +113,17 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    public void OnAttackCanceled(InputAction.CallbackContext callback)
+    {
+        if (!player.PlayerData.IsInveOpen || !player.PlayerData.IsEquipOpen)
+        {
+            if (player.EquipmentManager.ReaturnEquipmentWeaponType() == WeaponType.»∞)
+            {
+                player.ReleaseArrow();
+            }
+        }
+    }
+
     public void OnOpenInven(InputAction.CallbackContext callback)
     {
         UIManager.Instance.ToggleInven();
@@ -162,7 +175,6 @@ public class InputManager : MonoBehaviour
 
     public void OnCloseUI(InputAction.CallbackContext callback)
     {
-            Debug.Log("¿Ã∞≈");
         if(player.PlayerData.IsEquipOpen || player.PlayerData.IsInveOpen)
         {
             UIManager.Instance.CloseLastOpenedUI();
@@ -202,13 +214,18 @@ public class InputManager : MonoBehaviour
         {
             DisablePlayerControls();
             EnableUIControls();
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         else
         {
             EnablePlayerControls();
             DisableUIControls();
+            Cursor.lockState = CursorLockMode.Confined; 
+            Cursor.visible = false;
         }
+        Debug.Log($"Cursor.lockState: {Cursor.lockState}, Cursor.visible: {Cursor.visible}");
     }
 
     //public void ToggleInven()

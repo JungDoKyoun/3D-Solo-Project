@@ -21,7 +21,7 @@ public class CameraManager : MonoBehaviour
     private void Awake()
     {
         cam = Camera.main.transform;
-        _camRoSpeed = 2f;
+        _camRoSpeed = 0.1f;
         _maxAngle = 90f;
         _minAngle = -70f;
         _defaltPos = cam.localPosition.z;

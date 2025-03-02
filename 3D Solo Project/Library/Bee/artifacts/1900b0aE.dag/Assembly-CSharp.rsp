@@ -389,6 +389,7 @@
 "Assets/Scripts/Player/PlayerState.cs"
 "Assets/Scripts/Player/PlayerStateManager.cs"
 "Assets/Scripts/Player/WeaponManager.cs"
+"Assets/Scripts/UI/CrossHeadManager.cs"
 "Assets/Scripts/UI/UIManager.cs"
 "Assets/Scripts/애매한것들/Command.cs"
 "Assets/Scripts/애매한것들/EntityInterface.cs"

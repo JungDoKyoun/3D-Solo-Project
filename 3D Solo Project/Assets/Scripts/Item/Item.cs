@@ -23,7 +23,12 @@ public abstract class EquipmentItem : Item
 
 public class WeaponItem : EquipmentItem
 {
-    public WeaponItem(WeaponItemData itemData) : base(itemData){ }
+    public WeaponItemData WeaponItemData { get; set; }
+
+    public WeaponItem(WeaponItemData itemData) : base(itemData)
+    {
+        WeaponItemData = itemData;
+    }
 }
 
 public class ArmorTopItem : EquipmentItem
@@ -77,6 +82,19 @@ public class PortionItem : CountableItem, IUsableItem
     {
         Count--;
         return true;
+    }
+}
+
+public class ArrowItem : CountableItem
+{
+    public ArrowItem(ArrowItemData itemData, int count = 1) : base(itemData)
+    {
+    }
+
+    public bool Shoot()
+    {
+        Count--;
+        return true ;
     }
 }
 

@@ -10,7 +10,12 @@ public enum Type
 
 public enum ItemType
 {
-    재료, 무기, 상의방어구, 하의방어구, 음식, 포션
+    재료, 무기, 상의방어구, 하의방어구, 음식, 포션, 화살
+}
+
+public enum WeaponType
+{
+    주먹, 칼, 창, 도끼, 활
 }
 
 public abstract class ItemDataSO : ScriptableObject
@@ -35,6 +40,7 @@ public abstract class EquipmentItemData : ItemDataSO
 public class WeaponItemData : EquipmentItemData
 {
     public float Damage;
+    public WeaponType weaponType;
 
     public override Item CreateItem()
     {
@@ -78,5 +84,15 @@ public class PortionItemData : CountableItemData
     public override Item CreateItem()
     {
         return new PortionItem(this);
+    }
+}
+
+public class ArrowItemData : CountableItemData
+{
+    public float Value;
+
+    public override Item CreateItem()
+    {
+        return new ArrowItem(this);
     }
 }

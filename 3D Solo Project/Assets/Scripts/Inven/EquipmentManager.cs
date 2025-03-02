@@ -102,4 +102,18 @@ public class EquipmentManager : MonoBehaviour
         RectTransform rectTransform = slot.rectTransform;
         return RectTransformUtility.RectangleContainsScreenPoint(rectTransform, mousePos, null);
     }
+
+    public WeaponType ReaturnEquipmentWeaponType()
+    {
+        if(equippedItems.ContainsKey(ItemType.무기))
+        {
+            var weapon = equippedItems[ItemType.무기];
+            if(weapon is WeaponItem weaponItem)
+            {
+                Debug.Log(weaponItem.WeaponItemData.weaponType);
+                return weaponItem.WeaponItemData.weaponType;
+            }
+        }
+        return WeaponType.주먹;
+    }
 }

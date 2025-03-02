@@ -41,6 +41,7 @@ public class PlayerData : MonoBehaviour
     [Header("플레이어 공격")]
     [SerializeField] float _attackPower;
     [SerializeField] bool _isAttack;
+    [SerializeField] bool _isCharging;
 
     [Header("플레이어 스텟")]
     [SerializeField] int _playerMaxHP;
@@ -112,6 +113,7 @@ public class PlayerData : MonoBehaviour
     public bool IsPlayerDie { get => _isPlayerDie; set => _isPlayerDie = value; }
     public bool IsInveOpen { get => _isInveOpen; set => _isInveOpen = value; }
     public bool IsEquipOpen { get => _isEquipOpen; set => _isEquipOpen = value; }
+    public bool IsCharging { get => _isCharging; set => _isCharging = value; }
     public LayerMask GroundLayerMask { get => _groundLayerMask; set => _groundLayerMask = value; }
     public Transform RawerRay { get => _rawerRay; set => _rawerRay = value; }
 

@@ -21,3 +21,4 @@ MonoBehaviour:
   ToolTip: "\uC5F0\uC2B5\uC6A9"
   MaxDurability: 100
   Damage: 1
+  weaponType: 4

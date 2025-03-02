@@ -19,6 +19,7 @@ public class InvenUI : MonoBehaviour
     [Header("슬롯 설정")]
     private List<ItemSlotUI> slotUIList;
     [SerializeField] private GameObject slotPrefab; //슬롯 프리펩
+    [SerializeField] private RectTransform slotParent;
     [SerializeField] RectTransform counterAreaRT;
     [SerializeField] private int _slotCount; //슬롯 갯수
 
@@ -41,7 +42,7 @@ public class InvenUI : MonoBehaviour
         pointerEvent = new PointerEventData(EventSystem.current);
         raycastResults = new List<RaycastResult>();
         _slotCount = 48;
-        InitSlot();
+        //InitSlot();
     }
 
     private void Update()
@@ -51,34 +52,48 @@ public class InvenUI : MonoBehaviour
 
     public int SlotCount { get => _slotCount; }
 
-    private void InitSlot()
+    public void InitSlots(PlayerInven inven)
     {
-        slotUIList = new List<ItemSlotUI>(_slotCount);
-        for (int i = 0; i < _slotCount; i++)
+        playerInven = inven;
+        slotUIList = new List<ItemSlotUI>();
+
+        for (int i = 0; i < playerInven.MaxItemCount; i++)
         {
-            int slotIndex = i;
-
-            //슬롯 생성 및 배치
-            var slotRT = ClonSlot();
-            slotRT.gameObject.SetActive(true);
-            slotRT.gameObject.name = $"Item Slot[{slotIndex}]";
-
-            //아이템 슬롯 리스트 등록
-            var slotUI = slotRT.GetComponent<ItemSlotUI>();
-            slotUI.SetIndex(slotIndex);
+            var slotGO = Instantiate(slotPrefab, slotParent);
+            var slotUI = slotGO.GetComponent<ItemSlotUI>();
+            slotUI.SetIndex(i);
             slotUIList.Add(slotUI);
         }
     }
 
-    //슬롯 복제
-    private RectTransform ClonSlot()
-    {
-        GameObject slot = Instantiate(slotPrefab);
-        RectTransform rt = slot.GetComponent<RectTransform>();
-        rt.SetParent(counterAreaRT);
+    //private void InitSlot()
+    //{
+    //    slotUIList = new List<ItemSlotUI>(_slotCount);
+    //    for (int i = 0; i < _slotCount; i++)
+    //    {
+    //        int slotIndex = i;
 
-        return rt;
-    }
+    //        //슬롯 생성 및 배치
+    //        var slotRT = ClonSlot();
+    //        slotRT.gameObject.SetActive(true);
+    //        slotRT.gameObject.name = $"Item Slot[{slotIndex}]";
+
+    //        //아이템 슬롯 리스트 등록
+    //        var slotUI = slotRT.GetComponent<ItemSlotUI>();
+    //        slotUI.SetIndex(slotIndex);
+    //        slotUIList.Add(slotUI);
+    //    }
+    //}
+
+    ////슬롯 복제
+    //private RectTransform ClonSlot()
+    //{
+    //    GameObject slot = Instantiate(slotPrefab);
+    //    RectTransform rt = slot.GetComponent<RectTransform>();
+    //    rt.SetParent(counterAreaRT);
+
+    //    return rt;
+    //}
 
     //인벤토리 열고 닫기
     public void InvenOnAndOff(bool TorF)
@@ -129,7 +144,6 @@ public class InvenUI : MonoBehaviour
     public void TryUseItem(int index)
     {
         playerInven.UseItem(index);
-        Debug.Log("아이템 사용");
     }
 
     public void ShowOrHideItemTooltip()
@@ -182,7 +196,6 @@ public class InvenUI : MonoBehaviour
 
         if (gr == null || pointerEvent == null)
         {
-            Debug.LogWarning("Raycaster or pointerEvent is null.");
             return null;
         }
 
@@ -195,7 +208,6 @@ public class InvenUI : MonoBehaviour
         {
             if(r.gameObject.GetComponent<T>())
             {
-                Debug.Log(r.gameObject.GetComponent<T>());
                 return r.gameObject.GetComponent<T>();
             }
         }
@@ -255,7 +267,6 @@ public class InvenUI : MonoBehaviour
 
         if (slot != null && slot.IsHasItem)
         {
-            Debug.Log("사용 눌림");
             TryUseItem(slot.Index);
         }
     }

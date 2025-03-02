@@ -44,7 +44,6 @@ public class UIManager : MonoBehaviour
             FindTargetAndPop(toggleFunction);
             uiStateMap[toggleFunction] = false;
             uiToggleAction.Invoke(false);
-            Debug.Log("들어옴");
         }
 
         else if (toggleFunction == ToggleEquip && isOpenEquip)
@@ -67,8 +66,6 @@ public class UIManager : MonoBehaviour
             {
                 playerData.IsEquipOpen = true;
             }
-            Debug.Log(playerData.IsInveOpen + "인벤");
-            Debug.Log(playerData.IsEquipOpen + "장비");
         }
     }
 

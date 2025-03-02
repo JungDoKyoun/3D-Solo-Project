@@ -26,7 +26,6 @@ public class PlayerStateManager : MonoBehaviour
         if (currentState != null)
         {
             currentState.Update();
-            currentState.Attack();
         }
     }
 

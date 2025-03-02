@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.InputSystem;
 
 public class PlayerInven : MonoBehaviour
@@ -18,10 +19,16 @@ public class PlayerInven : MonoBehaviour
 
     private void Awake()
     {
-        _maxItemCount = 48;
+        MaxItemCount = 48;
         items = new Item[_maxItemCount];
         itemCount = new int[_maxItemCount];
     }
+    private void Start()
+    {
+        inventoryUI.InitSlots(this);
+    }
+
+    public int MaxItemCount { get => _maxItemCount; set => _maxItemCount = value; }
 
     //인벤토리의 빈 슬롯 찾기
     public int FindEmptySlotIndex()
@@ -212,7 +219,11 @@ public class PlayerInven : MonoBehaviour
             return;
         }
 
-        if (items[index] is IUsableItem uItem)
+        if (items[index].data.ItemType == ItemType.화살)
+        {
+            return;
+        }
+        else if(items[index] is IUsableItem uItem)
         {
             if(uItem.Use())
             {
@@ -237,11 +248,50 @@ public class PlayerInven : MonoBehaviour
 
         return items[index].data;
     }
+
+    public int GetItemCount(ItemType type)
+    {
+        int count = 0;
+        foreach (var item in items)
+        {
+            if (item != null && item.data.ItemType == type && item is CountableItem ci)
+            {
+                count += ci.Count;
+            }
+        }
+        return count;
+    }
+
+    public void RemoveItemType(ItemType type, int amount)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i] != null && items[i].data.ItemType == type && items[i] is CountableItem ci)
+            {
+                if (ci.Count > amount)
+                {
+                    ci.SetCount(ci.Count - amount);
+                    UpdateSlot(i);
+                    return;
+                }
+                else
+                {
+                    amount -= ci.Count;
+                    items[i] = null;
+                    UpdateSlot(i);
+                }
+                if (amount <= 0)
+                {
+                    return;
+                }
+            }
+        }
+    }
+
     private void Update()
     {
         if (Keyboard.current.qKey.wasPressedThisFrame)
         {
-            Debug.Log("눌림");
             WeaponItem weap = new WeaponItem(Wea);
             AddItemInven(weap);
             Debug.Log(weap.data.name);
@@ -256,7 +306,6 @@ public class PlayerInven : MonoBehaviour
 
         if (Keyboard.current.zKey.wasPressedThisFrame)
         {
-            Debug.Log("눌림");
             ArmorTopItem at = new ArmorTopItem(tam);
             AddItemInven(at);
             Debug.Log(at.data.name);

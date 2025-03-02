@@ -8,7 +8,7 @@ public abstract class IPlayerState
     public abstract void Update();
     public abstract void Exit();
     public abstract void Move();
-    public abstract void Attack();
+    //public abstract void Attack();
 }
 
 //대기 상태
@@ -59,10 +59,11 @@ public class PlayerIdleState : IPlayerState
     //    player.transform.rotation = playerRo;
     //}
 
-    public override void Attack()
-    {
-        player.Anime.PlayAttackAnime();
-    }
+    //public override void Attack()
+    //{
+    //    player.RotateToAttack();
+    //    player.Anime.PlayAttackAnime();
+    //}
 
     public override void Update()
     {
@@ -71,6 +72,11 @@ public class PlayerIdleState : IPlayerState
             if(player.PlayerData.IsJump)
             {
                 stateManager.ChangeState(new PlayerJumpState());
+                return;
+            }
+            else if (player.PlayerData.IsAttack)
+            {
+                stateManager.ChangeState(new PlayerAttackState());
                 return;
             }
             else if(player.InputMoveDir.magnitude > 0.1f)
@@ -136,10 +142,11 @@ public class PlayerMoveState : IPlayerState
         player.Rotation();
     }
 
-    public override void Attack()
-    {
-        player.Anime.PlayAttackAnime();
-    }
+    //public override void Attack()
+    //{
+    //    player.RotateToAttack();
+    //    player.Anime.PlayAttackAnime();
+    //}
 
     public override void Update()
     {
@@ -148,6 +155,11 @@ public class PlayerMoveState : IPlayerState
             if (player.PlayerData.IsJump)
             {
                 stateManager.ChangeState(new PlayerJumpState());
+                return;
+            }
+            else if(player.PlayerData.IsAttack)
+            {
+                stateManager.ChangeState(new PlayerAttackState());
                 return;
             }
             else if (player.InputMoveDir.magnitude > 0.1f)
@@ -213,10 +225,11 @@ public class PlayerSprintState : IPlayerState
         player.Rotation();
     }
 
-    public override void Attack()
-    {
-        player.Anime.PlayAttackAnime();
-    }
+    //public override void Attack()
+    //{
+    //    player.RotateToAttack();
+    //    player.Anime.PlayAttackAnime();
+    //}
 
     public override void Update()
     {
@@ -225,6 +238,11 @@ public class PlayerSprintState : IPlayerState
             if (player.PlayerData.IsJump)
             {
                 stateManager.ChangeState(new PlayerJumpState());
+                return;
+            }
+            else if (player.PlayerData.IsAttack)
+            {
+                stateManager.ChangeState(new PlayerAttackState());
                 return;
             }
             else if (player.InputMoveDir.magnitude > 0.1f)
@@ -270,10 +288,10 @@ public class PlayerFallenState : IPlayerState
         player.PlayerRb.AddForce(-Vector3.up * player.PlayerData.PlayerFallenSpeed * player.PlayerData.InAirTime);
     }
 
-    public override void Attack()
-    {
+    //public override void Attack()
+    //{
 
-    }
+    //}
 
     public override void Update()
     {
@@ -307,10 +325,10 @@ public class PlayerLandingState : IPlayerState
         
     }
 
-    public override void Attack()
-    {
+    //public override void Attack()
+    //{
 
-    }
+    //}
 
     public override void Update()
     {
@@ -348,10 +366,10 @@ public class PlayerJumpState : IPlayerState
         
     }
 
-    public override void Attack()
-    {
+    //public override void Attack()
+    //{
 
-    }
+    //}
 
     public override void Update()
     {
@@ -359,6 +377,79 @@ public class PlayerJumpState : IPlayerState
         {
             stateManager.ChangeState(new PlayerLandingState());
             return;
+        }
+    }
+}
+
+public class PlayerAttackState : IPlayerState
+{
+    private PlayerController player;
+    private PlayerStateManager stateManager;
+
+    public override void Enter(PlayerController playerController, PlayerStateManager manager)
+    {
+        player = playerController;
+        stateManager = manager;
+        player.Attack();
+    }
+
+    public override void Exit()
+    {
+        
+    }
+
+    public override void Move()
+    {
+        player.MoveDir = player.Cam.transform.forward * player.InputMoveDir.y + player.Cam.transform.right * player.InputMoveDir.x;
+        player.MoveDir = new Vector3(player.MoveDir.x, 0, player.MoveDir.z);
+        player.MoveDir.Normalize();
+
+        //경사로
+        player.IsOnSloop();
+        player.OnSloop();
+
+        //플레이어 움직임
+        player.PlayerRb.velocity = player.MoveDir * player.PlayerData.PlayerMoveSpeed;
+        player.PlayerData.Magnitude = player.PlayerRb.velocity.magnitude;
+
+        //계단
+        player.UpStair();
+
+        //애니메이션
+        player.Anime.PlayerMoveAnime();
+    }
+
+    public override void Update()
+    {
+        if (player.CheckIsGround())
+        {
+            if (player.PlayerData.IsJump)
+            {
+                stateManager.ChangeState(new PlayerJumpState());
+                return;
+            }
+            else if (player.InputMoveDir.magnitude > 0.1f)
+            {
+                if (player.GetSprint())
+                {
+                    stateManager.ChangeState(new PlayerSprintState());
+                    return;
+                }
+                else
+                {
+                    stateManager.ChangeState(new PlayerMoveState());
+                    return;
+                }
+            }
+            else if (player.InputMoveDir.magnitude < 0.1f)
+            {
+                stateManager.ChangeState(new PlayerIdleState());
+                return;
+            }
+        }
+        else
+        {
+            stateManager.ChangeState(new PlayerFallenState());
         }
     }
 }

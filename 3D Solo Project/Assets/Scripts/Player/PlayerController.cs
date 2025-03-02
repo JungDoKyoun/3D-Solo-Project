@@ -6,6 +6,11 @@ using UnityEngine.InputSystem.HID;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] EquipmentManager equipmentManager;
+    [SerializeField] private GameObject arrowPrefab;
+    [SerializeField] private Transform arrowSpawnPoint;
+    [SerializeField] private CrossHeadManager CrossHeadManager;
+    private PlayerInven playerInven;
     private PlayerData playerData;//플레이어 데이터
     private Rigidbody playerRb;//리지드 바디
     private Camera cam;//메인 카메라
@@ -17,11 +22,13 @@ public class PlayerController : MonoBehaviour
     private int _currentHP;
     private int _currentAtk;
     private int _currentDef;
+    private float arrowSpeed;
 
     private void Awake()
     {
         playerData = GetComponent<PlayerData>();
         playerRb = GetComponent<Rigidbody>();
+        playerInven = GetComponent<PlayerInven>();
         cam = Camera.main;
         anime = GetComponent<AnimationController>();
         weaPon = GetComponentInChildren<BoxCollider>();
@@ -30,8 +37,12 @@ public class PlayerController : MonoBehaviour
         _currentHP = playerData.PlayerMaxHP;
         _currentAtk = playerData.PlayerAtk;
         _currentDef = playerData.PlayerDef;
+        arrowSpeed = 30f;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 
+    public EquipmentManager EquipmentManager { get => equipmentManager; set => equipmentManager = value; }
     public PlayerData PlayerData { get => playerData; set => playerData = value; }
     public Rigidbody PlayerRb { get => playerRb; set => playerRb = value; }
     public Camera Cam { get => cam; set => cam = value; }
@@ -207,6 +218,16 @@ public class PlayerController : MonoBehaviour
         playerData.IsAttack = TorF;
     }
 
+    //공격시 카메라 방향으로 방향 전환
+    public void RotateToAttack()
+    {
+        Vector3 targetDir = cam.transform.forward;
+        targetDir.y = 0;
+
+        Quaternion targetRo = Quaternion.LookRotation(targetDir);
+        transform.rotation = targetRo;
+    }
+
     //무기 콜라이더 켜기
     public void OnWeaponCollider()
     {
@@ -218,6 +239,79 @@ public class PlayerController : MonoBehaviour
     {
         weaPon.enabled = false;
     }
+
+    //공격 패턴
+    public void Attack()
+    {
+        WeaponType equippedWeapon = EquipmentManager.ReaturnEquipmentWeaponType();
+        RotateToAttack();
+        if(equippedWeapon == WeaponType.주먹)
+        {
+
+        }
+
+        else if(equippedWeapon == WeaponType.칼)
+        {
+
+        }
+
+        else if(equippedWeapon == WeaponType.창)
+        {
+
+        }
+
+        else if(equippedWeapon == WeaponType.도끼)
+        {
+
+        }
+
+        else if(equippedWeapon == WeaponType.활)
+        {
+            StartCharging();
+        }
+
+        anime.PlayAttackAnime();
+    }
+
+    public void StartCharging()
+    {
+        if (playerInven.GetItemCount(ItemType.화살) <= 0) 
+        {
+            Debug.Log("화살이 없습니다!");
+            return;
+        }
+
+        CrossHeadManager.OnCrossHead();
+        playerData.IsCharging = true;
+        Debug.Log("활 조준 시작!");
+    }
+
+    public void ReleaseArrow()
+    {
+        if (!playerData.IsCharging)
+        {
+            return;
+        }
+        playerData.IsCharging = false;
+
+        if (playerInven.GetItemCount(ItemType.화살) <= 0)
+        {
+            Debug.Log("화살이 없습니다!");
+            return;
+        }
+
+        playerInven.RemoveItemType(ItemType.화살, 1);
+
+        GameObject arrow = Instantiate(arrowPrefab, arrowSpawnPoint.position, arrowSpawnPoint.rotation);
+        Rigidbody rb = arrow.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.velocity = arrowSpawnPoint.forward * arrowSpeed;
+        }
+        CrossHeadManager.OffCrossHead();
+        Debug.Log($"화살 발사! 속도: {arrowSpeed} | 남은 화살: {playerInven.GetItemCount(ItemType.화살)}");
+    }
+
 
     //몬스터에게 맞을 때
     public void TakeDamae(int damage)
