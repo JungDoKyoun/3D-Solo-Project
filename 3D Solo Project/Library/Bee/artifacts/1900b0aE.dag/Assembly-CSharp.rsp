@@ -369,7 +369,6 @@
 "Assets/Scripts/Inven/MoveableIneven.cs"
 "Assets/Scripts/Item/Item.cs"
 "Assets/Scripts/Item/ItemDataSO.cs"
-"Assets/Scripts/Item/ItemDrag.cs"
 "Assets/Scripts/Monster/MonsterAnimeController.cs"
 "Assets/Scripts/Monster/MonsterController.cs"
 "Assets/Scripts/Monster/MonsterData.cs"

@@ -87,18 +87,22 @@ public class MonsterSpawner : MonoBehaviour
 
     public Vector3 GetRandomNavMeshPos(int monsterID)
     {
-        Vector3 randomDir = Random.insideUnitSphere * monsterDataSO.monsters[monsterID].spawnRange;
-        randomDir += transform.position;
+        int maxAttempts = 10;
+        Vector3 spawnPos = transform.position;
+        float spawnRange = monsterDataSO.monsters[monsterID].spawnRange;
 
-        NavMeshHit hit;
-        if(NavMesh.SamplePosition(randomDir, out hit, monsterDataSO.monsters[monsterID].spawnRange, NavMesh.AllAreas))
+        for(int i = 0; i < maxAttempts; i++)
         {
-            return hit.position;
+            Vector3 randomDir = Random.insideUnitSphere * spawnRange;
+
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(randomDir, out hit, spawnRange, NavMesh.AllAreas))
+            {
+                return hit.position;
+            }
         }
-        else
-        {
-            return transform.position;
-        }
+        spawnPos += new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        return spawnPos;
     }
 
     private void OnDrawGizmos()
