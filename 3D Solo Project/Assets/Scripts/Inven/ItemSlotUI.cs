@@ -20,6 +20,7 @@ public class ItemSlotUI : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("�Ͼ");
         IsHasItem = false;
         iconRect = itemIcon.rectTransform;
     }

@@ -44,7 +44,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField] bool _isCharging;
 
     [Header("플레이어 스텟")]
-    [SerializeField] int _playerMaxHP;
+    [SerializeField] float _playerMaxHP;
     [SerializeField] int _playerAtk;
     [SerializeField] int _playerDef;
 
@@ -101,7 +101,7 @@ public class PlayerData : MonoBehaviour
     public float Magnitude { get => _magnitude; set => _magnitude = value; }
     public float AngleResult { get => _angleResult; set => _angleResult = value; }
     public float AttackPower { get => _attackPower; set => _attackPower = value; }
-    public int PlayerMaxHP { get => _playerMaxHP; set => _playerMaxHP = value; }
+    public float PlayerMaxHP { get => _playerMaxHP; set => _playerMaxHP = value; }
     public int PlayerAtk { get => _playerAtk; set => _playerAtk = value; }
     public int PlayerDef { get => _playerDef; set => _playerDef = value; }
     public bool IsSprint { get => _isSprint; set => _isSprint = value; }

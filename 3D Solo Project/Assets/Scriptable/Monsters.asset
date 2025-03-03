@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: Monsters
+  m_EditorClassIdentifier: Assembly-CSharp::MonsterDataSO
+  monsters:
+  - prefab: {fileID: 342034056974110957, guid: dd0ec16675139db41b1c3ee93c26a626, type: 3}
+    id: 0
+    name: "\uC2A4\uCF08\uB85C\uD1A4"
+    maxHP: 100
+    detectingRange: 10
+    maxCount: 10
+    spawnRange: 40
+    patrolSpeed: 3
+    chaseSpeed: 5
+    randomRange: 10
+    groundSphereRadius: 0
+    groundSphereOffSet: 0
+    damage: 10
+    def: 3
+    attackDel: 5
+    st: 0.27
+    ed: 1.03
+    animeTime: 2.22
+    dropItems:
+    - {fileID: 11400000, guid: 915779bd466be3f40a859236f1bf8dc1, type: 2}
+    - {fileID: 11400000, guid: 77ab284addc0ed54087c0cf4ee4ce6e6, type: 2}
+    - {fileID: 11400000, guid: 2bd58d9e12424b8419da130e7acccc62, type: 2}
+    - {fileID: 11400000, guid: 309e79fccefb5d9499cb8bf5e7a05964, type: 2}
+    - {fileID: 11400000, guid: c74d83a09619d8a49bb7fa464fc5a8d6, type: 2}
+    - {fileID: 11400000, guid: 050b11c4bb8f0014dab6ddc821cf9aec, type: 2}
+    - {fileID: 11400000, guid: 86d87d7a712d4d142b38c3e9dff8cd0d, type: 2}
+    maxDropCount: 5
+    Score: 5
+  - prefab: {fileID: 8406873126338671851, guid: 1deae4621ab0f9f429a02fa3221c6376, type: 3}
+    id: 1
+    name: "\uACF0\uC778\uAC04"
+    maxHP: 110
+    detectingRange: 10
+    maxCount: 10
+    spawnRange: 40
+    patrolSpeed: 3
+    chaseSpeed: 5
+    randomRange: 10
+    groundSphereRadius: 0
+    groundSphereOffSet: 0
+    damage: 13
+    def: 5
+    attackDel: 5
+    st: 0.07
+    ed: 0.17
+    animeTime: 0.29
+    dropItems:
+    - {fileID: 11400000, guid: 915779bd466be3f40a859236f1bf8dc1, type: 2}
+    - {fileID: 11400000, guid: c74d83a09619d8a49bb7fa464fc5a8d6, type: 2}
+    - {fileID: 11400000, guid: 77ab284addc0ed54087c0cf4ee4ce6e6, type: 2}
+    - {fileID: 11400000, guid: 2bd58d9e12424b8419da130e7acccc62, type: 2}
+    - {fileID: 11400000, guid: 309e79fccefb5d9499cb8bf5e7a05964, type: 2}
+    - {fileID: 11400000, guid: 86d87d7a712d4d142b38c3e9dff8cd0d, type: 2}
+    - {fileID: 11400000, guid: 050b11c4bb8f0014dab6ddc821cf9aec, type: 2}
+    maxDropCount: 5
+    Score: 10
+  - prefab: {fileID: 6879524062691904625, guid: 6ed800d81229ae34aa994a9b1e086947, type: 3}
+    id: 2
+    name: "\uACE8\uB818"
+    maxHP: 130
+    detectingRange: 10
+    maxCount: 10
+    spawnRange: 25
+    patrolSpeed: 3
+    chaseSpeed: 5
+    randomRange: 10
+    groundSphereRadius: 0
+    groundSphereOffSet: 0
+    damage: 20
+    def: 8
+    attackDel: 7
+    st: 0
+    ed: 0
+    animeTime: 0
+    dropItems:
+    - {fileID: 0}
+    - {fileID: 11400000, guid: f5da090d81d3d074da8ba8378ea8044d, type: 2}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    maxDropCount: 5
+    Score: 20

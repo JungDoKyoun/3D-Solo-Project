@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem.HID;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,10 +23,11 @@ public class PlayerController : MonoBehaviour
     private RaycastHit sloopHit;
     private Vector3 moveDir;//움직이는 방향
     private Vector2 inputMoveDir;//인풋 변수 받아옴
-    private int _currentHP;
+    private float _currentHP;
     private int _currentAtk;
     private int _currentDef;
     private float arrowSpeed;
+    [SerializeField]private Image hpBar;
 
     private void Awake()
     {
@@ -57,7 +59,7 @@ public class PlayerController : MonoBehaviour
     public RaycastHit SloopHit { get => sloopHit; set => sloopHit = value; }
     public Vector3 MoveDir { get => moveDir; set => moveDir = value; }
     public Vector3 InputMoveDir { get => inputMoveDir; set => inputMoveDir = value; }
-    public int CurrentHP { get => _currentHP; set => _currentHP = value; }
+    public float CurrentHP { get => _currentHP; set => _currentHP = value; }
     public int CurrentAtk { get => _currentAtk; set => _currentAtk = value; }
     public int CurrentDef { get => _currentDef; set => _currentDef = value; }
 
@@ -367,7 +369,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamae(int damage)
     {
         _currentHP -= damage - playerData.PlayerDef;
-
+        hpBar.fillAmount = CurrentHP / playerData.PlayerMaxHP;
         if(_currentHP <= 0)
         {
             _currentHP = 0;
@@ -379,5 +381,6 @@ public class PlayerController : MonoBehaviour
     public void PlayerDie()
     {
         playerData.IsPlayerDie = true;
+        GameManager.Instance.PlayerDied();
     }
 }

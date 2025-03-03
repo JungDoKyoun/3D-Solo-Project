@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: "\uCE7C"
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponItemData
+  ID: 100
+  ItemImage: {fileID: 21300000, guid: c63c511577e9f6a4fbde5e8894f504bb, type: 3}
+  Name: "\uCE7C"
+  Type: 1
+  ItemType: 1
+  ItemPrefab: {fileID: 4711595798827633158, guid: b928158e3addbab46a09519953f6e922, type: 3}
+  ToolTip: "\uADF8\uB0E5 \uCE7C\uC778\uB4EF \uD558\uB2E4"
+  dropChance: 30
+  MaxDurability: 100
+  Damage: 10
+  weaponType: 1

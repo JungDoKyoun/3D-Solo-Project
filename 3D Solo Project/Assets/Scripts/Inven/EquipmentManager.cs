@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using static UnityEditor.Progress;
-
 public class EquipmentManager : MonoBehaviour
 {
     [SerializeField] private Image weaponSlot;

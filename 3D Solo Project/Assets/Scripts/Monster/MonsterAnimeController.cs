@@ -9,6 +9,7 @@ public class MonsterAnimeController : MonoBehaviour
     int chase;
     int patrol;
     int attack;
+    int die;
 
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class MonsterAnimeController : MonoBehaviour
         chase = Animator.StringToHash("IsChase");
         patrol = Animator.StringToHash("IsPatrol");
         attack = Animator.StringToHash("IsAttack");
+        die = Animator.StringToHash("IsDie");
     }
 
     public void PlayChaseAnime(bool TorF)
@@ -32,5 +34,10 @@ public class MonsterAnimeController : MonoBehaviour
     public void PlayAttackAnime(bool TorF)
     {
         anime.SetBool(attack, TorF);
+    }
+
+    public void PlayDieAnime(bool TorF)
+    {
+        anime.SetBool(die, TorF);
     }
 }

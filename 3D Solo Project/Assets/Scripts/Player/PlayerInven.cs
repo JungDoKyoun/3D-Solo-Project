@@ -23,10 +23,13 @@ public class PlayerInven : MonoBehaviour
         MaxItemCount = 48;
         items = new Item[_maxItemCount];
         itemCount = new int[_maxItemCount];
+        inventoryUI.InitSlots(this);
+        Debug.Log(inventoryUI);
     }
     private void Start()
     {
-        inventoryUI.InitSlots(this);
+        WeaponItem weap = new WeaponItem(Wea);
+        AddItemInven(weap);
     }
 
     public int MaxItemCount { get => _maxItemCount; set => _maxItemCount = value; }

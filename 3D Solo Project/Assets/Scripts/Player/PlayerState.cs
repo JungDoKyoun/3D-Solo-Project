@@ -349,6 +349,7 @@ public class PlayerJumpState : IPlayerState
     {
         player = playerController;
         stateManager = manager;
+        player.Anime.PlayJumpAnime(true);
         player.PlayerRb.useGravity = true;
         float playerHight = Mathf.Sqrt(-2 * player.PlayerData.GravityForce * player.PlayerData.JumpPower);
         Vector3 playerVel = player.PlayerRb.velocity;
@@ -358,7 +359,7 @@ public class PlayerJumpState : IPlayerState
 
     public override void Exit()
     {
-        
+        player.Anime.PlayJumpAnime(false);
     }
 
     public override void Move()
@@ -375,7 +376,7 @@ public class PlayerJumpState : IPlayerState
     {
         if (player.CheckIsGround())
         {
-            stateManager.ChangeState(new PlayerLandingState());
+            stateManager.ChangeState(new PlayerIdleState());
             return;
         }
     }

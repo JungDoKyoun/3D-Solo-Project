@@ -15,8 +15,8 @@ public class MonsterStateManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        currentState.Move();
         currentState.Attack();
+        currentState.Move();
     }
 
     private void Update()

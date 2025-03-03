@@ -10,7 +10,7 @@ public class MonsterData
     [Header("몬스터 정보")]
     public int id; //몬스터 종류 나타내는 ID
     public string name; //몬스터 이름
-    public int maxHP; //최대체력
+    public float maxHP; //최대체력
     public int detectingRange; //감지 범위
     public int maxCount; //최대 생성갯수
     public int spawnRange;
@@ -28,6 +28,14 @@ public class MonsterData
     public int damage; //데미지
     public int def; //방어력
     public float attackDel; //공격 딜레이
+    public float st;
+    public float ed;
+    public float animeTime;
+
+    [Header("드롭 아이템")]
+    public List<ItemDataSO> dropItems;
+    public int maxDropCount = 3;
+    public int Score;
 }
 
 

@@ -5,10 +5,12 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     PlayerController player;
+    DropItem item;
 
     private void Awake()
     {
         player = GetComponentInParent<PlayerController>();
+        item = GetComponent<DropItem>();
     }
 
     //데미지 입힐때
@@ -16,7 +18,7 @@ public class WeaponManager : MonoBehaviour
     {
         MonsterController monsterController = other.GetComponent<MonsterController>();
 
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") && !item.IsDroop)
         {
             monsterController.TakeDamage(player.CurrentAtk);
         }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Pool;
@@ -34,13 +35,11 @@ public class MonsterSpawner : MonoBehaviour
                 maxSize : monster.maxCount
                 );
         }
-    }
 
-    private void Update()
-    {
-        if ((Input.GetKeyDown(KeyCode.Alpha1)))
+        for(int i = 0; i < 50; i++)
         {
             SpawnMonster(0);
+            SpawnMonster(1);
         }
     }
 
@@ -83,6 +82,7 @@ public class MonsterSpawner : MonoBehaviour
         {
             Destroy(monster);
         }
+        StartCoroutine(RespawnAfterDelay(monster));
     }
 
     public Vector3 GetRandomNavMeshPos(int monsterID)
@@ -93,7 +93,7 @@ public class MonsterSpawner : MonoBehaviour
 
         for(int i = 0; i < maxAttempts; i++)
         {
-            Vector3 randomDir = Random.insideUnitSphere * spawnRange;
+            Vector3 randomDir = transform.position + Random.insideUnitSphere * spawnRange;
 
             NavMeshHit hit;
             if (NavMesh.SamplePosition(randomDir, out hit, spawnRange, NavMesh.AllAreas))
@@ -101,13 +101,26 @@ public class MonsterSpawner : MonoBehaviour
                 return hit.position;
             }
         }
-        spawnPos += new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10));
+        spawnPos += new Vector3(Random.Range(-spawnRange, spawnRange), 0, Random.Range(-spawnRange, spawnRange));
         return spawnPos;
+    }
+
+    public IEnumerator RespawnAfterDelay(GameObject monster)
+    {
+        yield return new WaitForSeconds(10f);
+        MonsterController controller = monster.GetComponent<MonsterController>();
+
+        if(controller != null)
+        {
+            controller.ResetMonster();
+        }
+
+        monster.gameObject.SetActive(true);
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, spawnRange);
+        Gizmos.DrawWireSphere(transform.position, 30);
     }
 }

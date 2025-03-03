@@ -26,10 +26,9 @@ public class MonsterIdle : IMonsterState
     {
         monster = monsterController;
         stateManager = monsterStateManager;
-        distance = 100;
         updateTime = 5;
+        distance = 100;
         timeSinceLastUpdate = 0;
-        Debug.Log("대기중");
     }
 
     public override void Exit()
@@ -43,10 +42,18 @@ public class MonsterIdle : IMonsterState
         if (target != null)
         {
             distance = monster.CheckDistance(target);
-            if (distance > 1.5 && !monster.IsAttack)
-            {
-                stateManager.ChangeMonsterState(new MonsterChase());
-            }
+        }
+        if(monster.IsDie)
+        {
+            stateManager.ChangeMonsterState(new MonsterDieState());
+        }
+        else if(distance <= 1.5 && target != null)
+        {
+            stateManager.ChangeMonsterState(new MonsterAttack());
+        }
+        else if (distance > 1.5 && !monster.IsAttack && target != null)
+        {
+            stateManager.ChangeMonsterState(new MonsterChase());
         }
         else
         {
@@ -65,10 +72,7 @@ public class MonsterIdle : IMonsterState
 
     public override void Attack()
     {
-        if(distance <= 3 && !monster.IsAttack)
-        {
-            monster.StartCoroutine(monster.Attack());
-        }
+        
     }
 }
 
@@ -85,14 +89,12 @@ public class MonsterPatrol : IMonsterState
         stateManager = monsterStateManager;
         monster.Anime.PlayPatrolAnime(true);
         monster.StartCoroutine(monster.Patrol());
-        Debug.Log("asd");
     }
 
     public override void Exit()
     {
         monster.Anime.PlayPatrolAnime(false);
         monster.StopAllCoroutines();
-        Debug.Log("순찰끝");
     }
 
     public override void Update()
@@ -101,10 +103,18 @@ public class MonsterPatrol : IMonsterState
         if (target != null)
         {
             distance = monster.CheckDistance(target);
-            if (distance > 1.5)
-            {
-                stateManager.ChangeMonsterState(new MonsterChase());
-            }
+        }
+        if (monster.IsDie)
+        {
+            stateManager.ChangeMonsterState(new MonsterDieState());
+        }
+        else if (distance <= 1.5 && target != null)
+        {
+            stateManager.ChangeMonsterState(new MonsterAttack());
+        }
+        else if (distance > 1.5 && target != null)
+        {
+            stateManager.ChangeMonsterState(new MonsterChase());
         }
         else if (monster.Agent.remainingDistance <= monster.Agent.stoppingDistance && !monster.Agent.pathPending)
         {
@@ -135,23 +145,30 @@ public class MonsterChase : IMonsterState
         monster = monsterController;
         stateManager = monsterStateManager;
         monster.Anime.PlayChaseAnime(true);
-        distance = 100;
+        Debug.Log("추적중");
     }
 
     public override void Exit()
     {
-        monster.StopAllCoroutines();
+        monster.Anime.PlayChaseAnime(false);
     }
 
     public override void Update()
     {
         target = monster.DetectPlayer();
-        if(target != null)
+        if (target != null)
         {
             distance = monster.CheckDistance(target);
         }
-        
-        if (target == null || distance <= 1.5f)
+        if (monster.IsDie)
+        {
+            stateManager.ChangeMonsterState(new MonsterDieState());
+        }
+        else if (distance <= 1.5 && target != null)
+        {
+            stateManager.ChangeMonsterState(new MonsterAttack());
+        }
+        else if (target == null || distance <= 1.5f)
         {
             monster.StopChase();
             monster.Anime.PlayChaseAnime(false);
@@ -169,9 +186,109 @@ public class MonsterChase : IMonsterState
 
     public override void Attack()
     {
-        if (distance <= 3 && !monster.IsAttack)
+        
+    }
+}
+
+public class MonsterAttack : IMonsterState
+{
+    MonsterController monster;
+    MonsterStateManager stateManager;
+    Collider target;
+    float distance;
+
+    public override void Enter(MonsterController monsterController, MonsterStateManager monsterStateManager)
+    {
+        Debug.Log("공격함");
+        monster = monsterController;
+        stateManager = monsterStateManager;
+    }
+
+    public override void Exit()
+    {
+        monster.StopCoroutine(monster.Attack(target.transform));
+    }
+
+    public override void Update()
+    {
+        target = monster.DetectPlayer();
+        if (target != null)
         {
-            monster.StartCoroutine(monster.Attack());
+            distance = monster.CheckDistance(target);
+        }
+        if (monster.IsDie)
+        {
+            stateManager.ChangeMonsterState(new MonsterDieState());
+        }
+        if (distance > 1.5 && target != null)
+        {
+            stateManager.ChangeMonsterState(new MonsterChase());
+        }
+        else if (target == null)
+        {
+            stateManager.ChangeMonsterState(new MonsterIdle());
+        }
+    }
+
+    public override void Move()
+    {
+
+    }
+
+    public override void Attack()
+    {
+        if (target != null && !monster.IsAttack)
+        {
+            monster.StartCoroutine(monster.Attack(target.transform));
+        }
+    }
+}
+
+public class MonsterDieState : IMonsterState
+{
+    private MonsterController monster;
+    private MonsterStateManager stateManager;
+
+    public override void Enter(MonsterController monsterController, MonsterStateManager monsterStateManager)
+    {
+        monster = monsterController;
+        stateManager = monsterStateManager;
+
+        monster.Anime.PlayDieAnime(true);
+
+        monster.MonsterRb.isKinematic = true;
+        monster.Agent.enabled = false;
+        monster.IsAttack = false;
+        monster.IsChase = false;
+
+        if (monster.GetComponent<Collider>())
+        {
+            monster.GetComponent<Collider>().enabled = false;
+        }
+
+        monster.StartCoroutine(monster.RespawnMonster());
+    }
+
+
+    public override void Exit()
+    {
+        monster.Anime.PlayDieAnime(false);
+    }
+
+    public override void Move()
+    {
+        
+    }
+    public override void Attack()
+    {
+        
+    }
+
+    public override void Update()
+    {
+        if (!monster.IsDie)
+        {
+            stateManager.ChangeMonsterState(new MonsterIdle());
         }
     }
 }

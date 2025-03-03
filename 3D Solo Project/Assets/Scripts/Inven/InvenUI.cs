@@ -38,11 +38,11 @@ public class InvenUI : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("일어났다");
         gr = GetComponent<GraphicRaycaster>();
         pointerEvent = new PointerEventData(EventSystem.current);
         raycastResults = new List<RaycastResult>();
         _slotCount = 48;
-        //InitSlot();
     }
 
     private void Update()
@@ -64,6 +64,8 @@ public class InvenUI : MonoBehaviour
             slotUI.SetIndex(i);
             slotUIList.Add(slotUI);
         }
+        gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     //private void InitSlot()
@@ -241,7 +243,7 @@ public class InvenUI : MonoBehaviour
         }
         beginSlot = RayCastAndGetCom<ItemSlotUI>();
         Debug.Log(beginSlot);
-
+        Debug.Log(beginSlot.IsHasItem);
         if (beginSlot != null && beginSlot.IsHasItem)
         {
             Debug.Log("인식함");

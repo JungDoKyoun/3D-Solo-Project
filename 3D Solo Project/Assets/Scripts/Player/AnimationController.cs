@@ -9,6 +9,7 @@ public class AnimationController : MonoBehaviour
     int _speed;
     int _attack;
     float playerSpeed;
+    int _Jump;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class AnimationController : MonoBehaviour
         player = GetComponent<PlayerController>();
         _speed = Animator.StringToHash("Speed");
         _attack = Animator.StringToHash("SwordAttack");
+        _Jump = Animator.StringToHash("IsJump");
     }
 
     public void PlayerMoveAnime()
@@ -49,5 +51,10 @@ public class AnimationController : MonoBehaviour
     {
         anime.SetBool(_attack, false);
         player.PlayerData.IsAttack = false;
+    }
+
+    public void PlayJumpAnime(bool TorF)
+    {
+        anime.SetBool(_Jump, TorF);
     }
 }

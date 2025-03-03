@@ -27,6 +27,7 @@ public abstract class ItemDataSO : ScriptableObject
     public ItemType ItemType;
     public GameObject ItemPrefab;
     public string ToolTip;
+    public float dropChance;
 
     public abstract Item CreateItem();
 }

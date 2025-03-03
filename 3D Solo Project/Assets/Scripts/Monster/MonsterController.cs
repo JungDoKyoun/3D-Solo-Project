@@ -4,11 +4,18 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Pool;
+using UnityEngine.UI;
 using static UnityEngine.GraphicsBuffer;
 using static UnityEngine.UI.Image;
 
 public class MonsterController : MonoBehaviour
 {
+    [SerializeField] private GameObject hpBarPrefab;
+    private Vector3 hpBarOffSet;
+    private Canvas uiCanvas;
+    private Image hpBarImage;
+    private MonsterHPBar hpBarInstance;
+    private MonsterSpawner spawner;
     private MonsterData data;
     private BoxCollider weaponCollider;
     private Rigidbody monsterRb;
@@ -17,13 +24,9 @@ public class MonsterController : MonoBehaviour
     private LayerMask player;
     private LayerMask ground;
     private Vector3 originTR;
-    private int _currentMonsterHP;
-    [SerializeField] private float updateInterval;
+    private float _currentMonsterHP;
     private float timeSinceLastUpdate;
     private int _damage;
-    [SerializeField] private float _groundSphereRadius;
-    [SerializeField] private float _groundSphereOffSet;
-    [SerializeField] private int _detectingRange;
     [SerializeField] private int _random;
     private bool _isDie;
     private bool _isChase;
@@ -36,6 +39,7 @@ public class MonsterController : MonoBehaviour
     public int Damage { get => _damage; set => _damage = value; }
     public bool IsChase { get => _isChase; set => _isChase = value; }
     public bool IsAttack { get => _isAttack; set => _isAttack = value; }
+    public bool IsDie { get => _isDie; set => _isDie = value; }
 
     private void Awake()
     {
@@ -45,11 +49,19 @@ public class MonsterController : MonoBehaviour
         monsterRb = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
         anime = GetComponent<MonsterAnimeController>();
-        updateInterval = 5f;
-        _groundSphereRadius = 0.5f;
-        _groundSphereOffSet = 0.5f;
-        _detectingRange = 10;
+        spawner = FindAnyObjectByType<MonsterSpawner>();
+        hpBarInstance = FindAnyObjectByType<MonsterHPBar>();
         _random = 20;
+        _isDie = false;
+        _isChase = false;
+        _isAttack = false;
+        hpBarOffSet = new Vector3(0, 1.7f, 0);
+    }
+
+    private void Start()
+    {
+        SetHpBar();
+        Debug.Log(hpBarInstance);
     }
 
     //몬스터 데이터 초기화
@@ -68,6 +80,7 @@ public class MonsterController : MonoBehaviour
     {
         _currentMonsterHP -= damage - data.def;
         Debug.Log("현재 몬스터 체력" + _currentMonsterHP);
+        hpBarImage.fillAmount = _currentMonsterHP / data.maxHP;
 
         if (_currentMonsterHP <= 0)
         {
@@ -79,6 +92,10 @@ public class MonsterController : MonoBehaviour
     //몬스터 죽음
     public void MonsterDie()
     {
+        GameManager.Instance.AddScore(data.Score);
+        Destroy(hpBarInstance.gameObject);
+        hpBarInstance = null;
+        DropItem();
         _isDie = true;
     }
 
@@ -111,27 +128,6 @@ public class MonsterController : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, _random);
     }
 
-
-    //바닥 감지
-    //public bool CheckIsGround()
-    //{
-    //    originTR = transform.position;
-    //    originTR.y += data.groundSphereOffSet;
-
-    //    var coll = Physics.OverlapSphere(originTR, data.groundSphereRadius, ground);
-    //    _isGround = coll.Length > 0;
-    //    Debug.Log(_isGround);
-    //    return _isGround;
-    //}
-
-    //private void OnDrawGizmos()
-    //{
-    //    originTR = transform.position;
-    //    originTR.y += _groundSphereOffSet;
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireSphere(originTR, _groundSphereRadius);
-    //}
-
     //플레이어 쫒기
     public void ChasePlayer(Collider target)
     {
@@ -159,13 +155,46 @@ public class MonsterController : MonoBehaviour
     }
 
     //공격
-    public IEnumerator Attack()
+    public IEnumerator Attack(Transform target)
     {
+        float tempTime = 0;
         _isAttack = true;
+        LookAtTarget(target.transform);
         anime.PlayAttackAnime(true);
-        yield return new WaitForSeconds(data.attackDel);
+        yield return null;
+        while (tempTime < data.st)
+        {
+            tempTime += Time.deltaTime;
+            yield return null;
+        }
+        OnMonsterWeaponCollider();
+        while (tempTime < data.ed)
+        {
+            tempTime += Time.deltaTime;
+            yield return null;
+        }
+        OffMonsterWeaponCollider();
+        while (tempTime < data.animeTime)
+        {
+            tempTime += Time.deltaTime;
+            yield return null;
+        }
         anime.PlayAttackAnime(false);
+        while (tempTime < data.attackDel)
+        {
+            tempTime += Time.deltaTime;
+            yield return null;
+        }
         _isAttack = false;
+    }
+
+    public void LookAtTarget(Transform target)
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+        direction.y = 0; 
+
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        transform.rotation = lookRotation;
     }
 
     //네비메쉬 랜덤 포지션 받기
@@ -177,6 +206,11 @@ public class MonsterController : MonoBehaviour
         NavMeshHit hit;
         if(NavMesh.SamplePosition(randomDir, out hit, data.randomRange, NavMesh.AllAreas))
         {
+            if (!agent.isOnNavMesh)
+            {
+                agent.Warp(hit.position);
+                Debug.Log("sd");
+            }
             return hit.position;
         }
         else
@@ -195,13 +229,97 @@ public class MonsterController : MonoBehaviour
         
         agent.isStopped = true;
         agent.ResetPath();
-        //timeSinceLastUpdate += Time.deltaTime;
+    }
 
-        //if(timeSinceLastUpdate >= updateInterval)
+    public void DropItem()
+    {
+        Debug.Log("a");
+        if (data.dropItems.Count == 0)
+        {
+            return;
+        }
+        Debug.Log("b");
+        int droppedCount = 0;
+
+        foreach (var dropInfo in data.dropItems)
+        {
+            if (droppedCount >= data.maxDropCount)
+            {
+                break;
+            }
+            Debug.Log("c");
+            float roll = Random.Range(0f, 100f); // 0~100 사이 랜덤 확률
+            if (roll <= dropInfo.dropChance)
+            {
+                GameObject drop = Instantiate(dropInfo.ItemPrefab, transform.position + RandomDropOffset(), Quaternion.identity);
+                DropItem dropItem = drop.GetComponent<DropItem>();
+                SphereCollider dropColl = drop.GetComponent<SphereCollider>();
+                Debug.Log("d");
+                if (dropItem != null)
+                {
+                    dropItem.SetItem(dropInfo);
+                    droppedCount++;
+                    dropColl.enabled = true;
+                    Debug.Log("드롭됨");
+                }
+            }
+        }
+
+        //ItemDataSO randomItem = data.dropItems[Random.Range(0, data.dropItems.Count)];
+        //GameObject drop = Instantiate(dropItemPrefab, dropPoint.position, Quaternion.identity);
+        //DropItem dropItem = drop.GetComponent<DropItem>();
+
+        //if (dropItem != null)
         //{
-        //    Vector3 randomPos = GetRandomPositionOnNavMesh();
-        //    agent.SetDestination(randomPos);
-        //    timeSinceLastUpdate = 0;
+        //    dropItem.SetItem(randomItem);
+        //    dropItem.IsDroop = true;
+        //    dropItem.Collider.enabled = true;
         //}
+    }
+
+    public Vector3 RandomDropOffset()
+    {
+        return new Vector3(Random.Range(-0.5f, 0.5f), 0, Random.Range(-0.5f, 0.5f));
+    }
+
+    public IEnumerator RespawnMonster()
+    {
+        if (spawner != null)
+        {
+            yield return new WaitForSeconds(5f);
+            spawner.ReturnMonster(gameObject, data.id);
+        }
+    }
+
+    public void ResetMonster()
+    {
+        transform.position = spawner.GetRandomNavMeshPos(data.id);
+        agent.enabled = true;
+        MonsterRb.isKinematic = false;
+        _currentMonsterHP = data.maxHP;
+        IsDie = false;
+
+        if (GetComponent<Collider>())
+        {
+            GetComponent<Collider>().enabled = true;
+        }
+
+        if (hpBarPrefab != null)
+        {
+            GameObject hpBarObj = Instantiate(hpBarPrefab, transform.position + Vector3.up * 2f, Quaternion.identity, FindObjectOfType<Canvas>().transform);
+            hpBarInstance = hpBarObj.GetComponent<MonsterHPBar>();
+        }
+    }
+
+    public void SetHpBar()
+    {
+        uiCanvas = GameObject.Find("MonsterHp").GetComponent<Canvas>();
+        GameObject hpBar = Instantiate<GameObject>(hpBarPrefab, uiCanvas.transform);
+        hpBarImage = hpBar.GetComponentsInChildren<Image>()[1];
+        hpBarInstance = hpBar.GetComponent<MonsterHPBar>();
+
+        var hp = hpBar.GetComponent<MonsterHPBar>();
+        hp.TargetTr = this.gameObject.transform;
+        hp.Offset = hpBarOffSet;
     }
 }
