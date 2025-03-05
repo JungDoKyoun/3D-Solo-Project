@@ -44,14 +44,6 @@ public class EquipmentManager : MonoBehaviour
                 case ItemType.무기:
                     weaponSlot.sprite = item.data.ItemImage;
                     ApplyWeaponEffect(equipment as WeaponItem);
-                    //if(ReaturnEquipmentWeaponType() == WeaponType.주먹)
-                    //{
-                    //    player.Fist.GetComponentInChildren<SphereCollider>();
-                    //}
-                    //else
-                    //{
-                    //    player.WeaPon.GetComponentInChildren<BoxCollider>();
-                    //}
                     break;
                 case ItemType.상의방어구:
                     armorTopSlot.sprite = item.data.ItemImage;

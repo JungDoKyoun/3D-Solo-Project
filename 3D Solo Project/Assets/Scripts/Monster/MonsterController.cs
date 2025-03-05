@@ -233,12 +233,10 @@ public class MonsterController : MonoBehaviour
 
     public void DropItem()
     {
-        Debug.Log("a");
         if (data.dropItems.Count == 0)
         {
             return;
         }
-        Debug.Log("b");
         int droppedCount = 0;
 
         foreach (var dropInfo in data.dropItems)
@@ -247,20 +245,17 @@ public class MonsterController : MonoBehaviour
             {
                 break;
             }
-            Debug.Log("c");
-            float roll = Random.Range(0f, 100f); // 0~100 »çÀÌ ·£´ý È®·ü
+            float roll = Random.Range(0f, 100f);
             if (roll <= dropInfo.dropChance)
             {
                 GameObject drop = Instantiate(dropInfo.ItemPrefab, transform.position + RandomDropOffset(), Quaternion.identity);
                 DropItem dropItem = drop.GetComponent<DropItem>();
                 SphereCollider dropColl = drop.GetComponent<SphereCollider>();
-                Debug.Log("d");
                 if (dropItem != null)
                 {
                     dropItem.SetItem(dropInfo);
                     droppedCount++;
-                    dropColl.enabled = true;
-                    Debug.Log("µå·ÓµÊ");
+                    dropColl.enabled = true;    
                 }
             }
         }

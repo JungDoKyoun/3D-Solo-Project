@@ -248,13 +248,11 @@ public class InvenUI : MonoBehaviour
         {
             Debug.Log("ÀÎ½ÄÇÔ");
             beginIconDragTr = beginSlot.IconRect.transform;
-            //beginIconDragTr.position = beginSlot.IconRect.position;
             beginDragIconPoint = beginIconDragTr.position;
             beginDragCursorPoint = Mouse.current.position.ReadValue();
             isDragging = true;
             Debug.Log(isDragging);
             beginDragSlotSiblingIndex = beginSlot.transform.GetSiblingIndex();
-            //beginSlot.transform.SetAsLastSibling();
             SetIconToFront(beginSlot.IconRect);
         }
         else

@@ -8,7 +8,6 @@ public abstract class IPlayerState
     public abstract void Update();
     public abstract void Exit();
     public abstract void Move();
-    //public abstract void Attack();
 }
 
 //대기 상태
