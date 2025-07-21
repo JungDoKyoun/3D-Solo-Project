@@ -16,11 +16,9 @@
 
 ### ✅ 입력 시스템
 - Unity의 New Input System으로 확장 가능한 입력 구조 구현
-- 다양한 디바이스 지원 (키보드/마우스, 게임패드, 터치)
-- 커스터마이징 가능한 키 바인딩
 
 ### ✅ 상태 관리
-- State Pattern을 활용한 캐릭터 상태 전환
+- 상태 패턴을 활용한 캐릭터 상태 전환
 - 인터페이스 기반 확장 가능한 시스템 설계
 - 상태별 독립적인 로직 처리
 
@@ -30,11 +28,9 @@
 - 플레이어 추적 기능
 
 ## 🔧 기술 스택
-- **Engine**: Unity 2021.3 LTS
-- **Language**: C#
-- **Input System**: Unity New Input System
-- **Architecture**: State Pattern, Command Pattern, Singleton Pattern
-- **Tools**: Visual Studio, GitHub
+- **사용 엔진**: Unity 2021.3 LTS
+- **사용 언어**: C#
+- **사용 도구**: Visual Studio, GitHub
 
 
 ## 🎮 조작법
