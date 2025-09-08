@@ -2,7 +2,7 @@
 
 ## 시연 영상
 [YouTube 시연영상]
-https://github.com/JungDoKyoun/3D-Solo-Project.git
+(https://youtu.be/JUl0VYEPpp8)
 
 ## 개발자 소개
 **정도균 (JungDoKyoun)**
