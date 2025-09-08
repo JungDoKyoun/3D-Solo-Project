@@ -1,7 +1,8 @@
 # 숲에서 살아남기
 
 ## 시연 영상
-[YouTube 시연영상](링크를 추가해주세요)
+[YouTube 시연영상]
+https://github.com/JungDoKyoun/3D-Solo-Project.git
 
 ## 개발자 소개
 **정도균 (JungDoKyoun)**
