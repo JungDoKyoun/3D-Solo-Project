@@ -109,6 +109,3 @@ Dictionary<int, ObjectPool<GameObject>> monsterPool
 - Photon을 활용한 멀티플레이어 기능
 - 스킬 시스템 및 콤보 공격
 - 상점 및 제작 시스템
-
-## 📄 라이선스
-This project is licensed under the MIT License
