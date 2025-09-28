@@ -36,6 +36,8 @@ PlayerJumpState, PlayerAttackState, PlayerFallenState, PlayerLandingState
 ### 💼 인벤토리 & 장비 시스템
 
 #### 3. **드래그 앤 드롭 인벤토리**
+![숲살 드래그앤 드롭 2](https://github.com/user-attachments/assets/c7f2b8be-d375-46e9-b4b3-eed7a93d9425)
+
 ```csharp
 // 48칸 슬롯 기반 인벤토리
 public void TrySwapItems(ItemSlotUI from, ItemSlotUI to)
@@ -47,6 +49,8 @@ public void OnPointerDrag(InputAction.CallbackContext callback)
 - 실시간 툴팁으로 아이템 정보 표시
 
 #### 4. **장비 장착 시스템**
+![숲살 아이템 사용](https://github.com/user-attachments/assets/5ed6e708-c1ce-45c8-8bf6-93d6b0ffdd22)
+
 - **무기 타입별 공격 패턴**: 주먹, 칼, 창, 도끼, 활 등 5가지 무기 타입
 - **실시간 스탯 적용**: 장비 장착 시 즉시 공격력/방어력 반영
 - **장비 프리팹 교체**: 무기 장착 시 실제 3D 모델 변경
@@ -55,6 +59,8 @@ public void OnPointerDrag(InputAction.CallbackContext callback)
 ### 👾 몬스터 AI 시스템
 
 #### 5. **State Pattern 몬스터 AI**
+![몬스터 순찰](https://github.com/user-attachments/assets/4098922b-4e69-400b-9afd-322e9cfb582a)
+
 ```csharp
 // 5가지 AI 상태
 MonsterIdle → MonsterPatrol → MonsterChase → MonsterAttack → MonsterDie
@@ -65,6 +71,8 @@ MonsterIdle → MonsterPatrol → MonsterChase → MonsterAttack → MonsterDie
 - **순찰 시스템**: 랜덤 포인트 생성으로 자연스러운 순찰 동작
 
 #### 6. **Object Pooling 몬스터 스폰**
+![몬스터 시작시 스폰](https://github.com/user-attachments/assets/186f50b6-75b6-4b1f-be23-06e9edfc756a)
+
 ```csharp
 Dictionary<int, ObjectPool<GameObject>> monsterPool
 ```
