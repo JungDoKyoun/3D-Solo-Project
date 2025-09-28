@@ -15,6 +15,8 @@ Unity로 개발한 3D 액션 RPG 프로젝트입니다. State Pattern 기반의 
 #### 1. **State Pattern 기반 캐릭터 상태 관리**
 ```csharp
 // 7가지 상태를 독립적으로 관리
+<img width="932" height="315" alt="숲살 상태 drawio" src="https://github.com/user-attachments/assets/6cafad0e-92d6-4097-be77-50c5020f769d" />
+
 PlayerIdleState, PlayerMoveState, PlayerSprintState, 
 PlayerJumpState, PlayerAttackState, PlayerFallenState, PlayerLandingState
 ```
