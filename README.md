@@ -51,10 +51,9 @@ public void OnPointerDrag(InputAction.CallbackContext callback)
 #### 4. **장비 장착 시스템**
 ![숲살 아이템 사용](https://github.com/user-attachments/assets/5ed6e708-c1ce-45c8-8bf6-93d6b0ffdd22)
 
-- **무기 타입별 공격 패턴**: 주먹, 칼, 창, 도끼, 활 등 5가지 무기 타입
+- **무기 타입별 공격 패턴**: 주먹, 칼 등 무기 타입
 - **실시간 스탯 적용**: 장비 장착 시 즉시 공격력/방어력 반영
 - **장비 프리팹 교체**: 무기 장착 시 실제 3D 모델 변경
-- **화살 시스템**: 활 사용 시 화살 소모 및 발사 메커니즘
 
 ### 👾 몬스터 AI 시스템
 
@@ -97,7 +96,6 @@ Dictionary<int, ObjectPool<GameObject>> monsterPool
 ## 🛠 기술 스택
 - **엔진**: Unity 2021.3 LTS
 - **언어**: C#
-- **디자인 패턴**: State Pattern, Singleton Pattern, Object Pooling
 - **도구**: Visual Studio 2022, Git, GitHub
 
 ## 📚 주요 학습 내용
@@ -107,11 +105,9 @@ Dictionary<int, ObjectPool<GameObject>> monsterPool
 - ScriptableObject를 통한 데이터 관리
 - Rigidbody와 Collider를 활용한 물리 상호작용
 
-## 🔧 개선 예정 사항
+## 🔧 개선하고 싶은 부분
 - Photon을 활용한 멀티플레이어 기능
 - 스킬 시스템 및 콤보 공격
-- 퀘스트 시스템 구현
-- 던전 생성 알고리즘 추가
 - 상점 및 제작 시스템
 
 ## 📄 라이선스
