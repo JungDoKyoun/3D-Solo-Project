@@ -1,4 +1,4 @@
-# 3D Action RPG Project
+![녹화_2025_07_11_11_16_16_77](https://github.com/user-attachments/assets/d73d1a1d-98ed-4213-a097-6301128abfc1)# 3D Action RPG Project
 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/JUl0VYEPpp8)
 
@@ -26,6 +26,8 @@ PlayerJumpState, PlayerAttackState, PlayerFallenState, PlayerLandingState
 - 새로운 상태 추가 시 기존 코드 수정 없이 확장 가능
 
 #### 2. **물리 기반 이동 시스템**
+![녹화_2025_07_11_11_16_16_77](https://github.com/user-attachments/assets/6bce879e-2fb0-4317-835e-7f9cf406ef04)
+
 - **경사로 처리**: 최대 35도까지의 경사면 이동 가능, 경사각에 따른 속도 조절
 - **계단 오르내리기**: Ray Cast를 활용한 자연스러운 계단 이동
 - **점프 시스템**: 중력과 점프력을 계산한 물리적 점프 구현
