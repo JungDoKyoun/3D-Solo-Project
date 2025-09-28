@@ -1,8 +1,6 @@
 # 3D Action RPG Project
 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/JUl0VYEPpp8)
-[![Unity](https://img.shields.io/badge/Unity-2021.3_LTS-000000?style=for-the-badge&logo=unity&logoColor=white)](https://unity.com/)
-[![C#](https://img.shields.io/badge/C%23-239120?style=for-the-badge&logo=c-sharp&logoColor=white)](https://docs.microsoft.com/en-us/dotnet/csharp/)
 
 ## 🎮 프로젝트 소개
 Unity로 개발한 3D 액션 RPG 프로젝트입니다. State Pattern 기반의 캐릭터 시스템과 인벤토리 시스템을 구현했습니다.
