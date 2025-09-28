@@ -3,7 +3,7 @@
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/JUl0VYEPpp8)
 
 ## 🎮 프로젝트 소개
-Unity로 개발한 3D 액션 RPG 프로젝트입니다. State Pattern 기반의 캐릭터 시스템과 인벤토리 시스템을 구현했습니다.
+Unity로 개발한 3D 액션 RPG 프로젝트입니다.
 
 ## 👨‍💻 개발자
 **정도균 (JungDoKyoun)**
