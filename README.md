@@ -1,4 +1,4 @@
-![녹화_2025_07_11_11_16_16_77](https://github.com/user-attachments/assets/d73d1a1d-98ed-4213-a097-6301128abfc1)# 3D Action RPG Project
+
 
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/JUl0VYEPpp8)
 
